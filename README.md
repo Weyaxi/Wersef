@@ -23,8 +23,6 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 
 ⭐ **!sunucukomutları:** Sunucu ile ilgili komutları size sunar.
 
-⭐ **!embeds:** Gömülü mesj seçeneklerini size sunar.
-
 ⭐ **!hesapla:** Bot hesaplama komutlarını size sunar.
 
 ⭐ **!eğlence:** Bot eğlence komutlarını sunar.
@@ -33,7 +31,7 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 
 ⭐ **!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir)
 
-# Moderasyon
+# Moderasyon Komutları
 
 ⭐ **!sil:** Belirttiğiniz miktar kadar kolayca mesaj silmenizi sağlar.
 
@@ -54,4 +52,26 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 ⭐ **!kullanıcıadı:** Belirttiğiniz kullanıcının adını, kullanıcıyı belirttikten sonra yazdığınız kullanıcı adı olarak değiştirir.
 
 ⭐ **!uyar:** Belirttiğiniz kişiyi, belirttiğiniz nedenle uyarmanızı sağlar.
+
+# Kullanıcı Komutları
+
+⭐ **!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir.
+ 
+⭐ **!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir.
+
+⭐ **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir.
+
+# Sunucu Komutları
+
+⭐ **!serverinfo:** Sunucu hakkındaki bilgileri size gösterir.
+ 
+⭐ **!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir.
+
+⭐ **!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur.
+
+⭐ **!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.
+
+⭐ **!roller:** Sunuzunuzdaki bütün roller görüntülenir.
+
+
 
