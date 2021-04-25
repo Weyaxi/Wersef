@@ -31,7 +31,7 @@ async def help(ctx):
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> :dizzy: **!moderasyon:** Moderason komutlarını gösterir. \n > :dizzy: **!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > :dizzy: **!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > :dizzy: **!embeds:** Gömülü mesj seçeneklerini size sunar. \n > :dizzy: **!hesapla:** Bot hesaplama komutlarını size sunar. \n > :dizzy: **!eğlence:** Bot eğlence komutlarını sunar. \n > :dizzy: **!işeyarar:** Bot, işe yarar komutları size sunar. \n > :dizzy: **!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> :dizzy: **!moderasyon:** Moderason komutlarını gösterir. \n > :dizzy: **!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > :dizzy: **!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > :dizzy: **!hesapla:** Bot hesaplama komutlarını size sunar. \n > :dizzy: **!eğlence:** Bot eğlence komutlarını sunar. \n > :dizzy: **!işeyarar:** Bot, işe yarar komutları size sunar. \n > :dizzy: **!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
     embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
 
 
@@ -811,7 +811,7 @@ async def kullanıcıkomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Kullanıcı Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > :dizzy: **!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > :dizzy: **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir.  ",
+        description="> :dizzy: **!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > :dizzy: **!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > :dizzy: **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > :dizzy: **!embeds:** Gömülü mesj seçeneklerini size sunar.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
