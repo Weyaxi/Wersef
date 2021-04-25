@@ -75,6 +75,15 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 
 ⭐ **!roller:** Sunuzunuzdaki bütün roller görüntülenir.
 
+# Hesaplama Komutları
+
+⭐ **!topla:** Bot belirttiğiniz iki sayıyı toplamanızı sağlar.
+
+⭐ **!çıkart:** Bot belirttiğiniz iki sayıyı çıkarmanızı sağlar.
+
+⭐ **!çarp:** Bot belirttiğiniz iki sayıyı çarpmanızı sağlar.
+
+⭐ **!böl:** Bot belirttiğiniz iki sayıyı bölmenizi sağlar
 
 
 
