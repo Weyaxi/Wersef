@@ -61,6 +61,8 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 
 ⭐ **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir.
 
+⭐ **!embeds:**  Gömülü mesj seçeneklerini size sunar.
+
 # Sunucu Komutları
 
 ⭐ **!serverinfo:** Sunucu hakkındaki bilgileri size gösterir.
