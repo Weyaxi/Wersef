@@ -77,3 +77,12 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 
 
 
+
+
+
+
+
+
+
+
+
