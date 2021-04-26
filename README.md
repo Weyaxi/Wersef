@@ -104,6 +104,8 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 
 ⭐ **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar.
 
+⭐ **!arabasür:** Araba sürmenizi sağlar.
+
 
 
 
