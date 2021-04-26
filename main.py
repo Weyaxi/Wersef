@@ -723,7 +723,7 @@ async def bothakkında(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Bot Hakkındaki Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!botbilgi** Bot hakkındaki bilgileri gösterir. \n > :dizzy: **!wersefdavet** Botun davet linklerini gösterir. \n > :dizzy: **!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir. \n > :dizzy: **!ping:** Botun gecikme süresini yani pingini verir. \n > :dizzy: **!not:** Bot hakkındaki önemli notları size gösterir. ",
+        description="> :dizzy: **!botbilgi** Bot hakkındaki bilgileri gösterir. \n > :dizzy: **!wersefdavet** Botun davet linklerini gösterir. \n > :dizzy: **!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir. \n > :dizzy: **!ping:** Botun gecikme süresini yani pingini verir. \n > :dizzy: **!not:** Bot hakkındaki önemli notları size gösterir. \n > :dizzy: **!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -741,7 +741,7 @@ async def eğlence(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Eğlence Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > :dizzy: **!hack** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > :dizzy: **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > :dizzy: **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > :dizzy: **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > :dizzy: **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > :dizzy: **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > :dizzy: **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar.",
+        description="> :dizzy: **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > :dizzy: **!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > :dizzy: **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > :dizzy: **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > :dizzy: **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > :dizzy: **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > :dizzy: **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > :dizzy: **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar.",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1020,6 +1020,18 @@ async def yetkileri(ctx, member: discord.Member = None):
        embed.add_field(name="Emojileri Yönet", value="Hayır", inline=False)  
 
     await ctx.send(embed=embed)   
+
+
+@bot.command()
+async def komutlarçalışmıyor(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title=":question: │ Komutlar Çalışmıyor", description=f"Bu sorunu dile getiren genellikle her kisi bu sorunu söz konusu bota yetki vermediği için yaşıyor. Özellikle moderasyon komutlarında yaşanan bu sorunun en basit çözümü, bota gerekli yetkileri vermektir.", color=0x007bff)
+    embed.add_field(name=":question: │ Komutlar Hâlâ Çalışmıyor", value="Böyle bir şey yukarıda belirttiğimiz şeyleri yaptıysanız mümkün değildir. Ancak bir diğer etken ise botun rol sırasıdır. Bot, kendinden yüksek rollere müdahele edememektedir. Bu yüzden botun rol sırasını olabildiğince yüksek yapmanız önerilir.", inline=False)
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed)
 
 
 @bot.listen('on_message')
