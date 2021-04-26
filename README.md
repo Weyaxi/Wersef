@@ -6,9 +6,9 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 
 🔗 **Prefix:** !
 
-🔗 **Botun Destek Sunucusu:** [Tklla](https://discord.gg/ewGpWsx454)
+🔗 **Botun Destek Sunucusu:** [Tıkla](https://discord.gg/ewGpWsx454)
 
-🔗 **Botun Davet Bağlantısı:** 
+🔗 **Botun Davet Bağlantısı:** [Tıkla](https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=469820598&scope=bot)
 
 📁 **Fikirlerinizi her zaman belirtebilirsiniz. Memnun olurum.**
 
