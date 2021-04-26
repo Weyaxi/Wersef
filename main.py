@@ -201,6 +201,13 @@ async def sunucukur(ctx):
     await category8.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False, connect=False)
     await category8.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
 
+    await asyncio.sleep(1)
+
+    channel = discord.utils.get(ctx.guild.channels, name=💬│sohbet)
+    channel_id = channel.id
+    await channel.send('hello')
+
+
 @sunucukur.error
 async def sunucukur_error(ctx, error): 
     if isinstance(error, MissingPermissions):
@@ -772,7 +779,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bazı bilgileri size sunar. \n > :dizzy: **!rozetler** Bütün Discord rozetlerini renkli bir şekilde size sunar \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. ",
+        description="> :dizzy: **!discordnedir:** Discord hakkında bazı bilgileri size sunar. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
