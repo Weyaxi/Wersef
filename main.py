@@ -695,6 +695,20 @@ async def zar(ctx):
     
     await ctx.send ("{}".format(random.choice(variable)))
 
+@bot.command()
+async def arabasür(ctx):
+    variable = [
+        "https://media.giphy.com/media/K1c6mdgK2YNaiEvrbr/giphy.gif",
+        "https://media.giphy.com/media/bIdnImn9BhosUMYSMi/giphy.gif",
+        "https://media.giphy.com/media/yKJ5QoghU9XVaiLoCR/giphy.gif",
+        "https://media.giphy.com/media/9t6KGj9bSNv0ZTJ2wm/giphy.gif",]
+
+    description = str(ctx.guild.description)
+    embed = discord.Embed(title=":blue_car: Arabaya Biniliyor", description=f":blue_car: {ctx.author.display_name} Adlı Kullanıcı Başarıyla Araba Sürdü Ama Arabayla Nereye Gitti Bilmiyorum", color=0xffa200)
+    embed.set_image(url="{}".format(random.choice(variable)))
+
+    await ctx.send(embed=embed)
+
 
 @bot.command(aliases=['sunucu_sahibi', 'serverowner', 'server_owner', 'sunucusahibi',])
 async def sahip(ctx):
@@ -741,7 +755,7 @@ async def eğlence(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Eğlence Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > :dizzy: **!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > :dizzy: **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > :dizzy: **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > :dizzy: **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > :dizzy: **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > :dizzy: **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > :dizzy: **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar.",
+        description="> :dizzy: **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > :dizzy: **!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > :dizzy: **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > :dizzy: **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > :dizzy: **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > :dizzy: **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > :dizzy: **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > :dizzy: **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > :dizzy: **!arabasür:** Araba sürmeniz sağlanır.",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1031,7 +1045,7 @@ async def komutlarçalışmıyor(ctx):
     embed.add_field(name=":question: │ Komutlar Hâlâ Çalışmıyor", value="Böyle bir şey yukarıda belirttiğimiz şeyleri yaptıysanız mümkün değildir. Ancak bir diğer etken ise botun rol sırasıdır. Bot, kendinden yüksek rollere müdahele edememektedir. Bu yüzden botun rol sırasını olabildiğince yüksek yapmanız önerilir.", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
-    await ctx.send(embed=embed)
+    await ctx.send(embed=embed)    
 
 
 @bot.listen('on_message')
