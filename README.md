@@ -86,8 +86,23 @@ Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir
 ⭐ **!böl:** Bot belirttiğiniz iki sayıyı bölmenizi sağlar
 
 
+# Eğlence Komutları
 
+⭐ **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir.
+ 
+⭐ **!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar.
 
+⭐ **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar.
+
+⭐ **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar.
+
+⭐ **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar.
+
+⭐ **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar.
+
+⭐ **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar.
+
+⭐ **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar.
 
 
 
