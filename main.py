@@ -755,7 +755,7 @@ async def eğlence(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Eğlence Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > :dizzy: **!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > :dizzy: **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > :dizzy: **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > :dizzy: **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > :dizzy: **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > :dizzy: **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > :dizzy: **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > :dizzy: **!arabasür:** Araba sürmeniz sağlanır.",
+        description="> :dizzy: **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > :dizzy: **!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > :dizzy: **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > :dizzy: **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > :dizzy: **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > :dizzy: **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > :dizzy: **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > :dizzy: **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > :dizzy: **!arabasür:** Araba sürmenizi sağlar.",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
