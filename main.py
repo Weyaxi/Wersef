@@ -201,11 +201,6 @@ async def sunucukur(ctx):
     await category8.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False, connect=False)
     await category8.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
 
-    await asyncio.sleep(1)
-
-    channel = discord.utils.get(ctx.guild.channels, name=💬│sohbet)
-    channel_id = channel.id
-    await channel.send('hello')
 
 
 @sunucukur.error
