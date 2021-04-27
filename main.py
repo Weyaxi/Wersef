@@ -776,7 +776,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bazı bilgileri size sunar. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -931,6 +931,23 @@ async def discordnedir(ctx):
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.set_thumbnail(url="https://yt3.ggpht.com/ytc/AAUvwniEUaBNWbH9Pk7A1cmIBdxnYt0YYrgNKx5h8grSMA=s900-c-k-c0x00ffffff-no-rj")
     await ctx.send(embed=embed)
+
+
+@bot.command()
+async def telegramnedir(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title=":question: │ Telegram Nedir", description=f"Telegram, son zamanlarda hemen hemen herkesin kullanıdığı Whatsaap'ın kullanıcıları üzecek ve söz konusu platformdan soğutacak bir politika yayınlamasından sonra popülerleşmiştir. Bununla birlikte diğer mesajlaşma uygulamalarından farklı olarak bir çok özelliği bize sunan Telegram, aynı zamanda açık kaynak kodlu oluşuyla da bir çok kullanıcının beğenesini topladağını söylemekte fayda var. Telegram'ın farklı bir özelliğine değinecek olursak ise söz konusu uygulama neredeyse bütün platformları desteklemesi. Şuanlık Telegram'ın desteklediği platformlar ise Android, iOS, Windows, Linux ve OS X şeklinde.", color=2730219)
+    embed.add_field(name=":date: │ Telegram Ne Zaman Kullanıma Sunuldu", value="Telegram, 14 Ağustos 2013 tarihinde piyasaya sürülmüştür.", inline=False)
+    embed.add_field(name=":mortar_board: │ Telegram'ın Geliştiricisi", value="Git gide popülerleşen mesajlaşma uygulaması Telegram, Rus programcı Pavel Durov tarafından geliştirilmiştir.", inline=False)
+    embed.add_field(name="<:github:836681551215067234> │ Telegram'ın Kaynak Kodu", value="Telegram açık kaynak kodlu bir uygulama olup, kaynak kodlarından Andriod için olanlara [buradan](https://github.com/DrKLO/Telegram), İOS için olanlara ise [buradan](https://github.com/TelegramMessenger/Telegram-iOS) ulaşabilirsiniz.", inline=False)
+   
+
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/512px-Telegram_2019_Logo.svg.png")
+    await ctx.send(embed=embed)
+
 
 
 @commands.has_permissions(administrator=True)
