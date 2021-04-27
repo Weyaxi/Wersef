@@ -67,7 +67,7 @@ async def roles(ctx):
         guild = ctx.guild
         roles = [role for role in guild.roles if role != ctx.guild.default_role]
         roles.reverse()
-        embed = discord.Embed(title="", description=f"\n \n".join([role.mention for role in roles]), color=0x14ffd8)
+        embed = discord.Embed(title="", description=f"\n \n".join([role.mention for role in roles]), color=discord.Color.blue())
         await ctx.send(embed=embed)
 
 
