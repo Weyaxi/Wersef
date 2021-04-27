@@ -15,11 +15,14 @@ bot.remove_command("help")
 
 @bot.event
 async def on_ready():
+    print('-----------------------')
     print('Logged in as Wersef')
     print(f'Discord Versiyonu {discord.__version__}')
+    print('-----------------------')
     game = discord.Game("!yardım")
     await bot.change_presence(activity=game)
     
+
 @bot.command(aliases=['yardım'])
 async def help(ctx):
     name = str(ctx.guild.name)
@@ -36,7 +39,6 @@ async def help(ctx):
 
 
     await ctx.send(embed=embed)    
-
 
 @bot.command()
 async def ping(ctx):
@@ -774,7 +776,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bazı bilgileri size sunar. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. ",
+        description="> :dizzy: **!discordnedir:** Discord hakkında bazı bilgileri size sunar. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -896,11 +898,6 @@ async def embed(ctx, *, mesaj="Kullanıcı mesaj belirtmedi."):
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
-
-@embed.error
-async def embed_error(ctx, error):  
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen uyarmak istediğiniz istediğiniz kullanıcyı komut sonrasında etiketleyerek ve bunun sonrasında ise isteğe bağlı uyarılma nedenini belirtiniz. ') 
 
 
 @bot.command()
@@ -1045,6 +1042,17 @@ async def komutlarçalışmıyor(ctx):
 
     embed = discord.Embed(title=":question: │ Komutlar Çalışmıyor", description=f"Bu sorunu dile getiren genellikle her kisi bu sorunu söz konusu bota yetki vermediği için yaşıyor. Özellikle moderasyon komutlarında yaşanan bu sorunun en basit çözümü, bota gerekli yetkileri vermektir.", color=0x007bff)
     embed.add_field(name=":question: │ Komutlar Hâlâ Çalışmıyor", value="Böyle bir şey yukarıda belirttiğimiz şeyleri yaptıysanız mümkün değildir. Ancak bir diğer etken ise botun rol sırasıdır. Bot, kendinden yüksek rollere müdahele edememektedir. Bu yüzden botun rol sırasını olabildiğince yüksek yapmanız önerilir.", inline=False)
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed)    
+
+
+@bot.command()
+async def önemligünler(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title="Önemli Günler", description=f":tada: ** 1 Ocak Yılbaşı** \n 🇹🇷 **8 Mart Dünya Kadınlar Günü** \n 🇹🇷 **23 Nisan Ulusal Egemenlik ve Çocuk Bayramı** \n 🇹🇷 **1 Mayıs Emek ve Dayanışma Günü** \n 🇹🇷 **9 Mayıs Dünya Anneler Günü** \n 🇹🇷 **19 Mayıs Atatürk'ü Anma Gençlik ve Spor Bayramı** \n 🇹🇷 **20 Haziran Babalar Günü**  \n 🇹🇷 **30 Ağustos Zafer Bayramı** \n 🇹🇷 **29 Ekim Cumhuriyet Bayramı** \n 🇹🇷 **10 kasım Atatürk'ü Anma Günü**", color=0xff1a1a)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)    
