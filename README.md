@@ -108,7 +108,9 @@
 
 # İşe Yarar Komutlar
 
-⭐ **!discordnedir:** Discord hakkında bazı bilgileri size sunar.
+⭐ **!discordnedir:** Discord hakkında bilgiler size sunulur.
+
+⭐ **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur.
 
 ⭐ **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar
 
