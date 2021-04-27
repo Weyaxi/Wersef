@@ -114,7 +114,7 @@
 
 ⭐ **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar.
 
-
+⭐ **!önemligünler:** Belli başlı önemli günler size sunulur.
 
 
 
