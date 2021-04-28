@@ -954,7 +954,7 @@ async def instagramnedir(ctx):
     description = str(ctx.guild.description)
     icon = str(ctx.guild.icon_url)
 
-    embed = discord.Embed(title="<:insta:836695687910916116> │ İnstagram Nedir", description=f"Hemen hemen hepimizin en az bir kere duyduğu popüler sosyal medya platformu İnstagram, daha çok fotoğraf ve video paylaşımına dayanan bir sistemle hareket etmektedir. Bununla birlikte 1 Milyar indirme sayısını aştığı belirtilen söz konusu platform, aynı zamanda bir çok ödüle sahip olmuştur. Sonradan dev teknoloj şirketi Facebook tarafından 1 Milyar Dolara satın alınan söz konusu platform, şuanlık bir çok işletim sistemini destekliyor. ", color=2730219)
+    embed = discord.Embed(title="<:insta:836695687910916116> │ İnstagram Nedir", description=f"Hemen hemen hepimizin en az bir kere duyduğu popüler sosyal medya platformu İnstagram, daha çok fotoğraf ve video paylaşımına dayanan bir sistemle hareket etmektedir. Bununla birlikte 1 Milyar indirme sayısını aştığı belirtilen söz konusu platform, aynı zamanda bir çok ödüle sahip olmuştur. Sonradan dev teknoloj şirketi Facebook tarafından 1 Milyar Dolara satın alınan söz konusu platform, şuanlık bir çok işletim sistemini destekliyor. ", color=9321658)
     embed.add_field(name=":date: │ İnstagram Ne Zaman Kullanıma Sunuldu", value="İnstagram 6 Ekim 2010 tarihinde piyasaya sürülmüştür.", inline=False)
     embed.add_field(name=":mortar_board: │ Telegram'ın Geliştiricisi", value="Söz konusu uygulamanın orijinal sürümü Kevin Systrom ve Mike Kriege tarafından geliştirilmiştir ancak sonradan Facebook tarafından satıl alınmıştır.", inline=False)
 
