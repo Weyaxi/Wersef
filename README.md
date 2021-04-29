@@ -114,6 +114,8 @@
 
 ⭐ **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur.
 
+⭐ **!twitternedir:** Twitter hakkında bazı bilgileri size sunulur.
+
 ⭐ **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur.
 
 ⭐ **!youtubenedir:** Whatsapp hakkında bazı bilgileri size sunulur.
