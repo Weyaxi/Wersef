@@ -377,7 +377,8 @@ async def nigga(ctx):
     variable = [
         "https://pbs.twimg.com/profile_images/1033743266041290752/iUhPnzVK_400x400.jpg",
         "https://cdn.discordapp.com/attachments/826400866919120911/837245080544215040/2Q.png",
-        "https://cdn.discordapp.com/attachments/826400866919120911/837246208618528788/e8a23f5fa948f7b3bd81d99119314e00.png",]
+        "https://cdn.discordapp.com/attachments/826400866919120911/837246208618528788/e8a23f5fa948f7b3bd81d99119314e00.png"
+        "https://media.tenor.com/images/83a327ca66deb44c1a46742bbbefaed7/tenor.gif",]
 
     description = str(ctx.guild.description)
     embed = discord.Embed(title="Nigga", description=f"Nigga", color=0xffa200)
@@ -789,7 +790,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1004,6 +1005,19 @@ async def youtubenedir(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/jEM7YA3.png")
     await ctx.send(embed=embed)
 
+
+@bot.command()
+async def twitternedir(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title="<:twitter:837410138004389938> │ Twitter Nedir", description=f"Twitter, kullanıcıların daha çok yazı ve metin alanında paylaşım yaptığı çok yaygın platormlardan biridir. Bununla birlikte resmi makamların çeşitli duyrularını ilk olarak yayınladığı bir platorm olan Twitter, bu alanda diğer sosyal medya platformlarından bir adım öne çıkıyor. Aynı zamanda özüyle kalıp hiç bir şirkete satılmayan Twitter, 2020 yılında 339.6 Milyon kullanıcıya ulaştı.  ", color=16646144)
+    embed.add_field(name=":mortar_board:│ Twitter Ne Zaman Kullanıma Sunuldu", value="Twitter ilk olarak 2006 yılının Temmmuz ayında kullanıma sunulmuştur.", inline=False)
+    embed.add_field(name=":mortar_board: │ Twitter'ın Geliştiricisi", value="Twitter Jack Dorsey, Noah Glass, Biz Stone, ve Evan Williams tarafından geliştirilmiştir.", inline=False)
+
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.set_thumbnail(url="https://i.imgur.com/v1Hl6yX.png")
+    await ctx.send(embed=embed)
 
 
 @bot.command(aliases=['hacktools'])
