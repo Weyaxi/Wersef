@@ -118,6 +118,8 @@
 
 ⭐ **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar.
 
+⭐ **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum)
+
 ⭐ **!önemligünler:** Belli başlı önemli günler size sunulur.
 
 
