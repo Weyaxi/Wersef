@@ -328,7 +328,7 @@ async def yumrukla(ctx, user: discord.Member):
     embed1.set_image(url="https://media.giphy.com/media/wPdeBWtyXbmT2CkCsK/giphy.gif")
 
     await ctx.send(embed=embed1)
- 
+
 
 @yumrukla.error
 async def yumrukla_error(ctx, error): 
@@ -336,7 +336,6 @@ async def yumrukla_error(ctx, error):
         await ctx.send('Lütfen yumruklamak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')       
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')  
-
 
 
 @bot.command(aliases=['tokat'])
@@ -371,6 +370,20 @@ async def yalvar_error(ctx, error):
         await ctx.send('Lütfen yalvarmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')       
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')  
+
+
+@bot.command()
+async def nigga(ctx):
+    variable = [
+        "https://pbs.twimg.com/profile_images/1033743266041290752/iUhPnzVK_400x400.jpg",
+        "https://cdn.discordapp.com/attachments/826400866919120911/837245080544215040/2Q.png",
+        "https://cdn.discordapp.com/attachments/826400866919120911/837246208618528788/e8a23f5fa948f7b3bd81d99119314e00.png",]
+
+    description = str(ctx.guild.description)
+    embed = discord.Embed(title="Nigga", description=f"Nigga", color=0xffa200)
+    embed.set_image(url="{}".format(random.choice(variable)))
+
+    await ctx.send(embed=embed)        
 
 
 @bot.command(aliases=['not', 'bot_not', 'bot_notu'])
@@ -776,7 +789,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -967,12 +980,28 @@ async def whatsappnedir(ctx):
     description = str(ctx.guild.description)
     icon = str(ctx.guild.icon_url)
 
-    embed = discord.Embed(title="<:WhatsApp:837273654932275201> │ Whatsaap Nedir", description=f"Akıllı telefon sahiplerinin hemen hemen hepsinin duyduğu ve kullandığı Whatsapp, muhtemelen hepimizin bildiği gibi bir mesajlaşma uygulamasıdır. Bununla birlikte beş milyardan fazla indirilen söz konusu uygulama, yakın zamanda bir çok kullancıyı platformdan soğutacak br gizlilik politikası yayınlamış ve bir çok kullanıcısnı kaybetmişttir. Söz konusu bu politika ardından kullanıcılar ise alternatif mesajlaşma uygulaması arayıp telegam, signal gibi yeni mesajlaşma uygulamaları ile tanışmıştır.   ", color=5951582)
+    embed = discord.Embed(title="<:WhatsApp:837273654932275201> │ Whatsaap Nedir", description=f"Akıllı telefon sahiplerinin hemen hemen hepsinin duyduğu ve kullandığı Whatsapp, muhtemelen hepimizin bildiği gibi bir mesajlaşma uygulamasıdır. Bununla birlikte beş milyardan fazla indirilen söz konusu uygulama, yakın zamanda bir çok kullancıyı platformdan soğutacak br gizlilik politikası yayınlamış ve bir çok kullanıcısnı kaybetmişttir. Söz konusu bu politika ardından kullanıcılar ise alternatif mesajlaşma uygulaması arayıp telegam, signal gibi yeni mesajlaşma uygulamaları ile tanışmıştır. ", color=5951582)
     embed.add_field(name=":date: │ Whatsaap Ne Zaman Kullanıma Sunuldu", value="Whatsapp ilk olarak 2009 yılının Şubat ayında kullanıma sunulmuştur.", inline=False)
-    embed.add_field(name=":mortar_board: │ Whatsaap'ın Geliştiricisi", value="Söz konusu uygulamanın orijinal sürümü Jan Koum tarafından geliştirilmiştir ancak sonradan Facebook tarafından satıl alınmıştır.", inline=False)
+    embed.add_field(name=":mortar_board: │ Whatsaap'ın Geliştiricisi", value="Söz konusu uygulamanın orijinal sürümü Jan Koum tarafından geliştirilmiştir ancak sonradan Facebook tarafından satın alınmıştır.", inline=False)
 
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg")
+    await ctx.send(embed=embed)
+
+
+@bot.command()
+async def youtubenedir(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title="<:youtube:837358347576541195> │ Youtube Nedir", description=f"Yine hemen hemen hepimizin duyduğu ve en az bir kere ziyaret ettiği video barındırma platformu Youtube, ilk olarak bilindiğinin aksine hiç etkileşim almamıştır. Daha sonrasında dev teknloji şirketi Google söz konusu platformu satın almıştır ve bugün milyarlarca kullanıcı tarafdan kullanılmaktadır. Bununla birlikte içerik üreticilerine bir sürü kolaylık sağlayan Youtube, aynı zamanda içerik üreticilerin para kazanmasını da sağlamaktadır.", color=16646144)
+    embed.add_field(name=":date: │ Youtube Ne Zaman Kullanıma Sunuldu", value="Youtube ilk olarak 15 Şubat 2005 tarihinde kullanıma sunulmuştur ancak o dönemlerde pek fazla etkileşim alamamıştır.", inline=False)
+    embed.add_field(name=":mortar_board: │ Youtube'ın Geliştiricisi", value="Söz konusu platform, üç eski paypal çalışanı olan Steve Chen, Chad Hurley ve Jawed Karim tarafından geliştirilmiştir ancak sonradan Google tarafından satın alınmıştır.", inline=False)
+    embed.add_field(name=":mag_right: │ Youtube Hakkında İlginç Bir Bilgi", value="Söz konusu uygulama Google tarafından 2006 yılında 1,68 Milyar Dolara satın alınmış olup, yine söz konusu uygulamadan şuan her üç haftada bir 1,68 Millyar Dolar gelir elde ediyor. ", inline=False)
+
+
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.set_thumbnail(url="https://i.imgur.com/jEM7YA3.png")
     await ctx.send(embed=embed)
 
 
