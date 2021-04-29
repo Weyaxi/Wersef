@@ -661,7 +661,7 @@ async def botinfo(ctx):
    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024")
    embed.add_field(name="🤖 │ Bot ", value="Aktif", inline=False)
    embed.add_field(name="🆔 │ Bot ID'si", value="819743355663548447", inline=True)
-   embed.add_field(name="🎓 │ Bot Yapımcısı", value="SWORD", inline=True)
+   embed.add_field(name="🎓 │ Bot Yapımcısı", value="Weyaxi", inline=True)
    embed.add_field(name="🌀 │ Botun Destek Sunucusu", value="https://tik.lat/K5BjK", inline=True)
    embed.add_field(name="🔗 │ Botun Davet Linki", value="https://tik.lat/0UmWl", inline=True)
    embed.add_field(name="🔮 │Botun Bulunduğu Sunucu Sayısı", value=f"{len(bot.guilds)}", inline=True)
@@ -677,9 +677,9 @@ async def iletişim(ctx):
 
     embed=discord.Embed(title="🔗 │ İletişim Ve Linkler ", description="Bot hakkında herhangi bir sorunu bildirmek yada yardım almak için buradaki iletişim adreslerini kullanabilirsiniz.", color=0x00ccff)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=member.avatar_url)
-    embed.add_field(name="🎓 │ Bot Yapımcısı", value="SWORD", inline=False)
+    embed.add_field(name="🎓 │ Bot Yapımcısı", value="Weyaxi", inline=False)
     embed.add_field(name="<:telegram:826727507877298187> │ Telegram", value="SS_w_o_R_d", inline=True)
-    embed.add_field(name="<:discord:826722461943988254> │ Discord", value="SWORD#8666", inline=True)
+    embed.add_field(name="<:discord:826722461943988254> │ Discord", value="Weyaxi#8666", inline=True)
     embed.add_field(name="🌀 │ Botun Destek Sunucusu", value="https://tik.lat/K5BjK", inline=True)
     embed.add_field(name="🔗 │ Botun Davet Linki", value="https://tik.lat/0UmWl", inline=True)
 
@@ -776,7 +776,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -797,7 +797,7 @@ async def embeds(ctx):
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **!embed** <mesajınız>", inline=False)
-    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **!embed** Merhabalar SWORD. \n > :dizzy: **!embed** Nasılsınız? \n > :dizzy: **!embed** Kod yazıyorum. \n > :dizzy: **!embed** İyiyim, yatıyorum öyle.", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **!embed** Merhabalar Weyaxi. \n > :dizzy: **!embed** Nasılsınız? \n > :dizzy: **!embed** Kod yazıyorum. \n > :dizzy: **!embed** İyiyim, yatıyorum öyle.", inline=False)
     
     embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
 
@@ -962,6 +962,18 @@ async def instagramnedir(ctx):
     embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/150px-Instagram_logo_2016.svg.png")
     await ctx.send(embed=embed)
 
+@bot.command()
+async def whatsappnedir(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title="<:WhatsApp:837273654932275201> │ Whatsaap Nedir", description=f"Akıllı telefon sahiplerinin hemen hemen hepsinin duyduğu ve kullandığı Whatsapp, muhtemelen hepimizin bildiği gibi bir mesajlaşma uygulamasıdır. Bununla birlikte beş milyardan fazla indirilen söz konusu uygulama, yakın zamanda bir çok kullancıyı platformdan soğutacak br gizlilik politikası yayınlamış ve bir çok kullanıcısnı kaybetmişttir. Söz konusu bu politika ardından kullanıcılar ise alternatif mesajlaşma uygulaması arayıp telegam, signal gibi yeni mesajlaşma uygulamaları ile tanışmıştır.   ", color=5951582)
+    embed.add_field(name=":date: │ Whatsaap Ne Zaman Kullanıma Sunuldu", value="Whatsapp ilk olarak 2009 yılının Şubat ayında kullanıma sunulmuştur.", inline=False)
+    embed.add_field(name=":mortar_board: │ Whatsaap'ın Geliştiricisi", value="Söz konusu uygulamanın orijinal sürümü Jan Koum tarafından geliştirilmiştir ancak sonradan Facebook tarafından satıl alınmıştır.", inline=False)
+
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg")
+    await ctx.send(embed=embed)
 
 
 
@@ -1135,6 +1147,6 @@ async def hi(message):
 async def hi(message):
     if message.content == 'İyi geceler':
         await message.channel.send('İyi geceler :sunglasses:')
-
+        
 
 bot.run('ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A')
