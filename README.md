@@ -114,6 +114,8 @@
 
 ⭐ **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur.
 
+⭐ **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur.
+
 ⭐ **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar
 
 ⭐ **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar.
