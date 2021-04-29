@@ -776,7 +776,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -956,11 +956,33 @@ async def instagramnedir(ctx):
 
     embed = discord.Embed(title="<:insta:836695687910916116> │ İnstagram Nedir", description=f"Hemen hemen hepimizin en az bir kere duyduğu popüler sosyal medya platformu İnstagram, daha çok fotoğraf ve video paylaşımına dayanan bir sistemle hareket etmektedir. Bununla birlikte 1 Milyar indirme sayısını aştığı belirtilen söz konusu platform, aynı zamanda bir çok ödüle sahip olmuştur. Sonradan dev teknoloj şirketi Facebook tarafından 1 Milyar Dolara satın alınan söz konusu platform, şuanlık bir çok işletim sistemini destekliyor. ", color=9321658)
     embed.add_field(name=":date: │ İnstagram Ne Zaman Kullanıma Sunuldu", value="İnstagram 6 Ekim 2010 tarihinde piyasaya sürülmüştür.", inline=False)
-    embed.add_field(name=":mortar_board: │ Telegram'ın Geliştiricisi", value="Söz konusu uygulamanın orijinal sürümü Kevin Systrom ve Mike Kriege tarafından geliştirilmiştir ancak sonradan Facebook tarafından satıl alınmıştır.", inline=False)
+    embed.add_field(name=":mortar_board: │ İnstagram'ın Geliştiricisi", value="Söz konusu uygulamanın orijinal sürümü Kevin Systrom ve Mike Kriege tarafından geliştirilmiştir ancak sonradan Facebook tarafından satıl alınmıştır.", inline=False)
 
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/150px-Instagram_logo_2016.svg.png")
     await ctx.send(embed=embed)
+
+
+
+
+@bot.command(aliases=['hacktools'])
+async def hackaraçları(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title="<:bilgi:830857146702888961> Hack Tolları", description=f"Bot, bazı yaygın hack tool'larını size sunar.", color=9321658)
+    embed.add_field(name="<:bilgisayar:837240220604825600> IP Scan Araçları", value="Angry IP Scanner ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1960149-angry-ip-scanner-anlatimi-kurulumu.html) \n Router Scan ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1957111-router-scan-ulkenizdeki-kameralari-ve-admin-panellerini-hackleyin.html) \n Nmap ➠ [Tıkla](https://nmap.org/)", inline=False)
+    embed.add_field(name="<:bilgisayar:837240220604825600> Port Scan Araçları", value="Advanced Port Scanner ➠ [Tıkla](https://www.advanced-port-scanner.com/tr/) \n Nmap ➠ [Tıkla](https://nmap.org/) \n Zenmap ➠ [Tıkla](https://nmap.org/zenmap/)                                                            ", inline=False)
+    embed.add_field(name="<:bilgisayar:837240220604825600> Admin Paneli Bulma Araçları", value="DW Admin Panel Bulucu ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1960085-dw-admin-panel-bulucu.html) \n Admin Panel Bulucu Python ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1960093-admin-panel-bulucu-python.html)", inline=False)
+    embed.add_field(name="<:bilgisayar:837240220604825600> SQL İnjection Araçları", value="Sqlmap ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1601616-sqlmap-ile-sql-injection-hack-windows-cmd-uzerinden-veteran-7-a.html) \n Havij ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/902123-havij-1-16-pro.html)", inline=False)
+    embed.add_field(name="<:bilgisayar:837240220604825600> Dork Scanner Araçları", value="Katana ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1960946-katana-dork-scanner.html) \n T-Arayıcı ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1306921-t-arayici-v2-0-sql-acik-tarama-araci-dork-sql-acik-tarama.html) \n Dark-7 Tarayıcı ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi/1036748-dark-7-scanner-dork-sql-injection-tarayici.html)", inline=False)
+    embed.add_field(name="<:bilgisayar:837240220604825600> Phishing Araçları", value="Blackeye ➠ [Tıkla](https://github.com/An0nUD4Y/blackeye) \n Hidden Eye ➠ [Tıkla](https://github.com/DarkSecDevelopers/HiddenEye-Legacy) \n Nexphisher ➠ [Tıkla](https://github.com/htr-tech/nexphisher) \n Zphisher ➠ [Tıkla](https://github.com/htr-tech/zphisher)",  inline=False)
+    embed.add_field(name="<:bilgisayar:837240220604825600> SMS Bomber", value="TBomb ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1960954-sms-bomber-t-bomber.html) \n Impulse ➠ [Tıkla](https://www.turkhackteam.org/web-server-guvenligi-ve-zafiyetler/1960975-ozel-hack-araci-impulse.html) ",  inline=False)
+    
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/830857146702888961.png?v=1")
+    await ctx.send(embed=embed)
+
 
 
 @commands.has_permissions(administrator=True)
