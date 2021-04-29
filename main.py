@@ -1011,7 +1011,7 @@ async def twitternedir(ctx):
     description = str(ctx.guild.description)
     icon = str(ctx.guild.icon_url)
 
-    embed = discord.Embed(title="<:twitter:837410138004389938> │ Twitter Nedir", description=f"Twitter, kullanıcıların daha çok yazı ve metin alanında paylaşım yaptığı çok yaygın platormlardan biridir. Bununla birlikte resmi makamların çeşitli duyrularını ilk olarak yayınladığı bir platorm olan Twitter, bu alanda diğer sosyal medya platformlarından bir adım öne çıkıyor. Aynı zamanda özüyle kalıp hiç bir şirkete satılmayan Twitter, 2020 yılında 339.6 Milyon kullanıcıya ulaştı.  ", color=16646144)
+    embed = discord.Embed(title="<:twitter:837410138004389938> │ Twitter Nedir", description=f"Twitter, kullanıcıların daha çok yazı ve metin alanında paylaşım yaptığı çok yaygın platormlardan biridir. Bununla birlikte resmi makamların çeşitli duyrularını ilk olarak yayınladığı bir platorm olan Twitter, bu alanda diğer sosyal medya platformlarından bir adım öne çıkıyor. Aynı zamanda özüyle kalıp hiç bir şirkete satılmayan Twitter, 2020 yılında 339.6 Milyon kullanıcıya ulaştı.  ", color=44270)
     embed.add_field(name=":mortar_board:│ Twitter Ne Zaman Kullanıma Sunuldu", value="Twitter ilk olarak 2006 yılının Temmmuz ayında kullanıma sunulmuştur.", inline=False)
     embed.add_field(name=":mortar_board: │ Twitter'ın Geliştiricisi", value="Twitter Jack Dorsey, Noah Glass, Biz Stone, ve Evan Williams tarafından geliştirilmiştir.", inline=False)
 
