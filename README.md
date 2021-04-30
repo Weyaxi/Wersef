@@ -135,7 +135,7 @@
 
 # Bot Hakkındaki Komutlar
 
-⭐ **!botbilgi Bot hakkındaki bilgileri gösterir.
+⭐ **!botbilgi** Bot hakkındaki bilgileri gösterir.
 
 ⭐ **!wersefdavet** Botun davet linklerini gösterir.
 
