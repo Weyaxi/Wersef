@@ -3,25 +3,48 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions
 from discord import Member
 from discord.ext.commands import MissingPermissions
+from discord.ext.commands import CommandNotFound
 import datetime
 import asyncio
 from urllib import parse, request
 import re
 import random
-
+import string
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("!"), description="Normal Bot")
 bot.remove_command("help")
 
+bot_adı = "Wersef"
+bot_id = "819743355663548447"
+bot_avatar = "https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024"
+bot_sahibi = "Weyaxi"
+bot_davet = "https://tik.lat/0UmWl"
+destek_sunucusu = "https://tik.lat/K5BjK"
+önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=469820598&scope=bot"
+discord_iletişim = "Weyaxi#8666"
+telegram_iletişim = "SS_w_o_R_d"
+
+chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'()*+,-./<=>?@[\]^_`{|}~"
+number = int(1)
+lenght = int(8)
+
+
 @bot.event
 async def on_ready():
     print('-----------------------')
-    print('Logged in as Wersef')
+    print(f'Logged in as {bot_adı}')
     print(f'Discord Versiyonu {discord.__version__}')
     print('-----------------------')
     game = discord.Game("!yardım")
     await bot.change_presence(activity=game)
     
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, CommandNotFound):
+        await ctx.send(f'Komut bulunamadı. Eğer böyle bir komutun olduğunu gerçekten düşünüyorsanız lütfen yapımcım ile iritibata geçiniz.')
+        print(f'{ctx.invoked_with} Adlı Komut Bulunamadı')
+
 
 @bot.command(aliases=['yardım'])
 async def help(ctx):
@@ -29,7 +52,7 @@ async def help(ctx):
     description = str(ctx.guild.description)
     
     embed = discord.Embed(
-        title="▬▬▬▬▬▬[ :dizzy: Wersef :dizzy: ]▬▬▬▬▬▬   ",
+        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
         description="> :link: **Prefix:** ! \n > :link: **Botun Destek Sunucusu:** [Tıkla](https://discord.gg/ewGpWsx454) \n > :link: **Botun Davet Bağlantısı:** [Tıkla](https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=469820598&scope=bot)",
         color=discord.Color.blue()
     )
@@ -254,7 +277,7 @@ async def hack_error(ctx, error):
 async def davet(ctx, user: discord.Member):
     description = str(ctx.guild.description)
     if user.bot:
-       embed = discord.Embed(title="Botun Davet Linki ", description=f"> <:kral:830058307351478282> Yönetici Yetkileriyle ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id={user.id}&permissions=8&scope=bot) \n > <:kral:830058307351478282> Bütün Yetkileriyle ➠ [Tıkla](https://discord.com/api/oauth2/authorize?client_id={user.id}&permissions=4294967287&scope=bot) \n > <:robo:833610842410450964> Yetkisiz Şekilde ➠ [Tıkla](https://discord.com/api/oauth2/authorize?client_id={user.id}&permissions=0&scope=bot)", color=0x14ffd8)
+       embed = discord.Embed(title="Botun Davet Linkleri ", description=f"> <:kral:830058307351478282> Yönetici Yetkileriyle ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id={user.id}&permissions=8&scope=bot) \n > <:kral:830058307351478282> Bütün Yetkileriyle ➠ [Tıkla](https://discord.com/api/oauth2/authorize?client_id={user.id}&permissions=4294967287&scope=bot) \n > <:robo:833610842410450964> Yetkisiz Şekilde ➠ [Tıkla](https://discord.com/api/oauth2/authorize?client_id={user.id}&permissions=0&scope=bot)", color=0x14ffd8)
        await ctx.send(embed=embed)
     else:
        await ctx.send('Belirttiğiniz kullanıcı bir bot olmadığı için söz konusu davet bağlantıları gösterilemiyor.')
@@ -665,37 +688,35 @@ async def avatar_error(ctx, error):
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')  
 
+
 @bot.command(pass_context=True, aliases=['botbilgi', 'botbilgisi', 'bot_bilgi' , 'bot_bilgisi', 'bot_info'])
 async def botinfo(ctx):
    icon = str(ctx.guild.icon_url)
-   
 
    embed=discord.Embed(title="🤖 │ Bot Bilgisi", description="Bu bot hakkında bilgiler içerir.", color=0x00ccff)
-   embed.set_author(name="Wersef", icon_url="https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024")
-   embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024")
+   embed.set_author(name=f"{bot_adı}", icon_url=f"{bot_avatar}")
+   embed.set_thumbnail(url=f"{bot_avatar}")
    embed.add_field(name="🤖 │ Bot ", value="Aktif", inline=False)
-   embed.add_field(name="🆔 │ Bot ID'si", value="819743355663548447", inline=True)
-   embed.add_field(name="🎓 │ Bot Yapımcısı", value="Weyaxi", inline=True)
-   embed.add_field(name="🌀 │ Botun Destek Sunucusu", value="https://tik.lat/K5BjK", inline=True)
-   embed.add_field(name="🔗 │ Botun Davet Linki", value="https://tik.lat/0UmWl", inline=True)
+   embed.add_field(name="🆔 │ Bot ID'si", value=f"{bot_id}", inline=True)
+   embed.add_field(name="🎓 │ Bot Yapımcısı", value=f"{bot_sahibi}", inline=True)
+   embed.add_field(name="🌀 │ Botun Destek Sunucusu", value=f"{destek_sunucusu}", inline=True)
+   embed.add_field(name="🔗 │ Botun Davet Linki", value=f"{bot_davet}", inline=True)
    embed.add_field(name="🔮 │Botun Bulunduğu Sunucu Sayısı", value=f"{len(bot.guilds)}", inline=True)
    
    await ctx.send(embed=embed)
-
 
 
 @bot.command(pass_context=True, aliases=['yapımcı', 'botiletişim', 'bot_iletişim', 'İletişim',])
 async def iletişim(ctx):
     member = ctx.message.author
 
-
     embed=discord.Embed(title="🔗 │ İletişim Ve Linkler ", description="Bot hakkında herhangi bir sorunu bildirmek yada yardım almak için buradaki iletişim adreslerini kullanabilirsiniz.", color=0x00ccff)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=member.avatar_url)
     embed.add_field(name="🎓 │ Bot Yapımcısı", value="Weyaxi", inline=False)
     embed.add_field(name="<:telegram:826727507877298187> │ Telegram", value="SS_w_o_R_d", inline=True)
     embed.add_field(name="<:discord:826722461943988254> │ Discord", value="Weyaxi#8666", inline=True)
-    embed.add_field(name="🌀 │ Botun Destek Sunucusu", value="https://tik.lat/K5BjK", inline=True)
-    embed.add_field(name="🔗 │ Botun Davet Linki", value="https://tik.lat/0UmWl", inline=True)
+    embed.add_field(name="🌀 │ Botun Destek Sunucusu", value=f"{destek_sunucusu}", inline=True)
+    embed.add_field(name="🔗 │ Botun Davet Linki", value=f"{bot_davet}", inline=True)
 
     await ctx.send(embed=embed)
 
@@ -790,7 +811,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -843,7 +864,7 @@ async def kullanıcıkomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Kullanıcı Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > :dizzy: **!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > :dizzy: **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > :dizzy: **!embeds:** Gömülü mesj seçeneklerini size sunar.  ",
+        description="> :dizzy: **!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > :dizzy: **!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > :dizzy: **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > :dizzy: **!şifreoluştur:**  Bot, kullanabileceğiniz güçlü şifreler oluşturur. \n > :dizzy: **!embeds:** Gömülü mesaj seçeneklerini size sunar.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -901,6 +922,40 @@ async def çarp(ctx,a:int,b:int): await ctx.send(a*b)
 
 @bot.command() 
 async def böl(ctx,a:int,b:int): await ctx.send(a/b)    
+
+
+@bot.command()
+async def şifreoluştur(ctx):
+    for p in range(number):
+        password1 = ''
+    for c in range(lenght):
+        password1 += random.choice(chars)
+    for p in range(number):
+        password2 = ''
+    for c in range(lenght):
+        password2 += random.choice(chars) 
+    for p in range(number):
+        password3 = ''
+    for c in range(lenght):
+        password3 += random.choice(chars) 
+    for p in range(number):
+        password4 = ''
+    for c in range(lenght):
+        password4 += random.choice(chars)   
+    for p in range(number):
+        password5 = ''
+    for c in range(lenght):
+        password5 += random.choice(chars)                  
+
+    embed = discord.Embed(title="Kullanabileceğiniz Bazı Şifreler", description=f"Bot, kullanabileceğiniz güçlü şifreler oluşturur.", color=0x14ffd8)
+    embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password1}**", inline=False)
+    embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password2}**", inline=False)
+    embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password3}**", inline=False)
+    embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password4}**", inline=False)
+    embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password5}**", inline=False)
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed)
 
 
 @bot.command(aliases=['gömülü_mesaj', 'gömülü', 'gömülümesaj'])
@@ -970,11 +1025,27 @@ async def instagramnedir(ctx):
 
     embed = discord.Embed(title="<:insta:836695687910916116> │ İnstagram Nedir", description=f"Hemen hemen hepimizin en az bir kere duyduğu popüler sosyal medya platformu İnstagram, daha çok fotoğraf ve video paylaşımına dayanan bir sistemle hareket etmektedir. Bununla birlikte 1 Milyar indirme sayısını aştığı belirtilen söz konusu platform, aynı zamanda bir çok ödüle sahip olmuştur. Sonradan dev teknoloj şirketi Facebook tarafından 1 Milyar Dolara satın alınan söz konusu platform, şuanlık bir çok işletim sistemini destekliyor. ", color=9321658)
     embed.add_field(name=":date: │ İnstagram Ne Zaman Kullanıma Sunuldu", value="İnstagram 6 Ekim 2010 tarihinde piyasaya sürülmüştür.", inline=False)
-    embed.add_field(name=":mortar_board: │ İnstagram'ın Geliştiricisi", value="Söz konusu uygulamanın orijinal sürümü Kevin Systrom ve Mike Kriege tarafından geliştirilmiştir ancak sonradan Facebook tarafından satıl alınmıştır.", inline=False)
+    embed.add_field(name=":mortar_board: │ İnstagram'ın Geliştiricisi", value="Söz konusu uygulamanın orijinal sürümü Kevin Systrom ve Mike Kriege tarafından geliştirilmiştir ancak sonradan Facebook tarafından satın alınmıştır.", inline=False)
 
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/150px-Instagram_logo_2016.svg.png")
     await ctx.send(embed=embed)
+
+
+@bot.command()
+async def facebooknedir(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title="<:facebook:837627532849184768> │ Facebook Nedir", description=f"Muhtemelen hepimizin bildiği Facebook, en büyük sosyal medya platformlarından biridir. Metin ve fotoğraf paylaşımına dayanan Facebook'ta, bunların dışında çeşitli satışlara da ev sahipliği yapmaktadır. Bununla birlikte şuanlık genç kesim tarafından pek tercih edilmeyen Facebook, aynı zamanda bir çok sosyal medya platformunu satın almış olup şuan dünyanın en büyük şirketlerinden biridir. Şuanlık Facebook'un desteklediği platformlardan bazıları ise Android, İOS ve Windows şeklinde.", color=1669107)
+    embed.add_field(name=":date: │ Facebook Ne Zaman Kullanıma Sunuldu", value="Facebook 2004 yılının Şubat ayında kullanıma sunulmuştur.", inline=False)
+    embed.add_field(name=":mortar_board: │ Facebook'un Geliştiricisi", value="Söz konusu uygulama Mark Zuckenberg tarafından geliştirilmiştir.", inline=False)
+
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.set_thumbnail(url="https://i.imgur.com/PpXkhTK.png")
+    await ctx.send(embed=embed)
+
+
 
 @bot.command()
 async def whatsappnedir(ctx):
@@ -1011,8 +1082,8 @@ async def twitternedir(ctx):
     description = str(ctx.guild.description)
     icon = str(ctx.guild.icon_url)
 
-    embed = discord.Embed(title="<:twitter:837410138004389938> │ Twitter Nedir", description=f"Twitter, kullanıcıların daha çok yazı ve metin alanında paylaşım yaptığı çok yaygın platormlardan biridir. Bununla birlikte resmi makamların çeşitli duyrularını ilk olarak yayınladığı bir platorm olan Twitter, bu alanda diğer sosyal medya platformlarından bir adım öne çıkıyor. Aynı zamanda özüyle kalıp hiç bir şirkete satılmayan Twitter, 2020 yılında 339.6 Milyon kullanıcıya ulaştı.  ", color=44270)
-    embed.add_field(name=":mortar_board:│ Twitter Ne Zaman Kullanıma Sunuldu", value="Twitter ilk olarak 2006 yılının Temmmuz ayında kullanıma sunulmuştur.", inline=False)
+    embed = discord.Embed(title="<:twitter:837410138004389938> │ Twitter Nedir", description=f"Twitter, kullanıcıların daha çok yazı ve metin alanında paylaşım yaptığı çok yaygın platormlardan biridir. Bununla birlikte resmi makamların çeşitli duyrularını ilk olarak yayınladığı bir platorm olan Twitter, bu alanda diğer sosyal medya platformlarından bir adım öne çıkıyor. Aynı zamanda özüyle kalıp hiç bir şirkete satılmayan Twitter, 2020 yılında 339.6 Milyon kullanıcıya ulaştı. ", color=44270)
+    embed.add_field(name=":date:│ Twitter Ne Zaman Kullanıma Sunuldu", value="Twitter ilk olarak 2006 yılının Temmmuz ayında kullanıma sunulmuştur.", inline=False)
     embed.add_field(name=":mortar_board: │ Twitter'ın Geliştiricisi", value="Twitter Jack Dorsey, Noah Glass, Biz Stone, ve Evan Williams tarafından geliştirilmiştir.", inline=False)
 
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1164,32 +1235,5 @@ async def önemligünler(ctx):
 
     await ctx.send(embed=embed)    
 
-
-@bot.listen('on_message')
-async def hi(message):
-    if message.content == 'Selamlar':
-        await message.channel.send('Selamlar :slight_smile:')
-
-@bot.listen('on_message')
-async def hi(message):
-    if message.content == 'Tünaydınlar':
-        await message.channel.send('Tünaydınlar :slight_smile:')
-
-@bot.listen('on_message')
-async def hi(message):
-    if message.content == 'İyi akşamlar':
-        await message.channel.send('Sanada iyi akşamlar. :sunglasses:')
-
-
-@bot.listen('on_message')
-async def hi(message):
-    if message.content == 'Günaydın':
-        await message.channel.send('Günaydınlar :slight_smile:')
-
-@bot.listen('on_message')
-async def hi(message):
-    if message.content == 'İyi geceler':
-        await message.channel.send('İyi geceler :sunglasses:')
-        
 
 bot.run('ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A')
