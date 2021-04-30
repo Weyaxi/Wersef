@@ -133,7 +133,16 @@
 ⭐ **!önemligünler:** Belli başlı önemli günler size sunulur.
 
 
+# Bot Hakkındaki Komutlar
 
+⭐ **!botbilgi Bot hakkındaki bilgileri gösterir.
 
+⭐ **!wersefdavet** Botun davet linklerini gösterir.
 
+⭐ **!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir.
 
+⭐ **!ping:** Botun gecikme süresini yani pingini verir.
+
+⭐ **!not:** Bot hakkındaki önemli notları size gösterir.
+
+⭐ **!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.
