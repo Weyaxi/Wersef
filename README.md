@@ -61,7 +61,9 @@
 
 ⭐ **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir.
 
-⭐ **!embeds:**  Gömülü mesj seçeneklerini size sunar.
+⭐ **!şifreoluştur:** Bot, kullanabileceğiniz güçlü şifreler oluşturur.
+
+⭐ **!embeds:**  Gömülü mesaj seçeneklerini size sunar.
 
 # Sunucu Komutları
 
@@ -113,6 +115,8 @@
 ⭐ **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur.
 
 ⭐ **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur.
+
+⭐ **!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur.
 
 ⭐ **!twitternedir:** Twitter hakkında bazı bilgileri size sunulur.
 
