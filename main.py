@@ -25,7 +25,7 @@ discord_iletişim = "Weyaxi#8666"
 telegram_iletişim = "SS_w_o_R_d"
 
 
-chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+,-./<=>?@\^_`|~"
+chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+,-./<=>?@\_`|~"
 number = int(1)
 lenght = int(10)
 
