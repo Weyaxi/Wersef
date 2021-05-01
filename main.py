@@ -17,14 +17,15 @@ bot.remove_command("help")
 bot_adı = "Wersef"
 bot_id = "819743355663548447"
 bot_avatar = "https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024"
-bot_sahibi = "Weyaxi"
+bot_yapımcısı = "Weyaxi"
 bot_davet = "https://tik.lat/0UmWl"
 destek_sunucusu = "https://tik.lat/K5BjK"
 önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=469820598&scope=bot"
 discord_iletişim = "Weyaxi#8666"
 telegram_iletişim = "SS_w_o_R_d"
 
-chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'()*+,-./<=>?@[\]^_`{|}~"
+
+chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+,-./<=>?@\^_`|~"
 number = int(1)
 lenght = int(10)
 
@@ -53,7 +54,7 @@ async def help(ctx):
     
     embed = discord.Embed(
         title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description="> :link: **Prefix:** ! \n > :link: **Botun Destek Sunucusu:** [Tıkla](https://discord.gg/ewGpWsx454) \n > :link: **Botun Davet Bağlantısı:** [Tıkla](https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=469820598&scope=bot)",
+        description=f"> :link: **Prefix:** ! \n > :link: **Botun Destek Sunucusu:** [Tıkla](https://discord.gg/ewGpWsx454) \n > :link: **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -79,7 +80,7 @@ async def wersefdavet(ctx):
     description = str(ctx.guild.description)
     icon = str(ctx.guild.icon_url)
 
-    embed = discord.Embed(title="Botun Davet Linkleri", description=f"<:kral:830058307351478282> **Gerekli İzinlerle (Önerilen):** ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=469820598&scope=bot) \n <:kral:830058307351478282> **Bütün İzinlerle (Önerilen):** ➠ [Tıkla](https://discord.com/api/oauth2/authorize?client_id=819743355663548447&permissions=4294967287&scope=bot) \n <:kral:830058307351478282> **Yönetici İzinleriyle (Bazı Komutlar Çalışmayabilir):** ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=8&scope=bot) \n <:robo:833610842410450964> **Yetkisiz Şekilde (Önerilmez):** ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=0&scope=bot) ", color=0x14ffd8)
+    embed = discord.Embed(title="Botun Davet Linkleri", description=f"<:kral:830058307351478282> **Gerekli İzinlerle (Önerilen):** ➠ [Tıkla]({önerilen_yetki_davet}) \n <:kral:830058307351478282> **Bütün İzinlerle (Önerilen):** ➠ [Tıkla](https://discord.com/api/oauth2/authorize?client_id={bot_id}&permissions=4294967287&scope=bot) \n <:kral:830058307351478282> **Yönetici İzinleriyle (Bazı Komutlar Çalışmayabilir):** ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id={bot_id}&permissions=8&scope=bot) \n <:robo:833610842410450964> **Yetkisiz Şekilde (Önerilmez):** ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id={bot_id}&permissions=0&scope=bot) ", color=0x14ffd8)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
@@ -698,7 +699,7 @@ async def botinfo(ctx):
    embed.set_thumbnail(url=f"{bot_avatar}")
    embed.add_field(name="🤖 │ Bot ", value="Aktif", inline=False)
    embed.add_field(name="🆔 │ Bot ID'si", value=f"{bot_id}", inline=True)
-   embed.add_field(name="🎓 │ Bot Yapımcısı", value=f"{bot_sahibi}", inline=True)
+   embed.add_field(name="🎓 │ Bot Yapımcısı", value=f"{bot_yapımcısı}", inline=True)
    embed.add_field(name="🌀 │ Botun Destek Sunucusu", value=f"{destek_sunucusu}", inline=True)
    embed.add_field(name="🔗 │ Botun Davet Linki", value=f"{bot_davet}", inline=True)
    embed.add_field(name="🔮 │Botun Bulunduğu Sunucu Sayısı", value=f"{len(bot.guilds)}", inline=True)
@@ -712,9 +713,9 @@ async def iletişim(ctx):
 
     embed=discord.Embed(title="🔗 │ İletişim Ve Linkler ", description="Bot hakkında herhangi bir sorunu bildirmek yada yardım almak için buradaki iletişim adreslerini kullanabilirsiniz.", color=0x00ccff)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=member.avatar_url)
-    embed.add_field(name="🎓 │ Bot Yapımcısı", value="Weyaxi", inline=False)
-    embed.add_field(name="<:telegram:826727507877298187> │ Telegram", value="SS_w_o_R_d", inline=True)
-    embed.add_field(name="<:discord:826722461943988254> │ Discord", value="Weyaxi#8666", inline=True)
+    embed.add_field(name="🎓 │ Bot Yapımcısı", value=f"{bot_yapımcısı}", inline=False)
+    embed.add_field(name="<:telegram:826727507877298187> │ Telegram", value=f"{telegram_iletişim}", inline=True)
+    embed.add_field(name="<:discord:826722461943988254> │ Discord", value=f"{discord_iletişim}", inline=True)
     embed.add_field(name="🌀 │ Botun Destek Sunucusu", value=f"{destek_sunucusu}", inline=True)
     embed.add_field(name="🔗 │ Botun Davet Linki", value=f"{bot_davet}", inline=True)
 
@@ -832,7 +833,7 @@ async def embeds(ctx):
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **!embed** <mesajınız>", inline=False)
-    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **!embed** Merhabalar Weyaxi. \n > :dizzy: **!embed** Nasılsınız? \n > :dizzy: **!embed** Kod yazıyorum. \n > :dizzy: **!embed** İyiyim, yatıyorum öyle.", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **!embed** Merhabalar {bot_yapımcısı} \n > :dizzy: **!embed** Nasılsınız? \n > :dizzy: **!embed** Kod yazıyorum. \n > :dizzy: **!embed** İyiyim, yatıyorum öyle.", inline=False)
     
     embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
 
@@ -947,7 +948,7 @@ async def şifreoluştur(ctx):
     for c in range(lenght):
         password5 += random.choice(chars)                  
 
-    embed = discord.Embed(title="Kullanabileceğiniz Bazı Şifreler", description=f"Bot, kullanabileceğiniz güçlü şifreler oluşturur.", color=0x14ffd8)
+    embed = discord.Embed(title="Kullanabileceğiniz Bazı Şifreler", description=f"Bot, kullanabileceğiniz bazı güçlü şifreler oluşturur.", color=0x14ffd8)
     embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password1}**", inline=False)
     embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password2}**", inline=False)
     embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password3}**", inline=False)
