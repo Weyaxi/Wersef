@@ -12,15 +12,16 @@ import random
 import string
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("!"), description="Normal Bot")
+TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
 bot.remove_command("help")
 
 bot_adı = "Wersef"
 bot_id = "819743355663548447"
 bot_avatar = "https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024"
 bot_yapımcısı = "Weyaxi"
-bot_davet = "https://tik.lat/0UmWl"
+bot_davet = "https://tik.lat/eZN4p"
 destek_sunucusu = "https://tik.lat/K5BjK"
-önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=469820598&scope=bot"
+önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=415244438&scope=bot"
 discord_iletişim = "Weyaxi#8666"
 telegram_iletişim = "SS_w_o_R_d"
 
@@ -1242,4 +1243,4 @@ async def önemligünler(ctx):
     await ctx.send(embed=embed)    
 
 
-bot.run('ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A')
+bot.run(f'{TOKEN}')
