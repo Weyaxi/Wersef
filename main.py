@@ -927,6 +927,8 @@ async def böl(ctx,a:int,b:int): await ctx.send(a/b)
 
 @bot.command()
 async def şifreoluştur(ctx):
+    user = ctx.message.author
+
     for p in range(number):
         password1 = ''
     for c in range(lenght):
@@ -956,7 +958,10 @@ async def şifreoluştur(ctx):
     embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password5}**", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
-    await ctx.send(embed=embed)
+    embed1 = discord.Embed(title=f"✅ Şifreler Gönderildi", description=f"Olası şifreler, özel mesaj yoluyla size gönderildi.", color=0x2bff00)
+
+    await ctx.send(embed=embed1)
+    await user.send(embed=embed)
 
 
 @bot.command(aliases=['gömülü_mesaj', 'gömülü', 'gömülümesaj'])
