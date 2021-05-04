@@ -10,8 +10,9 @@ from urllib import parse, request
 import re
 import random
 import string
+from pytube import YouTube
 
-bot = commands.Bot(command_prefix=commands.when_mentioned_or("!"), description="Normal Bot")
+bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!"), description="Normal Bot")
 TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
 bot.remove_command("help")
 
@@ -37,7 +38,7 @@ async def on_ready():
     print(f'Logged in as {bot_adı}')
     print(f'Discord Versiyonu {discord.__version__}')
     print('-----------------------')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"!yardım | {len(bot.guilds)} Sunucuyu"))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"w!yardım | {len(bot.guilds)} Sunucuyu"))
     
 
 @bot.event
@@ -54,11 +55,11 @@ async def help(ctx):
     
     embed = discord.Embed(
         title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description=f"> :link: **Prefix:** ! \n > :link: **Botun Destek Sunucusu:** [Tıkla](https://discord.gg/ewGpWsx454) \n > :link: **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
+        description=f"> :link: **Prefix:** w! \n > :link: **Botun Destek Sunucusu:** [Tıkla](https://discord.gg/ewGpWsx454) \n > :link: **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> :dizzy: **!moderasyon:** Moderason komutlarını gösterir. \n  > :dizzy: **!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > :dizzy: **!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > :dizzy: **!hesapla:** Bot hesaplama komutlarını size sunar. \n > :dizzy: **!eğlence:** Bot eğlence komutlarını sunar. \n > :dizzy: **!işeyarar:** Bot, işe yarar komutları size sunar. \n > :dizzy: **!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> :dizzy: **w!moderasyon:** Moderason komutlarını gösterir. \n  > :dizzy: **w!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > :dizzy: **w!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > :dizzy: **w!hesapla:** Bot hesaplama komutlarını size sunar. \n > :dizzy: **w!eğlence:** Bot eğlence komutlarını sunar. \n > :dizzy: **w!işeyarar:** Bot, işe yarar komutları size sunar. \n > :dizzy: **w!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
     embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
 
 
@@ -590,7 +591,7 @@ async def unban(ctx, *, user=None, reason="Neden kullanıcı tarafından belirti
             return
 
     except discord.Forbidden:
-        await ctx.send("Bu komutu kullanabilmek için gerekli izinlere sahip değilim. Daha fazla bilgi için !not komutunu kullanabilirsiniz.")
+        await ctx.send("Bu komutu kullanabilmek için gerekli izinlere sahip değilim. Daha fazla bilgi için w!not komutunu kullanabilirsiniz.")
         return
 
     except:
@@ -777,7 +778,7 @@ async def bothakkında(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Bot Hakkındaki Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!botbilgi** Bot hakkındaki bilgileri gösterir. \n > :dizzy: **!wersefdavet** Botun davet linklerini gösterir. \n > :dizzy: **!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir. \n > :dizzy: **!ping:** Botun gecikme süresini yani pingini verir. \n > :dizzy: **!not:** Bot hakkındaki önemli notları size gösterir. \n > :dizzy: **!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.",
+        description="> :dizzy: **w!botbilgi** Bot hakkındaki bilgileri gösterir. \n > :dizzy: **w!wersefdavet** Botun davet linklerini gösterir. \n > :dizzy: **w!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir. \n > :dizzy: **w!ping:** Botun gecikme süresini yani pingini verir. \n > :dizzy: **w!not:** Bot hakkındaki önemli notları size gösterir. \n > :dizzy: **w!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -795,7 +796,7 @@ async def eğlence(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Eğlence Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > :dizzy: **!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > :dizzy: **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > :dizzy: **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > :dizzy: **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > :dizzy: **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > :dizzy: **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > :dizzy: **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > :dizzy: **!arabasür:** Araba sürmenizi sağlar.",
+        description="> :dizzy: **w!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > :dizzy: **w!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > :dizzy: **w!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > :dizzy: **w!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > :dizzy: **w!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > :dizzy: **w!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > :dizzy: **w!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > :dizzy: **w!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > :dizzy: **w!arabasür:** Araba sürmenizi sağlar.",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -812,7 +813,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -832,8 +833,8 @@ async def embeds(ctx):
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **!embed** <mesajınız>", inline=False)
-    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **!embed** Merhabalar {bot_yapımcısı} \n > :dizzy: **!embed** Nasılsınız? \n > :dizzy: **!embed** Kod yazıyorum. \n > :dizzy: **!embed** İyiyim, yatıyorum öyle.", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!embed** <mesajınız>", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!embed** Merhabalar {bot_yapımcısı} \n > :dizzy: **w!embed** Nasılsınız? \n > :dizzy: **w!embed** Kod yazıyorum. \n > :dizzy: **w!embed** İyiyim, yatıyorum öyle.", inline=False)
     
     embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
 
@@ -848,7 +849,7 @@ async def sunucukomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Sunucu Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > :dizzy: **!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > :dizzy: **!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur. \n > :dizzy: **!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler. \n > :dizzy: **!roller:** Sunuzunuzdaki bütün roller görüntülenir. ",
+        description="> :dizzy: **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > :dizzy: **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > :dizzy: **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur. \n > :dizzy: **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler. \n > :dizzy: **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -865,7 +866,7 @@ async def kullanıcıkomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Kullanıcı Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > :dizzy: **!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > :dizzy: **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > :dizzy: **!şifreoluştur:**  Bot, kullanabileceğiniz güçlü şifreler oluşturur. \n > :dizzy: **!embeds:** Gömülü mesaj seçeneklerini size sunar.  ",
+        description="> :dizzy: **w!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > :dizzy: **w!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > :dizzy: **w!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > :dizzy: **w!şifreoluştur:**  Bot, kullanabileceğiniz güçlü şifreler oluşturur. \n > :dizzy: **w!embeds:** Gömülü mesaj seçeneklerini size sunar.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -882,7 +883,7 @@ async def moderasyon(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Moderasyon Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!sil:** Belirttiğiniz miktar kadar kolayca mesaj silmenizi sağlar. \n > :dizzy: **!kick:** Belirttiğiniz kişiyi sunucudan kovar. \n > :dizzy: **!mute:** Belirttiğiniz kişiyi yazı kanallarından susturur. \n > :dizzy: **!ban:** Belirttiğiniz kullanıcıyı sunucudan yasaklar. \n > :dizzy: **!unban:** Belirttiğiniz kişinin yasaklaması kaldırılır. \n > :dizzy: **!unmute:** Belirttiğiniz kişinin yazı kanallarından susturulması kaldırılır.  \n > :dizzy: **!voicemute:** Belirttiğiniz kişiyi ses kanallarından susturur. \n > :dizzy: **!unvoicemute:** Belirttiğiniz kişinin ses kanallarından susturulmasını kaldırır. \n > :dizzy: **!kullanıcıadı:** Belirttiğiniz kullanıcının adını, kullanıcıyı belirttikten sonra yazdığınız kullanıcı adı olarak değiştirir. \n > :dizzy: **!uyar:** Belirttiğiniz kişiyi, belirttiğiniz nedenle uyarmanızı sağlar. ",
+        description="> :dizzy: **w!sil:** Belirttiğiniz miktar kadar kolayca mesaj silmenizi sağlar. \n > :dizzy: **w!kick:** Belirttiğiniz kişiyi sunucudan kovar. \n > :dizzy: **w!mute:** Belirttiğiniz kişiyi yazı kanallarından susturur. \n > :dizzy: **w!ban:** Belirttiğiniz kullanıcıyı sunucudan yasaklar. \n > :dizzy: **w!unban:** Belirttiğiniz kişinin yasaklaması kaldırılır. \n > :dizzy: **w!unmute:** Belirttiğiniz kişinin yazı kanallarından susturulması kaldırılır.  \n > :dizzy: **w!voicemute:** Belirttiğiniz kişiyi ses kanallarından susturur. \n > :dizzy: **w!unvoicemute:** Belirttiğiniz kişinin ses kanallarından susturulmasını kaldırır. \n > :dizzy: **w!kullanıcıadı:** Belirttiğiniz kullanıcının adını, kullanıcıyı belirttikten sonra yazdığınız kullanıcı adı olarak değiştirir. \n > :dizzy: **w!uyar:** Belirttiğiniz kişiyi, belirttiğiniz nedenle uyarmanızı sağlar. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -902,11 +903,11 @@ async def hesapla(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ <:hesap:828358560923516938> Hesaplama Komutları <:hesap:828358560923516938>  ]▬▬▬▬▬▬",
-        description="> :dizzy: **!topla:** Bot belirttiğiniz iki sayıyı toplamanızı sağlar. \n > :dizzy: **!çıkart:** Bot belirttiğiniz iki sayıyı çıkarmanızı sağlar. \n > :dizzy: **!çarp:** Bot belirttiğiniz iki sayıyı çarpmanızı sağlar. \n > :dizzy: **!böl:** Bot belirttiğiniz iki sayıyı bölmenizi sağlar",
+        description="> :dizzy: **w!topla:** Bot belirttiğiniz iki sayıyı toplamanızı sağlar. \n > :dizzy: **w!çıkart:** Bot belirttiğiniz iki sayıyı çıkarmanızı sağlar. \n > :dizzy: **w!çarp:** Bot belirttiğiniz iki sayıyı çarpmanızı sağlar. \n > :dizzy: **w!böl:** Bot belirttiğiniz iki sayıyı bölmenizi sağlar",
         color=discord.Color.blue()
     )
-    embed.add_field(name="▬▬▬▬▬▬▬[ <:hesap:828358560923516938> Komutun Kullanılışı <:hesap:828358560923516938>  ]▬▬▬▬▬▬", value="> :dizzy: **!topla** <birinci sayı> <ikinci sayı> \n > :dizzy: **!çıkart** <birinci sayı> <ikinci sayı> \n > :dizzy: **!çarp** <birinci sayı> <ikinci sayı> \n > :dizzy: **!böl** <birinci sayı> <ikinci sayı>", inline=False)
-    embed.add_field(name="▬▬▬▬▬▬▬[ <:hesap:828358560923516938> Komutun Örnekleri <:hesap:828358560923516938>  ]▬▬▬▬▬▬", value="> :dizzy: **!topla** 5 5 \n > :dizzy: **!çıkart** 10 5 \n > :dizzy: **!çarp** 10 10 \n > :dizzy: **!böl** 80 10", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ <:hesap:828358560923516938> Komutun Kullanılışı <:hesap:828358560923516938>  ]▬▬▬▬▬▬", value="> :dizzy: **w!topla** <birinci sayı> <ikinci sayı> \n > :dizzy: **w!çıkart** <birinci sayı> <ikinci sayı> \n > :dizzy: **w!çarp** <birinci sayı> <ikinci sayı> \n > :dizzy: **w!böl** <birinci sayı> <ikinci sayı>", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ <:hesap:828358560923516938> Komutun Örnekleri <:hesap:828358560923516938>  ]▬▬▬▬▬▬", value="> :dizzy: **w!topla** 5 5 \n > :dizzy: **w!çıkart** 10 5 \n > :dizzy: **w!çarp** 10 10 \n > :dizzy: **w!böl** 80 10", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     
     await ctx.send(embed=embed)    
@@ -1230,7 +1231,6 @@ async def komutlarçalışmıyor(ctx):
 
     await ctx.send(embed=embed)    
 
-
 @bot.command()
 async def önemligünler(ctx):
     description = str(ctx.guild.description)
@@ -1240,6 +1240,5 @@ async def önemligünler(ctx):
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)    
-
 
 bot.run(f'{TOKEN}')
