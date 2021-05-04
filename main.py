@@ -59,7 +59,7 @@ async def help(ctx):
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> :dizzy: **!moderasyon:** Moderason komutlarını gösterir. \n > :dizzy: **!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > :dizzy: **!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > :dizzy: **!hesapla:** Bot hesaplama komutlarını size sunar. \n > :dizzy: **!eğlence:** Bot eğlence komutlarını sunar. \n > :dizzy: **!işeyarar:** Bot, işe yarar komutları size sunar. \n > :dizzy: **!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> :dizzy: **!moderasyon:** Moderason komutlarını gösterir. \n  > :dizzy: **!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > :dizzy: **!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > :dizzy: **!hesapla:** Bot hesaplama komutlarını size sunar. \n > :dizzy: **!eğlence:** Bot eğlence komutlarını sunar. \n > :dizzy: **!işeyarar:** Bot, işe yarar komutları size sunar. \n > :dizzy: **!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
     embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
 
 
@@ -403,7 +403,8 @@ async def nigga(ctx):
         "https://pbs.twimg.com/profile_images/1033743266041290752/iUhPnzVK_400x400.jpg",
         "https://cdn.discordapp.com/attachments/826400866919120911/837245080544215040/2Q.png",
         "https://cdn.discordapp.com/attachments/826400866919120911/837246208618528788/e8a23f5fa948f7b3bd81d99119314e00.png"
-        "https://media.tenor.com/images/83a327ca66deb44c1a46742bbbefaed7/tenor.gif",]
+        "https://media.tenor.com/images/83a327ca66deb44c1a46742bbbefaed7/tenor.gif",
+        "https://i.imgur.com/r6i4v9V.jpg"]
 
     description = str(ctx.guild.description)
     embed = discord.Embed(title="Nigga", description=f"Nigga", color=0xffa200)
@@ -450,7 +451,6 @@ async def kick(ctx, user: discord.Member, *, reason="Neden kullanıcı tarafınd
         await user.kick(reason=reason)
         kick = discord.Embed(title=f":boom: {user.name} Sunucudan Kovuldu", description=f"**Nedeni:** {reason}\n", color=0xff0000 )
         await ctx.channel.send(embed=kick)
-        await user.send(embed=kick)
 
 @kick.error
 async def test_error(ctx, error):
@@ -561,7 +561,7 @@ async def ban(ctx, user: discord.Member, *, reason="Neden kullanıcı tarafında
         await user.ban(reason=reason)
         ban = discord.Embed(title=f":boom: {user.name} Sunucudan Banlandı", description=f"**Nedeni**: {reason}", color=0xff0000)
         await ctx.channel.send(embed=ban)
-        await user.send(embed=ban)
+
 
 @ban.error
 async def test_error(ctx, error):
@@ -628,7 +628,7 @@ async def server(ctx):
     icon = str(ctx.guild.icon_url)
     
     embed = discord.Embed(
-        title="Sunucu İsmi",
+        title="<:adetiketi:838351966165794837> │ Sunucu İsmi",
         description=f"{ctx.guild.name}", timestamp=ctx.message.created_at,
         color=discord.Color.blue()
     )
