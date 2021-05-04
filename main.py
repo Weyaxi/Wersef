@@ -37,8 +37,7 @@ async def on_ready():
     print(f'Logged in as {bot_adı}')
     print(f'Discord Versiyonu {discord.__version__}')
     print('-----------------------')
-    izliyor = discord.watching(f"!yardım | ")
-    await bot.change_presence(activity=izliyor)
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="!yardım"))
     
 
 @bot.event
