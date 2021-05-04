@@ -37,8 +37,8 @@ async def on_ready():
     print(f'Logged in as {bot_adı}')
     print(f'Discord Versiyonu {discord.__version__}')
     print('-----------------------')
-    game = discord.Game("!yardım")
-    await bot.change_presence(activity=game)
+    izliyor = discord.watching(f"!yardım | ")
+    await bot.change_presence(activity=izliyor)
     
 
 @bot.event
