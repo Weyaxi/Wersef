@@ -4,7 +4,7 @@
 
 # Genel Bilgilendirme
 
-🔗 **Prefix:** !
+🔗 **Prefix:** w!
 
 🔗 **Botun Destek Sunucusu:** [Tıkla](https://discord.gg/ewGpWsx454)
 
@@ -17,132 +17,132 @@
 
 # Komutlar
 
-⭐ **!moderasyon:** Moderason komutlarını gösterir.
+⭐ **w!moderasyon:** Moderason komutlarını gösterir.
 
-⭐ **!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir.
+⭐ **w!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir.
 
-⭐ **!sunucukomutları:** Sunucu ile ilgili komutları size sunar.
+⭐ **w!sunucukomutları:** Sunucu ile ilgili komutları size sunar.
 
-⭐ **!hesapla:** Bot hesaplama komutlarını size sunar.
+⭐ **w!hesapla:** Bot hesaplama komutlarını size sunar.
 
-⭐ **!eğlence:** Bot eğlence komutlarını sunar.
+⭐ **w!eğlence:** Bot eğlence komutlarını sunar.
 
-⭐ **!işeyarar:** Bot, işe yarar komutları size sunar.
+⭐ **w!işeyarar:** Bot, işe yarar komutları size sunar.
 
-⭐ **!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir)
+⭐ **w!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir)
 
 # Moderasyon Komutları
 
-⭐ **!sil:** Belirttiğiniz miktar kadar kolayca mesaj silmenizi sağlar.
+⭐ **w!sil:** Belirttiğiniz miktar kadar kolayca mesaj silmenizi sağlar.
 
-⭐ **!kick:** Belirttiğiniz kişiyi sunucudan kovar.
+⭐ **w!kick:** Belirttiğiniz kişiyi sunucudan kovar.
 
-⭐ **!mute:** Belirttiğiniz kişiyi yazı kanallarından susturur.
+⭐ **w!mute:** Belirttiğiniz kişiyi yazı kanallarından susturur.
 
-⭐ **!ban:** Belirttiğiniz kullanıcıyı sunucudan yasaklar.
+⭐ **w!ban:** Belirttiğiniz kullanıcıyı sunucudan yasaklar.
 
-⭐ **!unban:** Belirttiğiniz kişinin yasaklaması kaldırılır.
+⭐ **w!unban:** Belirttiğiniz kişinin yasaklaması kaldırılır.
 
-⭐ **!unmute:** Belirttiğiniz kişinin yazı kanallarından susturulması kaldırılır.
+⭐ **w!unmute:** Belirttiğiniz kişinin yazı kanallarından susturulması kaldırılır.
 
-⭐ **!voicemute:** Belirttiğiniz kişiyi ses kanallarından susturur.
+⭐ **w!voicemute:** Belirttiğiniz kişiyi ses kanallarından susturur.
 
-⭐ **!unvoicemute:** Belirttiğiniz kişinin ses kanallarından susturulmasını kaldırır.
+⭐ **w!unvoicemute:** Belirttiğiniz kişinin ses kanallarından susturulmasını kaldırır.
 
-⭐ **!kullanıcıadı:** Belirttiğiniz kullanıcının adını, kullanıcıyı belirttikten sonra yazdığınız kullanıcı adı olarak değiştirir.
+⭐ **w!kullanıcıadı:** Belirttiğiniz kullanıcının adını, kullanıcıyı belirttikten sonra yazdığınız kullanıcı adı olarak değiştirir.
 
-⭐ **!uyar:** Belirttiğiniz kişiyi, belirttiğiniz nedenle uyarmanızı sağlar.
+⭐ **w!uyar:** Belirttiğiniz kişiyi, belirttiğiniz nedenle uyarmanızı sağlar.
 
 # Kullanıcı Komutları
 
-⭐ **!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir.
+⭐ **w!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir.
  
-⭐ **!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir.
+⭐ **w!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir.
 
-⭐ **!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir.
+⭐ **w!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir.
 
-⭐ **!şifreoluştur:** Bot, kullanabileceğiniz güçlü şifreler oluşturur.
+⭐ **w!şifreoluştur:** Bot, kullanabileceğiniz güçlü şifreler oluşturur.
 
-⭐ **!embeds:**  Gömülü mesaj seçeneklerini size sunar.
+⭐ **w!embeds:**  Gömülü mesaj seçeneklerini size sunar.
 
 # Sunucu Komutları
 
-⭐ **!serverinfo:** Sunucu hakkındaki bilgileri size gösterir.
+⭐ **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir.
  
-⭐ **!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir.
+⭐ **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir.
 
-⭐ **!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur.
+⭐ **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur.
 
-⭐ **!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.
+⭐ **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.
 
-⭐ **!roller:** Sunuzunuzdaki bütün roller görüntülenir.
+⭐ **w!roller:** Sunuzunuzdaki bütün roller görüntülenir.
 
 # Hesaplama Komutları
 
-⭐ **!topla:** Bot belirttiğiniz iki sayıyı toplamanızı sağlar.
+⭐ **w!topla:** Bot belirttiğiniz iki sayıyı toplamanızı sağlar.
 
-⭐ **!çıkart:** Bot belirttiğiniz iki sayıyı çıkarmanızı sağlar.
+⭐ **w!çıkart:** Bot belirttiğiniz iki sayıyı çıkarmanızı sağlar.
 
-⭐ **!çarp:** Bot belirttiğiniz iki sayıyı çarpmanızı sağlar.
+⭐ **w!çarp:** Bot belirttiğiniz iki sayıyı çarpmanızı sağlar.
 
-⭐ **!böl:** Bot belirttiğiniz iki sayıyı bölmenizi sağlar
+⭐ **w!böl:** Bot belirttiğiniz iki sayıyı bölmenizi sağlar
 
 
 # Eğlence Komutları
 
-⭐ **!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir.
+⭐ **w!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir.
  
-⭐ **!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar.
+⭐ **w!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar.
 
-⭐ **!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar.
+⭐ **w!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar.
 
-⭐ **!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar.
+⭐ **w!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar.
 
-⭐ **!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar.
+⭐ **w!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar.
 
-⭐ **!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar.
+⭐ **w!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar.
 
-⭐ **!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar.
+⭐ **w!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar.
 
-⭐ **!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar.
+⭐ **w!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar.
 
-⭐ **!arabasür:** Araba sürmenizi sağlar.
+⭐ **w!arabasür:** Araba sürmenizi sağlar.
 
 # İşe Yarar Komutlar
 
-⭐ **!discordnedir:** Discord hakkında bilgiler size sunulur.
+⭐ **w!discordnedir:** Discord hakkında bilgiler size sunulur.
 
-⭐ **!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur.
+⭐ **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur.
 
-⭐ **!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur.
+⭐ **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur.
 
-⭐ **!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur.
+⭐ **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur.
 
-⭐ **!twitternedir:** Twitter hakkında bazı bilgileri size sunulur.
+⭐ **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur.
 
-⭐ **!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur.
+⭐ **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur.
 
 ⭐ **!youtubenedir:** Whatsapp hakkında bazı bilgileri size sunulur.
 
-⭐ **!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar
+⭐ **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar
 
-⭐ **!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar.
+⭐ **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar.
 
-⭐ **!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum)
+⭐ **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum)
 
-⭐ **!önemligünler:** Belli başlı önemli günler size sunulur.
+⭐ **w!önemligünler:** Belli başlı önemli günler size sunulur.
 
 
 # Bot Hakkındaki Komutlar
 
-⭐ **!botbilgi** Bot hakkındaki bilgileri gösterir.
+⭐ **w!botbilgi** Bot hakkındaki bilgileri gösterir.
 
-⭐ **!wersefdavet** Botun davet linklerini gösterir.
+⭐ **w!wersefdavet** Botun davet linklerini gösterir.
 
-⭐ **!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir.
+⭐ **w!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir.
 
-⭐ **!ping:** Botun gecikme süresini yani pingini verir.
+⭐ **w!ping:** Botun gecikme süresini yani pingini verir.
 
-⭐ **!not:** Bot hakkındaki önemli notları size gösterir.
+⭐ **w!not:** Bot hakkındaki önemli notları size gösterir.
 
-⭐ **!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.
+⭐ **w!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.
