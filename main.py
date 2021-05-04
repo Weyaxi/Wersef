@@ -10,7 +10,6 @@ from urllib import parse, request
 import re
 import random
 import string
-from pytube import YouTube
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!"), description="Normal Bot")
 TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
