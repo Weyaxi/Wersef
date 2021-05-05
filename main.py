@@ -10,6 +10,8 @@ from urllib import parse, request
 import re
 import random
 import string
+import pyshorteners
+
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!"), description="Normal Bot")
 TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
@@ -706,6 +708,28 @@ async def botinfo(ctx):
    
    await ctx.send(embed=embed)
 
+@bot.command()
+async def öneri(ctx, *, mesaj):
+    icon = str(ctx.guild.icon_url)
+    channel = bot.get_channel(839404567183884299)
+
+    embed1 = discord.Embed(title=":white_check_mark: Öneriniz Gönderildi", description=f"Öneriniz başarıyla ilgili kişilere gönderildi. Öneriniz için teşekkürler.", color=0x00ff33)
+    embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed1)
+
+    embed = discord.Embed(title="<:adetiketi:838351966165794837> │ Önerdiği Sunucu", description=f"{ctx.guild.name}", color=0x00ff33)
+    embed.add_field(name="👤 │ Öneren Kişi", value=f"<@!{ctx.author.id}>", inline=False)
+    embed.add_field(name="Önerisi", value=f"{mesaj}", inline=False)
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+
+    await channel.send(embed=embed)     
+
+@öneri.error
+async def öneri_error(ctx, error): 
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send('Lütfen öneri mesajınızı, komut sonrasında belirtiniz. ')     
+
 
 @bot.command(pass_context=True, aliases=['yapımcı', 'botiletişim', 'bot_iletişim', 'İletişim',])
 async def iletişim(ctx):
@@ -777,7 +801,7 @@ async def bothakkında(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Bot Hakkındaki Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **w!botbilgi** Bot hakkındaki bilgileri gösterir. \n > :dizzy: **w!wersefdavet** Botun davet linklerini gösterir. \n > :dizzy: **w!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir. \n > :dizzy: **w!ping:** Botun gecikme süresini yani pingini verir. \n > :dizzy: **w!not:** Bot hakkındaki önemli notları size gösterir. \n > :dizzy: **w!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.",
+        description="> :dizzy: **w!botbilgi** Bot hakkındaki bilgileri gösterir. \n > :dizzy: **w!wersefdavet** Botun davet linklerini gösterir. \n > :dizzy: **w!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir.\n > :dizzy: **w!öneri:** Komut sonrasında belirttiğiniz mesaj, ilgili kişilere iletilir.\n > :dizzy: **w!ping:** Botun gecikme süresini yani pingini verir. \n > :dizzy: **w!not:** Bot hakkındaki önemli notları size gösterir. \n > :dizzy: **w!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -812,7 +836,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n > :dizzy: **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1147,7 +1171,7 @@ async def uyar_error(ctx, error):
 
 @commands.has_permissions(manage_nicknames=True)
 @bot.command(aliases=['ad', 'nick', 'kullanıcıadı', 'adıdeğiştir'], pass_context=True)
-async def nickname(ctx, member: discord.Member, nick):
+async def nickname(ctx, member: discord.Member, *, nick):
     await member.edit(nick=nick)
     await ctx.send(f'{member.mention} adlı kullanıcının kullanıcı adı, belirttiğiniz ad ile değiştirildi.')
 
@@ -1220,6 +1244,18 @@ async def yetkileri(ctx, member: discord.Member = None):
 
 
 @bot.command()
+async def linkkısalt(ctx, url):
+    description = str(ctx.guild.description)
+    s = pyshorteners.Shortener()
+
+    embed = discord.Embed(title="Link Kısaltma", description="Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır.", color=0x14ffd8)
+    embed.add_field(name=f"Asıl Link", value=f"{url}", inline=True)
+    embed.add_field(name=f"Kısaltılmış Link", value=s.tinyurl.short(f'{url}'), inline=True)
+
+    await ctx.send(embed=embed)      
+
+
+@bot.command()
 async def komutlarçalışmıyor(ctx):
     description = str(ctx.guild.description)
     icon = str(ctx.guild.icon_url)
@@ -1238,6 +1274,7 @@ async def önemligünler(ctx):
     embed = discord.Embed(title="Önemli Günler", description=f":tada: ** 1 Ocak Yılbaşı** \n 🇹🇷 **8 Mart Dünya Kadınlar Günü** \n 🇹🇷 **23 Nisan Ulusal Egemenlik ve Çocuk Bayramı** \n 🇹🇷 **1 Mayıs Emek ve Dayanışma Günü** \n 🇹🇷 **9 Mayıs Dünya Anneler Günü** \n 🇹🇷 **19 Mayıs Atatürk'ü Anma Gençlik ve Spor Bayramı** \n 🇹🇷 **20 Haziran Babalar Günü**  \n 🇹🇷 **30 Ağustos Zafer Bayramı** \n 🇹🇷 **29 Ekim Cumhuriyet Bayramı** \n 🇹🇷 **10 kasım Atatürk'ü Anma Günü**", color=0xff1a1a)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
-    await ctx.send(embed=embed)    
+    await ctx.send(embed=embed)   
 
+   
 bot.run(f'{TOKEN}')
