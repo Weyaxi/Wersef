@@ -836,7 +836,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n > :dizzy: **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n > :dizzy: **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1253,6 +1253,12 @@ async def linkkısalt(ctx, url):
     embed.add_field(name=f"Kısaltılmış Link", value=s.tinyurl.short(f'{url}'), inline=True)
 
     await ctx.send(embed=embed)      
+
+@linkkısalt.error
+async def linkkısalt_error(ctx, error): 
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send('Lütfen kısaltmak istedğiniz link komut sonrasında belirtiniz. ') 
+
 
 
 @bot.command()
