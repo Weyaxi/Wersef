@@ -141,6 +141,8 @@
 
 ⭐ **w!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir.
 
+⭐ **w!öneri:** Komut sonrasında belirttiğiniz mesaj, ilgili kişilere iletilir.
+
 ⭐ **w!ping:** Botun gecikme süresini yani pingini verir.
 
 ⭐ **w!not:** Bot hakkındaki önemli notları size gösterir.
