@@ -128,6 +128,8 @@
 
 ⭐ **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar.
 
+⭐ **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır.
+
 ⭐ **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum)
 
 ⭐ **w!önemligünler:** Belli başlı önemli günler size sunulur.
