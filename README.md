@@ -126,7 +126,7 @@
 
 ⭐ **!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur.
 
-⭐ **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar
+⭐ **w!rozetler:** Bütün Discord rozetleri, size renkli bir şekilde sunulur.
 
 ⭐ **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar.
 
