@@ -836,7 +836,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n > :dizzy: **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> :dizzy: **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > :dizzy: **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur. \n > :dizzy: **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar. \n > :dizzy: **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n > :dizzy: **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n > :dizzy: **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n > :dizzy: **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1099,11 +1099,27 @@ async def youtubenedir(ctx):
     embed = discord.Embed(title="<:youtube:837358347576541195> │ Youtube Nedir", description=f"Yine hemen hemen hepimizin duyduğu ve en az bir kere ziyaret ettiği video barındırma platformu Youtube, ilk olarak bilindiğinin aksine hiç etkileşim almamıştır. Daha sonrasında dev teknloji şirketi Google söz konusu platformu satın almıştır ve bugün milyarlarca kullanıcı tarafdan kullanılmaktadır. Bununla birlikte içerik üreticilerine bir sürü kolaylık sağlayan Youtube, aynı zamanda içerik üreticilerin para kazanmasını da sağlamaktadır.", color=16646144)
     embed.add_field(name=":date: │ Youtube Ne Zaman Kullanıma Sunuldu", value="Youtube ilk olarak 15 Şubat 2005 tarihinde kullanıma sunulmuştur ancak o dönemlerde pek fazla etkileşim alamamıştır.", inline=False)
     embed.add_field(name=":mortar_board: │ Youtube'ın Geliştiricisi", value="Söz konusu platform, üç eski paypal çalışanı olan Steve Chen, Chad Hurley ve Jawed Karim tarafından geliştirilmiştir ancak sonradan Google tarafından satın alınmıştır.", inline=False)
-    embed.add_field(name=":mag_right: │ Youtube Hakkında İlginç Bir Bilgi", value="Söz konusu uygulama Google tarafından 2006 yılında 1,68 Milyar Dolara satın alınmış olup, yine söz konusu uygulamadan şuan her üç haftada bir 1,68 Millyar Dolar gelir elde ediyor. ", inline=False)
+    embed.add_field(name=":mag_right: │ Youtube Hakkında İlginç Bir Bilgi", value="Söz konusu uygulama Google tarafından 2006 yılında 1,68 Milyar Dolara satın alınmış olup, yine söz konusu uygulamadan şuan her üç haftada bir 1,68 Milyar Dolar gelir elde ediyor. ", inline=False)
 
 
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.set_thumbnail(url="https://i.imgur.com/jEM7YA3.png")
+    await ctx.send(embed=embed)
+
+
+@bot.command()
+async def twitchnedir(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title="<:twitch:839574790746800169> │ Twitch Nedir", description=f"Son zamanlarda popülerleşen Twitch, bazılarımızın bildiği gibi bir yayın platformudur. Bununla birlikte Twitch, en yaygın yayın platformlardan biri olmakla birlikte aynı zamanda söz konusu yayıncıların para kazanmasını da sağlamaktadır. İzleyicilerin yayıncıya bağış göndermesi olarak para elde ediilen söz konusu bu platformun günlük izleyici sayısı 15 milyon, aylık kullanıcı sayısı ise 140 milyon olarak belirlendi. ", color=5848709)
+    embed.add_field(name=":date: │ Twitch Ne Zaman Kullanıma Sunuldu", value="Twitch, 2011 yılının Haziran ayında kullanıma sunulmuştur.", inline=False)
+    embed.add_field(name=":mortar_board: │ Twitch'in Geliştiricisi", value="Söz konusu platform, Justin Kan ve Emmett Shear tarafından geliştirilmiştir ancak sonradan Amozon tarafından satın alınmıştır.", inline=False)
+    embed.add_field(name=":mag_right: │ Twitch Hakkında İlginç Bir Bilgi", value="Twitch, 2014 yılının Şubat ayında ABD'deki internet trafiğinin en büyük dördüncü kaynağı olarak belirlenmiştir.", inline=False)
+
+
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.set_thumbnail(url="https://i.imgur.com/lz0El0g.png")
     await ctx.send(embed=embed)
 
 
@@ -1248,9 +1264,9 @@ async def linkkısalt(ctx, url):
     description = str(ctx.guild.description)
     s = pyshorteners.Shortener()
 
-    embed = discord.Embed(title="Link Kısaltma", description="Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır.", color=0x14ffd8)
-    embed.add_field(name=f"Asıl Link", value=f"{url}", inline=True)
-    embed.add_field(name=f"Kısaltılmış Link", value=s.tinyurl.short(f'{url}'), inline=True)
+    embed = discord.Embed(title="<:adetiketi:838351966165794837> │ Link Kısaltma", description="Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır.", color=0x14ffd8)
+    embed.add_field(name=f"🔗 │ Asıl Link", value=f"{url}", inline=True)
+    embed.add_field(name=f"🔗 │ Kısaltılmış Link", value=s.tinyurl.short(f'{url}'), inline=True)
 
     await ctx.send(embed=embed)      
 
@@ -1258,6 +1274,14 @@ async def linkkısalt(ctx, url):
 async def linkkısalt_error(ctx, error): 
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen kısaltmak istedğiniz link komut sonrasında belirtiniz. ') 
+
+
+@bot.command()
+async def deneme(ctx):
+    description = str(ctx.guild.description)
+    await create_invite(destination = message.channel) 
+
+
 
 
 
