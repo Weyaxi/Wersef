@@ -122,7 +122,9 @@
 
 ⭐ **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur.
 
-⭐ **!youtubenedir:** Whatsapp hakkında bazı bilgileri size sunulur.
+⭐ **!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur.
+
+⭐ **!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur.
 
 ⭐ **w!rozetler:** Bütün Discord rozetlerini renkli bir şekilde size sunar
 
