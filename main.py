@@ -39,8 +39,7 @@ async def on_ready():
     print(f'Logged in as {bot_adı}')
     print(f'Discord Versiyonu {discord.__version__}')
     print('-----------------------')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"w!yardım | {len(bot.guilds)} Sunucuyu"))
-    
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!yardım"))
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -255,17 +254,24 @@ async def sunucuyutemizle_error(ctx, error):
 @bot.command()
 async def hack(ctx, user: discord.Member):
     description = str(ctx.guild.description)
-    embed1 = discord.Embed(title="<:bilgi:830857146702888961> Kullanıcıyı Hackleme İşlemi Başlıyor", description=f"{ctx.author.display_name}, {user.name} Adlı Kullanıcıyı Hacklemeye Başlıyor", color=0x00ff33)
-    embed1.set_image(url="https://media.giphy.com/media/iFOVMvOHlCCKEQ8PBq/giphy.gif")
+    
+    if user.id == 470599096487510016:
+        await ctx.send("Yapımcım beni öyle bir programlamış ki kendinin hacklenmesine izin vermiyor. :sunglasses: ")   
+    else:    
+        if user.id == 819743355663548447:
+            await ctx.send("Yapımcım beni öyle bir programlamış ki kimse beni hackleyemiyor. :sunglasses: ")     
+        else:    
+            embed1 = discord.Embed(title="<:bilgi:830857146702888961> Kullanıcıyı Hackleme İşlemi Başlıyor", description=f"{ctx.author.display_name}, {user.name} Adlı Kullanıcıyı Hacklemeye Başlıyor", color=0x00ff33)
+            embed1.set_image(url="https://media.giphy.com/media/iFOVMvOHlCCKEQ8PBq/giphy.gif")
 
-    await ctx.send(embed=embed1, delete_after=5.0)
+            await ctx.send(embed=embed1, delete_after=5.0)
  
-    await asyncio.sleep(5)
+            await asyncio.sleep(5)
 
-    embed2 = discord.Embed(title="<:bilgi:830857146702888961> Hackleme İşlemi Başarılı", description=f"{ctx.author.display_name}, {user.name} Adlı Kullanıcıyı Başarıyla Hackledi!", color=0x0008ff)
-    embed2.set_image(url="https://i.imgur.com/fTrYkeK.jpg")
+            embed2 = discord.Embed(title="<:bilgi:830857146702888961> Hackleme İşlemi Başarılı", description=f"{ctx.author.display_name}, {user.name} Adlı Kullanıcıyı Başarıyla Hackledi!", color=0x0008ff)
+            embed2.set_image(url="https://i.imgur.com/fTrYkeK.jpg")
 
-    await ctx.send(embed=embed2)
+            await ctx.send(embed=embed2)
 
 
 @hack.error
@@ -307,17 +313,21 @@ async def sarıl_error(ctx, error):
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen sarılmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.') 
-
-        
+        await ctx.send('Lütfen sarılmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')         
 
 @bot.command()
 async def ateşet(ctx, user: discord.Member):
     description = str(ctx.guild.description)
-    embed1 = discord.Embed(title="<:silah:832581337520537640> Kullanıcıya Ateş Ediliyor", description=f"<:silah:832581337520537640> {ctx.author.display_name}, {user.name} Adlı Kullanıcıya Başarıyla Ateş Etti", color=0xffa200)
-    embed1.set_image(url="https://media.giphy.com/media/FtjLBJSBtfYgBcOuFl/giphy.gif")
+    if user.id == 470599096487510016:
+        await ctx.send(f"Özür dilerim {ctx.author.display_name}, yapımcımın canının acımasına gönlüm el vermiyor. :frowning:  ")
+    else:
+        if user.id == 819743355663548447:
+            await ctx.send(f"Özür dilerim {ctx.author.display_name}, kendime ateş etmek istemiyorum. Ya yaralanırsam? :frowning:  ") 
+        else:  
+            embed1 = discord.Embed(title="<:silah:832581337520537640> Kullanıcıya Ateş Ediliyor", description=f"<:silah:832581337520537640> {ctx.author.display_name}, {user.name} Adlı Kullanıcıya Başarıyla Ateş Etti", color=0xffa200)
+            embed1.set_image(url="https://media.giphy.com/media/FtjLBJSBtfYgBcOuFl/giphy.gif")
 
-    await ctx.send(embed=embed1)
+            await ctx.send(embed=embed1)
 
 
 @ateşet.error
@@ -331,10 +341,16 @@ async def ateşet_error(ctx, error):
 @bot.command()
 async def öldür(ctx, user: discord.Member):
     description = str(ctx.guild.description)
-    embed1 = discord.Embed(title="☠️ Kullanıcıyı Öldürme İşlemi Başlıyor", description=f"☠️ {ctx.author.display_name}, {user.name} Adlı Kullanıcıyı Başarıyla Öldürdü", color=0xff0000)
-    embed1.set_image(url="https://media3.giphy.com/media/wqvu848mFma3yLEWEn/giphy.gif")
+    if user.id == 470599096487510016:
+        await ctx.send(f"Özür dilerim {ctx.author.display_name}, yapımcımın öldürülmesine izin veremem. Yapımcım ölürse bana kim bakıcak? :frowning:  ")
+    else:
+        if user.id == 819743355663548447:
+            await ctx.send(f"Özür dilerim {ctx.author.display_name}, kendimi öldürmek istemiyorum. Ben ölürsem bu güzel komutları hangi bot gerçekleştirecek. :frowning:  ") 
+        else:  
+            embed1 = discord.Embed(title="☠️ Kullanıcıyı Öldürme İşlemi Başlıyor", description=f"☠️ {ctx.author.display_name}, {user.name} Adlı Kullanıcıyı Başarıyla Öldürdü", color=0xff0000)
+            embed1.set_image(url="https://media3.giphy.com/media/wqvu848mFma3yLEWEn/giphy.gif")
 
-    await ctx.send(embed=embed1)
+            await ctx.send(embed=embed1)
  
 
 
@@ -350,10 +366,17 @@ async def öldür_error(ctx, error):
 @bot.command(aliases=['yumruk'])
 async def yumrukla(ctx, user: discord.Member):
     description = str(ctx.guild.description)
-    embed1 = discord.Embed(title="<a:yumruk:833991281880858705> Kullanıcıyı Yumruklama İşlemi Başlıyor", description=f"<a:yumruk:833991281880858705> {ctx.author.display_name}, {user.name} Adlı Kullanıcıya Başarıyla Yumruk Attı", color=0xffa200)
-    embed1.set_image(url="https://media.giphy.com/media/wPdeBWtyXbmT2CkCsK/giphy.gif")
 
-    await ctx.send(embed=embed1)
+    if user.id == 470599096487510016:
+        await ctx.send(f"Özür dilerim {ctx.author.display_name}, yapımcımın canının acımasına gönlüm el vermiyor. :frowning: ")
+    else:
+        if user.id == 819743355663548447:
+            await ctx.send(f"Özür dilerim {ctx.author.display_name}, kendimi yumruklamak istemiyorum. :sunglasses:  ") 
+        else:  
+            embed1 = discord.Embed(title="<a:yumruk:833991281880858705> Kullanıcıyı Yumruklama İşlemi Başlıyor", description=f"<a:yumruk:833991281880858705> {ctx.author.display_name}, {user.name} Adlı Kullanıcıya Başarıyla Yumruk Attı", color=0xffa200)
+            embed1.set_image(url="https://media.giphy.com/media/wPdeBWtyXbmT2CkCsK/giphy.gif")
+
+            await ctx.send(embed=embed1)
 
 
 @yumrukla.error
@@ -367,10 +390,16 @@ async def yumrukla_error(ctx, error):
 @bot.command(aliases=['tokat'])
 async def tokatla(ctx, user: discord.Member):
     description = str(ctx.guild.description)
-    embed1 = discord.Embed(title="<a:slap:834101938341412897> Kullanıcıyı Tokatlama İşlemi Başlıyor", description=f"<a:slap:834101938341412897> {ctx.author.display_name}, {user.name} Adlı Kullanıcıyı Başarıyla Tokatladı", color=0xffa200)
-    embed1.set_image(url="https://media1.tenor.com/images/c724e1c1ddef332e3c95165c09e5b7e2/tenor.gif")
+    if user.id == 470599096487510016:
+        await ctx.send(f"Özür dilerim {ctx.author.display_name}, yapımcımın canının acımasına gönlüm el vermiyor. :frowning:  ")
+    else:
+        if user.id == 819743355663548447:
+            await ctx.send(f"Özür dilerim {ctx.author.display_name}, kendimi tokatlamak istemiyorum. :sunglasses:  ") 
+        else:  
+            embed1 = discord.Embed(title="<a:slap:834101938341412897> Kullanıcıyı Tokatlama İşlemi Başlıyor", description=f"<a:slap:834101938341412897> {ctx.author.display_name}, {user.name} Adlı Kullanıcıyı Başarıyla Tokatladı", color=0xffa200)
+            embed1.set_image(url="https://media1.tenor.com/images/c724e1c1ddef332e3c95165c09e5b7e2/tenor.gif")
 
-    await ctx.send(embed=embed1)
+            await ctx.send(embed=embed1)
  
 
 @tokatla.error
@@ -379,7 +408,6 @@ async def tokatla_error(ctx, error):
         await ctx.send('Lütfen tokatlamak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')       
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')  
-
 
 
 @bot.command()
