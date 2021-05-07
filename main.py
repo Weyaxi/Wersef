@@ -12,8 +12,9 @@ import random
 import string
 import pyshorteners
 
-
-bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!"), description="Normal Bot")
+intents = discord.Intents.default()  
+intents.members = True
+bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!"), description="Normal Bot", intents=intents)
 TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
 bot.remove_command("help")
 
@@ -736,6 +737,23 @@ async def botinfo(ctx):
    
    await ctx.send(embed=embed)
 
+
+@bot.command(pass_context=True)
+async def botistatistik(ctx):
+   icon = str(ctx.guild.icon_url)
+
+   embed=discord.Embed(title="🤖 │ Bot İstatistikleri", description="Bu bot hakkındaki istatistikleri içerir.", color=0x00ccff)
+   embed.set_author(name=f"{bot_adı}", icon_url=f"{bot_avatar}")
+   embed.set_thumbnail(url=f"{bot_avatar}")
+
+   embed.add_field(name="<a:stats:832162327826268180> │ Botun Hizmet Verdiği Kişi Sayısı", value=f" {len(bot.users)}", inline=True)
+
+   embed.add_field(name="🔮 │Botun Bulunduğu Sunucu Sayısı", value=f"{len(bot.guilds)}", inline=True)
+
+   
+   await ctx.send(embed=embed)
+
+
 @bot.command()
 async def öneri(ctx, *, mesaj):
     icon = str(ctx.guild.icon_url)
@@ -829,7 +847,7 @@ async def bothakkında(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Bot Hakkındaki Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **w!botbilgi** Bot hakkındaki bilgileri gösterir. \n > :dizzy: **w!wersefdavet** Botun davet linklerini gösterir. \n > :dizzy: **w!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir.\n > :dizzy: **w!öneri:** Komut sonrasında belirttiğiniz mesaj, ilgili kişilere iletilir.\n > :dizzy: **w!ping:** Botun gecikme süresini yani pingini verir. \n > :dizzy: **w!not:** Bot hakkındaki önemli notları size gösterir. \n > :dizzy: **w!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.",
+        description="> :dizzy: **w!botbilgi:** Bot hakkındaki bilgileri gösterir. \n > :dizzy: **w!botistatistik:** Bu bot hakkındaki istatistikleri ,çerir. \n > :dizzy: **w!wersefdavet:** Botun davet linklerini gösterir. \n > :dizzy: **w!iletişim:** Botun yapımcısı ile iletişim kurma yollarını gösterir.\n > :dizzy: **w!öneri:** Komut sonrasında belirttiğiniz mesaj, ilgili kişilere iletilir.\n > :dizzy: **w!ping:** Botun gecikme süresini yani pingini verir. \n > :dizzy: **w!not:** Bot hakkındaki önemli notları size gösterir. \n > :dizzy: **w!komutlarçalışmıyor:** Komutların çalışma nedeni size sunulur.",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
