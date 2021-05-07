@@ -60,7 +60,7 @@ async def help(ctx):
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> :dizzy: **w!moderasyon:** Moderason komutlarını gösterir. \n  > :dizzy: **w!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > :dizzy: **w!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > :dizzy: **w!hesapla:** Bot hesaplama komutlarını size sunar. \n > :dizzy: **w!eğlence:** Bot eğlence komutlarını sunar. \n > :dizzy: **w!işeyarar:** Bot, işe yarar komutları size sunar. \n > :dizzy: **w!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
     await ctx.send(embed=embed)    
@@ -233,7 +233,7 @@ async def sunucukur(ctx):
 @sunucukur.error
 async def sunucukur_error(ctx, error): 
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Yönetici adlı yetkiye sahip olman gerekli.")      
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")      
 
 
 @commands.has_permissions(administrator=True)
@@ -248,7 +248,7 @@ async def sunucuyutemizle(ctx):
 @sunucuyutemizle.error
 async def sunucuyutemizle_error(ctx, error): 
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Yönetici adlı yetkiye sahip olman gerekli.")          
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")          
 
 
 @bot.command()
@@ -470,7 +470,7 @@ async def clear(ctx, amount = 100):
         await ctx.channel.purge(limit=amount + 1)
         await ctx.send(f'```css\n🗑 {amount} Mesaj Silindi 🗑```', delete_after=4.0)
     else:
-        await ctx.send("Bu komutu kullanabilmek için Mesajları Yönet adlı yetkiye sahip olman gerekli.")
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")
 
 
 
@@ -484,7 +484,7 @@ async def kick(ctx, user: discord.Member, *, reason="Neden kullanıcı tarafınd
 @kick.error
 async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Üyeleri At adlı yetkiye sahip olman gerekli.")
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen atmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')  
     if isinstance(error, commands.BadArgument):
@@ -510,7 +510,7 @@ async def mute(ctx, member: discord.Member, *, reason='Neden kullanıcı tarafı
 @mute.error
 async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Rolleri Yönet adlı yetkiye sahip olman gerekli.")  
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen susturmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')   
     if isinstance(error, commands.BadArgument):
@@ -537,7 +537,7 @@ async def voicemute(ctx, member: discord.Member, *, reason='Neden kullanıcı ta
 @voicemute.error
 async def voicemute_error(ctx, error):
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Üyeleri Sustur adlı yetkiye sahip olman gerekli.")  
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen ses kanallarında susturmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')   
     if isinstance(error, commands.BadArgument):
@@ -557,7 +557,7 @@ async def unmute(ctx, member: discord.Member, *, reason='Neden kullanıcı taraf
 @unmute.error
 async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Rolleri Yönet adlı yetkiye sahip olman gerekli.")  
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen susturulmasını kaldırmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')     
     if isinstance(error, commands.BadArgument):
@@ -577,7 +577,7 @@ async def unvoicemute(ctx, member: discord.Member, *, reason='Neden kullanıcı 
 @unvoicemute.error
 async def unvoicemute_error(ctx, error):
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Üyeleri Sustur  adlı yetkiye sahip olman gerekli.")  
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen ses kanallarından susturulmasını kaldırmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')     
     if isinstance(error, commands.BadArgument):
@@ -595,7 +595,7 @@ async def ban(ctx, user: discord.Member, *, reason="Neden kullanıcı tarafında
 @ban.error
 async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Üyeleri Yasakla adlı yetkiye sahip olman gerekli.")      
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")      
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen yasaklamak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.') 
     if isinstance(error, commands.BadArgument):
@@ -634,7 +634,7 @@ async def unban(ctx, *, user=None, reason="Neden kullanıcı tarafından belirti
 @unban.error
 async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Üyeleri Yasakla adlı yetkiye sahip olman gerekli.")  
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')   
 
@@ -833,7 +833,7 @@ async def bothakkında(ctx):
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
     await ctx.send(embed=embed)      
@@ -851,7 +851,7 @@ async def eğlence(ctx):
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
     await ctx.send(embed=embed)      
@@ -868,7 +868,7 @@ async def işeyarar(ctx):
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
     await ctx.send(embed=embed)      
@@ -887,7 +887,7 @@ async def embeds(ctx):
     embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!embed** <mesajınız>", inline=False)
     embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!embed** Merhabalar {bot_yapımcısı} \n > :dizzy: **w!embed** Nasılsınız? \n > :dizzy: **w!embed** Kod yazıyorum. \n > :dizzy: **w!embed** İyiyim, yatıyorum öyle.", inline=False)
     
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
     await ctx.send(embed=embed)   
@@ -904,7 +904,7 @@ async def sunucukomutları(ctx):
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
     await ctx.send(embed=embed)       
@@ -917,11 +917,11 @@ async def kullanıcıkomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Kullanıcı Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **w!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > :dizzy: **w!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > :dizzy: **w!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > :dizzy: **w!şifreoluştur:**  Bot, kullanabileceğiniz güçlü şifreler oluşturur. \n > :dizzy: **w!embeds:** Gömülü mesaj seçeneklerini size sunar.  ",
+        description="> :dizzy: **w!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > :dizzy: **w!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > :dizzy: **w!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > :dizzy: **w!şifreoluştur:**  Bot, kullanabileceğiniz bazı güçlü şifreler oluşturur. \n > :dizzy: **w!embeds:** Gömülü mesaj seçeneklerini size sunar.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
     await ctx.send(embed=embed) 
@@ -938,7 +938,7 @@ async def moderasyon(ctx):
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** Python", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
     await ctx.send(embed=embed) 
@@ -1195,7 +1195,7 @@ async def uyar(ctx, user: discord.Member, *, mesaj="Uyarılma nedeniniz söz kon
 
     await ctx.send(embed=embed1)
 
-    embed = discord.Embed(title=":warning: Uyarı", description=f"Merhabalar sayın {user.name}, yakın zamanda {ctx.guild.name} adlı sunucuda {ctx.author.display_name} adlı kişi tarafından uyarıldınız. ", color=0xff0000)
+    embed = discord.Embed(title=":warning: Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucuda {ctx.author.display_name} adlı kişi tarafından uyarıldınız. Lütfen bir dahaki sefere daha dikkatli olunuz. ", color=0xff0000)
     embed.add_field(name=":warning: Nedeni", value=f"{mesaj}", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -1204,7 +1204,7 @@ async def uyar(ctx, user: discord.Member, *, mesaj="Uyarılma nedeniniz söz kon
 @uyar.error
 async def uyar_error(ctx, error): 
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Yönetici adlı yetkiye sahip olman gerekli.")      
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")      
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
     if isinstance(error, commands.MissingRequiredArgument):
@@ -1222,7 +1222,7 @@ async def nickname(ctx, member: discord.Member, *, nick):
 @nickname.error
 async def nickname_error(ctx, error): 
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için Kullanıcı Adlarını Yönet adlı yetkiye sahip olman gerekli.")           
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")           
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
     if isinstance(error, commands.MissingRequiredArgument):
@@ -1305,15 +1305,6 @@ async def linkkısalt_error(ctx, error):
 
 
 @bot.command()
-async def deneme(ctx):
-    description = str(ctx.guild.description)
-    await create_invite(destination = message.channel) 
-
-
-
-
-
-@bot.command()
 async def komutlarçalışmıyor(ctx):
     description = str(ctx.guild.description)
     icon = str(ctx.guild.icon_url)
@@ -1335,4 +1326,4 @@ async def önemligünler(ctx):
     await ctx.send(embed=embed)   
 
    
-bot.run(f'{TOKEN}')
+bot.run(TOKEN)
