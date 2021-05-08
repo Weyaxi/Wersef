@@ -22,8 +22,7 @@ bot_adı = "Wersef"
 bot_id = "819743355663548447"
 bot_avatar = "https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024"
 bot_yapımcısı = "Weyaxi"
-bot_davet = "https://tik.lat/eZN4p"
-destek_sunucusu = "https://tik.lat/K5BjK"
+destek_sunucusu = "https://discord.gg/ewGpWsx454"
 önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=415244438&scope=bot"
 discord_iletişim = "Weyaxi#8666"
 telegram_iletişim = "SS_w_o_R_d"
@@ -56,7 +55,7 @@ async def help(ctx):
     
     embed = discord.Embed(
         title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description=f"> :link: **Prefix:** w! \n > :link: **Botun Destek Sunucusu:** [Tıkla](https://discord.gg/ewGpWsx454) \n > :link: **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
+        description=f"> :link: **Prefix:** w! \n > :link: **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > :link: **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -84,7 +83,7 @@ async def wersefdavet(ctx):
 
     embed = discord.Embed(title="Botun Davet Linkleri", description=f"<:kral:830058307351478282> **Gerekli İzinlerle (Önerilen):** ➠ [Tıkla]({önerilen_yetki_davet}) \n <:kral:830058307351478282> **Bütün İzinlerle (Önerilen):** ➠ [Tıkla](https://discord.com/api/oauth2/authorize?client_id={bot_id}&permissions=4294967287&scope=bot) \n <:kral:830058307351478282> **Yönetici İzinleriyle (Bazı Komutlar Çalışmayabilir):** ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id={bot_id}&permissions=8&scope=bot) \n <:robo:833610842410450964> **Yetkisiz Şekilde (Önerilmez):** ➠ [Tıkla](https://discord.com/oauth2/authorize?client_id={bot_id}&permissions=0&scope=bot) ", color=0x14ffd8)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-
+    
     await ctx.send(embed=embed)
 
 
@@ -93,7 +92,7 @@ async def roles(ctx):
         guild = ctx.guild
         roles = [role for role in guild.roles if role != ctx.guild.default_role]
         roles.reverse()
-        embed = discord.Embed(title="", description=f"\n \n".join([role.mention for role in roles]), color=discord.Color.blue())
+        embed = discord.Embed(title="", description=f"\n \n".join([role.mention for role in roles]), color=0x14ffd8)
         await ctx.send(embed=embed)
 
 
@@ -731,8 +730,8 @@ async def botinfo(ctx):
    embed.add_field(name="🤖 │ Bot ", value="Aktif", inline=False)
    embed.add_field(name="🆔 │ Bot ID'si", value=f"{bot_id}", inline=True)
    embed.add_field(name="🎓 │ Bot Yapımcısı", value=f"{bot_yapımcısı}", inline=True)
-   embed.add_field(name="🌀 │ Botun Destek Sunucusu", value=f"{destek_sunucusu}", inline=True)
-   embed.add_field(name="🔗 │ Botun Davet Linki", value=f"{bot_davet}", inline=True)
+   embed.add_field(name="🌀 │ Botun Destek Sunucusu", value=f"[Tıkla]({destek_sunucusu})", inline=True)
+   embed.add_field(name="🔗 │ Botun Davet Linki", value=f"[Tıkla]({önerilen_yetki_davet})", inline=True)
    embed.add_field(name="🔮 │Botun Bulunduğu Sunucu Sayısı", value=f"{len(bot.guilds)}", inline=True)
    
    await ctx.send(embed=embed)
@@ -786,8 +785,8 @@ async def iletişim(ctx):
     embed.add_field(name="🎓 │ Bot Yapımcısı", value=f"{bot_yapımcısı}", inline=False)
     embed.add_field(name="<:telegram:826727507877298187> │ Telegram", value=f"{telegram_iletişim}", inline=True)
     embed.add_field(name="<:discord:826722461943988254> │ Discord", value=f"{discord_iletişim}", inline=True)
-    embed.add_field(name="🌀 │ Botun Destek Sunucusu", value=f"{destek_sunucusu}", inline=True)
-    embed.add_field(name="🔗 │ Botun Davet Linki", value=f"{bot_davet}", inline=True)
+    embed.add_field(name="🌀 │ Botun Destek Sunucusu", value=f"[Tıkla]({destek_sunucusu})", inline=True)
+    embed.add_field(name="🔗 │ Botun Davet Linki", value=f"[Tıkla]({önerilen_yetki_davet}) ", inline=True)
 
     await ctx.send(embed=embed)
 
