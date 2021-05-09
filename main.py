@@ -462,7 +462,6 @@ async def note(ctx):
     await ctx.send(embed=embed)
 
 
-
 @bot.command(pass_context=True , aliases=['sil', 'temizle', 'mesajlarısil', 'mesajları_sil' , 'mesajsil', 'mesaj_sil'])   
 async def clear(ctx, amount = 100): 
     authorperms = ctx.author.permissions_in(ctx.channel)
@@ -471,7 +470,6 @@ async def clear(ctx, amount = 100):
         await ctx.send(f'```css\n🗑 {amount} Mesaj Silindi 🗑```', delete_after=4.0)
     else:
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")
-
 
 
 @commands.has_permissions(kick_members=True)
@@ -486,9 +484,38 @@ async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen atmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')  
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kullanıcıyı Atma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!kick** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!kick** {ctx.author.mention} Spam \n > :dizzy: **w!kick** {ctx.author.mention} Argo \n  > :dizzy: **w!kick** {ctx.author.mention} Hakaret \n > :dizzy: **w!kick** {ctx.author.mention} Saygısızlık \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
+
     if isinstance(error, commands.BadArgument):
-        await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')          
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kullanıcıyı Atma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!kick** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!kick** {ctx.author.mention} Spam \n > :dizzy: **w!kick** {ctx.author.mention} Argo \n  > :dizzy: **w!kick** {ctx.author.mention} Hakaret \n > :dizzy: **w!kick** {ctx.author.mention} Saygısızlık \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)                   
 
 
 @commands.has_permissions(manage_roles=True)
@@ -508,13 +535,42 @@ async def mute(ctx, member: discord.Member, *, reason='Neden kullanıcı tarafı
 
 
 @mute.error
-async def test_error(ctx, error):
+async def mute_error(ctx, error):
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen susturmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')   
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kullanıcıyı Susturma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!mute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!mute** {ctx.author.mention} Spam \n > :dizzy: **w!mute** {ctx.author.mention} Argo \n  > :dizzy: **w!mute** {ctx.author.mention} Hakaret \n > :dizzy: **w!mute** {ctx.author.mention} Saygısızlık \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
+
     if isinstance(error, commands.BadArgument):
-        await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kullanıcıyı Susturma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!mute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!mute** {ctx.author.mention} Spam \n > :dizzy: **w!mute** {ctx.author.mention} Argo \n  > :dizzy: **w!mute** {ctx.author.mention} Hakaret \n > :dizzy: **w!mute** {ctx.author.mention} Saygısızlık \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed) 
 
 
 
@@ -539,9 +595,39 @@ async def voicemute_error(ctx, error):
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen ses kanallarında susturmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')   
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kullanıcıyı Susturma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!voicemute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!voicemute** {ctx.author.mention} Mikrofonu Yedi \n > :dizzy: **w!voicemute** {ctx.author.mention} Argo Kullandı \n  > :dizzy: **w!voicemute** {ctx.author.mention} Hakaret Etti \n > :dizzy: **w!voicemute** {ctx.author.mention} Saygısızlık Yaptı  ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
+
     if isinstance(error, commands.BadArgument):
-        await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kullanıcıyı Susturma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!voicemute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!voicemute** {ctx.author.mention} Mikrofonu Yedi \n > :dizzy: **w!voicemute** {ctx.author.mention} Argo Kullandı \n  > :dizzy: **w!voicemute** {ctx.author.mention} Hakaret Etti \n > :dizzy: **w!voicemute** {ctx.author.mention} Saygısızlık Yaptı  ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
+
 
 
 @commands.has_permissions(manage_roles=True)
@@ -559,9 +645,38 @@ async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen susturulmasını kaldırmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')     
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Susturmasını Kaldırma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unmute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unmute** {ctx.author.mention} Spam Yapmayı Bıraktı \n > :dizzy: **w!unmute** {ctx.author.mention} Argo Yapmayı Bıraktı \n  > :dizzy: **w!unmute** {ctx.author.mention} Hakaret  Etmeyi Bıraktı \n > :dizzy: **w!unmute** {ctx.author.mention} Saygısızlık Yapmayı Bıraktı \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
+
     if isinstance(error, commands.BadArgument):
-        await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Susturmasını Kaldırma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unmute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unmute** {ctx.author.mention} Spam Yapmayı Bıraktı \n > :dizzy: **w!unmute** {ctx.author.mention} Argo Yapmayı Bıraktı \n  > :dizzy: **w!unmute** {ctx.author.mention} Hakaret  Etmeyi Bıraktı \n > :dizzy: **w!unmute** {ctx.author.mention} Saygısızlık Yapmayı Bıraktı \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
 
 
 @commands.has_guild_permissions(mute_members=True)
@@ -579,9 +694,38 @@ async def unvoicemute_error(ctx, error):
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen ses kanallarından susturulmasını kaldırmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')     
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Susturmasını Kaldırma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unvoicemute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unvoicemute** {ctx.author.mention} Mikrofonu Yemeyi Bıraktı \n > :dizzy: **w!unvoicemute** {ctx.author.mention} Bağırmayı Bıraktı \n  > :dizzy: **w!unvoicemute** {ctx.author.mention} Hakaret  Etmeyi Bıraktı \n > :dizzy: **w!unvoicemute** {ctx.author.mention} Saygısızlık Yapmayı Bıraktı \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
+
     if isinstance(error, commands.BadArgument):
-        await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Susturmasını Kaldırma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unvoicemute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unvoicemute** {ctx.author.mention} Mikrofonu Yemeyi Bıraktı \n > :dizzy: **w!unvoicemute** {ctx.author.mention} Bağırmayı Bıraktı \n  > :dizzy: **w!unvoicemute** {ctx.author.mention} Hakaret  Etmeyi Bıraktı \n > :dizzy: **w!unvoicemute** {ctx.author.mention} Saygısızlık Yapmayı Bıraktı \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
 
 
 @commands.has_permissions(ban_members=True)
@@ -597,18 +741,62 @@ async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")      
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen yasaklamak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.') 
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kullanıcıyı Yasaklama Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!ban** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!ban** {ctx.author.mention} Spam \n > :dizzy: **w!ban** {ctx.author.mention} Argo \n  > :dizzy: **w!ban** {ctx.author.mention} Hakaret \n > :dizzy: **w!ban** {ctx.author.mention} Saygısızlık \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
+
     if isinstance(error, commands.BadArgument):
-        await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kullanıcıyı Susturma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!mute** <kullanıcı> <nedeniniz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!mute** {ctx.author.mention} Spam \n > :dizzy: **w!mute** {ctx.author.mention} Argo \n  > :dizzy: **w!mute** {ctx.author.mention} Hakaret \n > :dizzy: **w!mute** {ctx.author.mention} Saygısızlık \n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed) 
+
 
 @commands.has_permissions(ban_members=True)
 @bot.command(aliases=['bankaldır', 'banı_kaldır', 'yasak_kaldır', 'yasaklamayı_kaldır'])
-async def unban(ctx, *, user=None, reason="Neden kullanıcı tarafından belirtilmedi."):
+async def unban(ctx, *, user=None):
 
     try:
         user = await commands.converter.UserConverter().convert(ctx, user)
     except:
-        await ctx.send("Lütfen yasaklamasını kaldırmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.")
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Yasaklamasını Kaldırma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unban** <kullanıcı>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unban** {ctx.author.mention} \n > :dizzy: **w!unban** {ctx.author.mention} \n  > :dizzy: **w!unban** {ctx.author.mention} \n > :dizzy: **w!unban** {ctx.author.mention}\n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)  
         return
 
     try:
@@ -627,7 +815,7 @@ async def unban(ctx, *, user=None, reason="Neden kullanıcı tarafından belirti
         await ctx.send("Bir hata ile karşılaşıldı.")
         return
 
-    unban = discord.Embed(title=f"✅ Kullanıcının Yasağı Kaldırıldı", description=f"**Nedeni**: {reason}", color=0x2bff00)
+    unban = discord.Embed(title=f"✅ Kullanıcının Yasağı Kaldırıldı", description=f"**Yasak kaldırıldı", color=0x2bff00)
     await ctx.channel.send(embed=unban)
 
 
@@ -636,7 +824,118 @@ async def test_error(ctx, error):
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
     if isinstance(error, commands.BadArgument):
-        await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')   
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Yasaklamasını Kaldırma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unban** <kullanıcı>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unban** {ctx.author.mention} \n > :dizzy: **w!unban** {ctx.author.mention} \n  > :dizzy: **w!unban** {ctx.author.mention} \n > :dizzy: **w!unban** {ctx.author.mention}\n ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)  
+
+
+@commands.has_permissions(manage_roles=True)
+@bot.command(pass_context=True, aliases=['rolver', 'rol-ver', 'give-role'])
+async def giverole(ctx, user: discord.Member, role: discord.Role):
+    await user.add_roles(role)
+    embed = discord.Embed(title="✅ Kullanıcıya Rol Verildi", description=f"Söz konusu kullanıcıya başarıyla belirttiğiniz rol verildi.", color=0x00ff33)
+
+    await ctx.send(embed=embed)
+
+
+@giverole.error
+async def giverole_error(ctx, error): 
+    if isinstance(error, MissingPermissions):
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")   
+    if isinstance(error, commands.MissingRequiredArgument):
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Rol Verme Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmışınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-ver** <kullanıcı> <rolünüz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-ver** {ctx.author.mention} Admin \n > :dizzy: **w!rol-ver** {ctx.author.mention} Moderatör \n > :dizzy: **w!rol-ver** {ctx.author.mention} Denetmen \n > :dizzy: **w!rol-ver** {ctx.author.mention} VIP ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)  
+         
+    if isinstance(error, commands.BadArgument):
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Rol Verme Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-ver** <kullanıcı> <rolünüz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-ver** {ctx.author.mention} Admin \n > :dizzy: **w!rol-ver** {ctx.author.mention} Moderatör \n > :dizzy: **w!rol-ver** {ctx.author.mention} Denetmen \n > :dizzy: **w!rol-ver** {ctx.author.mention} VIP ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)  
+
+
+
+@commands.has_permissions(manage_roles=True)
+@bot.command(pass_context=True, aliases=['rolkaldır', 'rol-kaldır', 'remove-role'])
+async def removerole(ctx, user: discord.Member, role: discord.Role):
+    await user.remove_roles(role)
+    embed = discord.Embed(title="✅ Kullanıcının Rolü Kaldırıldı", description=f"Söz konusu kullanıcının belirttiğiniz rolü başarıyla kaldırıldı..", color=0x00ff33)
+
+    await ctx.send(embed=embed)
+
+
+@removerole.error
+async def removerole_error(ctx, error): 
+    if isinstance(error, MissingPermissions):
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
+    if isinstance(error, commands.MissingRequiredArgument):
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Rol Kaldırma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmışınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-kaldır** <kullanıcı> <rolünüz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-kaldır** {ctx.author.mention} Admin \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} Moderatör \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} Denetmen \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} VIP ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)  
+         
+    if isinstance(error, commands.BadArgument):
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Rol Kaldırma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmışınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-kaldır** <kullanıcı> <rolünüz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-kaldır** {ctx.author.mention} Admin \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} Moderatör \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} Denetmen \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} VIP ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)  
 
 
 @bot.command(aliases=['sunucu', 'sunucu_bilgi', 'sunucubilgi', 'serverinfo' , 'server_info'])
@@ -1246,12 +1545,75 @@ async def nickname_error(ctx, error):
         await ctx.send('Lütfen adını değiştirmek istediğiniz kullanıcyı komut sonrasında etiketleyerek, bunun sonrasında ise değiştirmek istedğiniz adı belirtiniz. ') 
 
 
-@bot.command(aliases=['yetkilerim'])
+@bot.command()
 async def yetkileri(ctx, member: discord.Member = None):
     icon = str(ctx.guild.icon_url)
 
     if not member:  # if member is no mentioned
         member = ctx.message.author  # set member as the author
+
+    embed = discord.Embed(title="", description="", color=0x14ffd8)
+    embed.set_author(name=member.display_name, url="", icon_url=member.avatar_url)
+
+    if member.guild_permissions.administrator == True:
+       embed.add_field(name="Yönetici", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Yönetici", value="Hayır", inline=False)  
+
+    if member.guild_permissions.kick_members == True:
+       embed.add_field(name="Üyeleri At", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Üyeleri At", value="Hayır", inline=False)   
+
+    if member.guild_permissions.ban_members == True:
+       embed.add_field(name="Üyeleri Yasakla", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Üyeleri Yasakla", value="Hayır", inline=False)  
+
+    if member.guild_permissions.manage_channels == True:
+       embed.add_field(name="Kanalları Yönet", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Kanalları Yönet", value="Hayır", inline=False)   
+
+    if member.guild_permissions.manage_messages == True:
+       embed.add_field(name="Mesajları Yönet", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Mesajları Yönet", value="Hayır", inline=False)          
+       
+    if member.guild_permissions.manage_roles == True:
+       embed.add_field(name="Rolleri Yönet", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Rolleri Yönet", value="Hayır", inline=False)   
+
+    if member.guild_permissions.view_audit_log == True:
+       embed.add_field(name="Denetim Kaydını Görüntüle", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Denetim Kaydını Görüntüle", value="Hayır", inline=False)  
+
+    if member.guild_permissions.manage_nicknames == True:
+       embed.add_field(name="Kullanıcı Adlarını Yönet", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Kullanıcı Adlarını Yönet", value="Hayır", inline=False)     
+
+    if member.guild_permissions.manage_emojis == True:
+       embed.add_field(name="Emojileri Yönet", value="Evet", inline=False)
+    else:   
+       embed.add_field(name="Emojileri Yönet", value="Hayır", inline=False)  
+
+    await ctx.send(embed=embed)   
+
+
+
+@yetkileri.error
+async def yetkileri_error(ctx, error): 
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send('Lütfen yetkilerini görmek istediğiniz kişiyi, komut sonrasında etiketleyerek belirtiniz. ')
+
+
+@bot.command()
+async def yetkilerim(ctx):
+    icon = str(ctx.guild.icon_url)
+    member = ctx.message.author  # set member as the author
 
     embed = discord.Embed(title="", description="", color=0x14ffd8)
     embed.set_author(name=member.display_name, url="", icon_url=member.avatar_url)
@@ -1342,5 +1704,4 @@ async def önemligünler(ctx):
 
     await ctx.send(embed=embed)   
 
-   
 bot.run(TOKEN)
