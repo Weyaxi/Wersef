@@ -12,8 +12,6 @@ import random
 import string
 import pyshorteners
 import os
-import pyqrcode
-from pyqrcode import QRCode
 
 intents = discord.Intents.default()  
 intents.members = True
@@ -1762,20 +1760,5 @@ async def önemligünler(ctx):
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)   
-
-
-@bot.command(pass_context=True)
-async def karekod(ctx, link):
-    s = f"{link}"
-
-    url = pyqrcode.create(s)
-    url.png('myqr.png', scale = 6)
-
-    await ctx.send(file=discord.File('myqr.png'))
-
-    await asyncio.sleep(5)
-
-    os.remove("myqr.png")
-
 
 bot.run(TOKEN)
