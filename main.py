@@ -12,7 +12,6 @@ import random
 import string
 import pyshorteners
 import os
-import png
 import pyqrcode
 from pyqrcode import QRCode
 
