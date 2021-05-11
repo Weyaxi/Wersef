@@ -71,6 +71,10 @@
  
 ⭐ **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir.
 
+⭐ **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir.
+
+⭐ **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır.
+
 ⭐ **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur.
 
 ⭐ **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.
