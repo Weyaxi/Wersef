@@ -49,6 +49,18 @@ async def on_command_error(ctx, error):
         print(f'{ctx.invoked_with} Adlı Komut Bulunamadı')
 
 
+@bot.event
+async def on_guild_join(guild):
+    channel = bot.get_channel(841766204284469298)
+    id = str(guild.id)
+
+    embed = discord.Embed(title="<:nametag:841951946650812426> │ Eklediği Sunucu", description=f"{guild.name}", color=0xff8800)
+    embed.add_field(name="🆔 │ Sunucu ID'si", value=id, inline=False)
+    embed.add_field(name="👤 │ Sunucu Sahibi", value=f"<@!{guild.owner_id}>", inline=False)
+
+    await channel.send(embed=embed)
+
+
 @bot.command(aliases=['yardım'])
 async def help(ctx):
     name = str(ctx.guild.name)
@@ -1063,7 +1075,7 @@ async def öneri(ctx, *, mesaj):
 
     await ctx.send(embed=embed1)
 
-    embed = discord.Embed(title="<:adetiketi:838351966165794837> │ Önerdiği Sunucu", description=f"{ctx.guild.name}", color=0x00ff33)
+    embed = discord.Embed(title="<:nametag:841951946650812426> │ Önerdiği Sunucu", description=f"{ctx.guild.name}", color=0x00ff33)
     embed.add_field(name="👤 │ Öneren Kişi", value=f"<@!{ctx.author.id}>", inline=False)
     embed.add_field(name="Önerisi", value=f"{mesaj}", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
