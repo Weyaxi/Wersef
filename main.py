@@ -389,11 +389,11 @@ async def sunucukur1(ctx):
     guild = ctx.guild
     
     await guild.create_role(name="─────Üst Yönetim─────", color=14988288)   
-    role1 = await guild.create_role(name="🛡️│Admin", color=16711680) 
-    role2 = await guild.create_role(name="👑│Sunucu Kurucusu", color=15105570) 
+    role1 = await guild.create_role(name="Admin", color=16711680) 
+    role2 = await guild.create_role(name="Sunucu Kurucusu", color=15105570) 
     await guild.create_role(name="──────Yönetim──────", color=14988288) 
-    role3 = await guild.create_role(name="👑│Moderatör", color=15105570) 
-    role4 = await guild.create_role(name="👮‍♂️│Denetmen", color=19905) 
+    role3 = await guild.create_role(name="Moderatör", color=15105570) 
+    role4 = await guild.create_role(name="‍Denetmen", color=19905) 
     await guild.create_role(name="──────Botlar──────", color=14988288) 
     await guild.create_role(name="BOT", color=2116844) 
     await guild.create_role(name="BOT", color=2116844) 
@@ -404,14 +404,14 @@ async def sunucukur1(ctx):
     await asyncio.sleep(1)
 
     await guild.create_role(name="──────Özel──────", color=14988288) 
-    role = await guild.create_role(name="🔐│VİP", color=15105570)
-    await guild.create_role(name="👲│Sunucu Takviyecisi", color=16711863) 
+    role = await guild.create_role(name="VİP", color=15105570)
+    await guild.create_role(name="Sunucu Takviyecisi", color=16711863) 
     await guild.create_role(name="──────Diğer──────", color=14988288) 
-    await guild.create_role(name="🎧│Müziksever", color=3447003) 
-    await guild.create_role(name="🎮│Oyuncu", color=15105570) 
+    await guild.create_role(name="Müziksever", color=3447003) 
+    await guild.create_role(name="Oyuncu", color=15105570) 
     await guild.create_role(name="──────Bot Rolleri──────", color=14988288) 
-    await guild.create_role(name="🤖│Özel Bot", color=2116844) 
-    await guild.create_role(name="🤖│Botçuk", color=2116844) 
+    await guild.create_role(name="Özel Bot", color=2116844) 
+    await guild.create_role(name="Botçuk", color=2116844) 
     await guild.create_role(name="──────Discord──────", color=14988288) 
 
     for c in ctx.guild.channels:
@@ -518,6 +518,25 @@ async def sunucukur1(ctx):
 async def sunucukur1_error(ctx, error): 
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
+
+
+@bot.command()
+async def sunucukur(ctx):
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Sunucu Kurma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!sunucukur** <sayı_birleşik>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!sunucukur1:** Sade, renksiz bir sunucu sizin için kurulur. \n > :dizzy: **w!sunucukur2:** Renkli ve modern bir sunucu sizin için kurulur. \n  > :dizzy: **w!sunucukur3:** Renkli ve lüks bir sunucu sizin için kurulur. ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)   
 
 
 @commands.has_permissions(administrator=True)
@@ -1500,7 +1519,7 @@ async def sunucukomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Sunucu Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > :dizzy: **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > :dizzy: **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > :dizzy: **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > :dizzy: **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > :dizzy: **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > :dizzy: **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur. \n > :dizzy: **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
+        description="> :dizzy: **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > :dizzy: **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > :dizzy: **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > :dizzy: **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > :dizzy: **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > :dizzy: **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > :dizzy: **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni bir sunucu oluşturur. \n > :dizzy: **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
