@@ -112,7 +112,7 @@ async def roles(ctx):
 
 @commands.has_permissions(administrator=True)
 @bot.command()
-async def sunucukur(ctx, *, sayı):
+async def sunucukur(ctx, sayı):
     guild = ctx.guild
 
     if sayı == 3:
