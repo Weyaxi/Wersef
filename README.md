@@ -1,6 +1,6 @@
 # Wersef Discord Botu
 
-📁 Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir fikir ürünümdür. Söz konusu bottan gerekli bir çok komutu gerçekleştirip, eğlence ve bazı işe yarar komutlar da bulunmakta.
+📁 Wersef adlı Türkçe discord botum, boş zamanlarıma geliştiriğim güzel bir fikir ürünümdür. Söz konusu bu bot, sunucunuz için gerekli bir çok komutu gerçekleştirip, aynı zamanda sizi eğlendirebilir.
 
 # Genel Bilgilendirme
 
