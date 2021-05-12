@@ -251,7 +251,7 @@ async def sunucukur3_error(ctx, error):
 @bot.command()
 async def sunucukur2(ctx):
     guild = ctx.guild
-    
+
     await guild.create_role(name="─────Üst Yönetim─────", color=14988288)   
     role1 = await guild.create_role(name="🛡️│Admin", color=16711680) 
     role2 = await guild.create_role(name="👑│Sunucu Kurucusu", color=15105570) 
@@ -381,10 +381,143 @@ async def sunucukur2(ctx):
 @sunucukur2.error
 async def sunucukur2_error(ctx, error): 
     if isinstance(error, MissingPermissions):
-        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")      
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
 
+@commands.has_permissions(administrator=True)
+@bot.command()
+async def sunucukur1(ctx):
+    guild = ctx.guild
+    
+    await guild.create_role(name="─────Üst Yönetim─────", color=14988288)   
+    role1 = await guild.create_role(name="🛡️│Admin", color=16711680) 
+    role2 = await guild.create_role(name="👑│Sunucu Kurucusu", color=15105570) 
+    await guild.create_role(name="──────Yönetim──────", color=14988288) 
+    role3 = await guild.create_role(name="👑│Moderatör", color=15105570) 
+    role4 = await guild.create_role(name="👮‍♂️│Denetmen", color=19905) 
+    await guild.create_role(name="──────Botlar──────", color=14988288) 
+    await guild.create_role(name="BOT", color=2116844) 
+    await guild.create_role(name="BOT", color=2116844) 
+    await guild.create_role(name="BOT", color=2116844)
+    await guild.create_role(name="BOT", color=2116844)
+    await guild.create_role(name="BOT", color=2116844) 
 
+    await asyncio.sleep(1)
 
+    await guild.create_role(name="──────Özel──────", color=14988288) 
+    role = await guild.create_role(name="🔐│VİP", color=15105570)
+    await guild.create_role(name="👲│Sunucu Takviyecisi", color=16711863) 
+    await guild.create_role(name="──────Diğer──────", color=14988288) 
+    await guild.create_role(name="🎧│Müziksever", color=3447003) 
+    await guild.create_role(name="🎮│Oyuncu", color=15105570) 
+    await guild.create_role(name="──────Bot Rolleri──────", color=14988288) 
+    await guild.create_role(name="🤖│Özel Bot", color=2116844) 
+    await guild.create_role(name="🤖│Botçuk", color=2116844) 
+    await guild.create_role(name="──────Discord──────", color=14988288) 
+
+    for c in ctx.guild.channels:
+        await c.delete()
+    for category in ctx.guild.categories:
+        await category.delete()  
+
+    await asyncio.sleep(1)
+
+    category9 = await guild.create_category('☞Yönetici Kategorisi ☜')    
+    await category9.create_text_channel('yönetim-sohbet')  
+    await category9.create_text_channel('yönetim-bot-komut')    
+    await category9.create_voice_channel('Yönetim Odası¹') 
+    await category9.create_voice_channel('Yönetim Odası²')
+    await category9.create_voice_channel('Yönetim Odası³')
+
+    await category9.set_permissions(role1, read_messages=True, send_messages=True, connect=True, speak=True)
+    await category9.set_permissions(role2, read_messages=True, send_messages=True, connect=True, speak=True)
+    await category9.set_permissions(role3, read_messages=True, send_messages=True, connect=True, speak=True)
+    await category9.set_permissions(role4, read_messages=True, send_messages=True, connect=True, speak=True)
+    await category9.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
+    await category9.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
+
+    await asyncio.sleep(1)
+
+    category1 = await guild.create_category('☞ Bilgi Kategorisi ☜')    
+    await category1.create_text_channel('kurallar')    
+    await category1.create_text_channel('hakkında')    
+    await category1.create_text_channel('duyuru')    
+    await category1.create_text_channel('giriş-çıkış')
+    await category1.create_text_channel('seviye')
+    
+    await asyncio.sleep(1)
+
+    category2 = await guild.create_category('☞ Genel Kategori ☜')    
+    await category2.create_text_channel('sohbet')    
+    await category2.create_text_channel('görsel')    
+    await category2.create_text_channel('video')
+    await category2.create_text_channel('gif')
+    await category2.create_text_channel('bot-komut') 
+    await category2.create_text_channel('öneri') 
+
+    await asyncio.sleep(1)
+
+    category3 = await guild.create_category('☞ Genel Ses Kategorisi ☜')    
+    await category3.create_voice_channel('Sohbet¹')    
+    await category3.create_voice_channel('Sohbet²')
+    await category3.create_voice_channel('Sohbet³')
+    await category3.create_voice_channel('Sohbet⁴')
+    await category3.create_voice_channel('Sohbet⁵')
+
+    await asyncio.sleep(1)
+
+    category4 = await guild.create_category('☞ Özel Ses Kategorisi ☜')    
+    await category4.create_voice_channel(name='2 Kişilik Oda', user_limit=2)  
+    await category4.create_voice_channel(name='2 Kişilik Oda', user_limit=2)  
+    await category4.create_voice_channel(name='4 Kişilik Oda', user_limit=4)  
+    await category4.create_voice_channel(name='4 Kişilik Oda', user_limit=4)  
+    await category4.create_voice_channel(name='6 Kişilik Oda', user_limit=6)  
+    await category4.create_voice_channel(name='6 Kişilik Oda', user_limit=6)  
+
+    await asyncio.sleep(1)
+
+    category7 = await guild.create_category('☞ AFK Kategorisi ☜')    
+    await category7.create_voice_channel(name='AFK¹') 
+    await category7.create_voice_channel(name='AFK²') 
+    await category7.create_voice_channel(name='AFK³') 
+    await category7.create_voice_channel(name='AFK⁴') 
+    await category7.create_voice_channel(name='AFK⁵')  
+
+    await asyncio.sleep(1)
+
+    category5 = await guild.create_category('☞ Müzik Kategorisi ☜')    
+    await category5.create_text_channel('müzik-öneri')    
+    await category5.create_text_channel('müzik-komut')    
+    await category5.create_voice_channel('Müzik Odası¹')
+    await category5.create_voice_channel('Müzik Odası²')
+    await category5.create_voice_channel('Müzik Odası³')
+    
+    await asyncio.sleep(1)
+
+    category6 = await guild.create_category('☞ Oyun Kategorisi ☜')    
+    await category6.create_text_channel('sohbet')       
+    await category6.create_voice_channel('Oyun Odası¹')
+    await category6.create_voice_channel('Oyun Odası²')
+    await category6.create_voice_channel('Oyun Odası³')
+    await category6.create_voice_channel('Oyun Odası⁴')
+    await category6.create_voice_channel('Oyun Odası⁵')
+
+    await asyncio.sleep(1)
+
+    category8 = await guild.create_category('☞VİP Kategorisi ☜')    
+    await category8.create_text_channel('vip-sohbet')  
+    await category8.create_text_channel('vip-bot-komut')    
+    await category8.create_voice_channel('VİP Odası¹') 
+    await category8.create_voice_channel('VİP Odası²')
+    await category8.create_voice_channel('VİP Odası³')
+
+    await category8.set_permissions(role, read_messages=True, send_messages=True, connect=True, speak=True)
+    await category8.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False, connect=False)
+    await category8.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
+
+@sunucukur1.error
+async def sunucukur1_error(ctx, error): 
+    if isinstance(error, MissingPermissions):
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
 
 
 @commands.has_permissions(administrator=True)
