@@ -46,7 +46,7 @@ async def on_ready():
 async def on_command_error(ctx, error):
     if isinstance(error, CommandNotFound):
         await ctx.send(f'Komut bulunamadı. Eğer böyle bir komutun olduğunu gerçekten düşünüyorsanız lütfen yapımcım ile iritibata geçiniz.')
-        print(f'{ctx.invoked_with} Adlı Komut Bulunamadı')
+        print(f'{ctx.invoked_with} Adlı Komut Bulunamadı ({str(ctx.author)} Tarafından Kullanıldı)')
 
 
 @bot.event
