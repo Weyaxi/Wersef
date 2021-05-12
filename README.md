@@ -75,11 +75,15 @@
 
 ⭐ **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır.
 
+⭐ **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur.
+
+⭐ **w!roller:** Sunuzunuzdaki bütün roller görüntülenir.
+
 ⭐ **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur.
 
 ⭐ **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.
 
-⭐ **w!roller:** Sunuzunuzdaki bütün roller görüntülenir.
+
 
 # Hesaplama Komutları
 
