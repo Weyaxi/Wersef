@@ -112,7 +112,7 @@ async def roles(ctx):
 
 @commands.has_permissions(administrator=True)
 @bot.command()
-async def sunucukur(ctx, sayı):
+async def sunucukur(ctx, *, sayı):
     guild = ctx.guild
 
     if sayı == 3:
@@ -243,8 +243,9 @@ async def sunucukur(ctx, sayı):
         await category8.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False, connect=False)
         await category8.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
 
+    else:
 
-    if sayı == 2:
+        if sayı == 2:
 
         await guild.create_role(name="─────Üst Yönetim─────", color=14988288)   
         role1 = await guild.create_role(name="🛡️│Admin", color=16711680) 
@@ -371,6 +372,8 @@ async def sunucukur(ctx, sayı):
         await category8.set_permissions(role, read_messages=True, send_messages=True, connect=True, speak=True)
         await category8.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False, connect=False)
         await category8.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
+
+
 
 
 
