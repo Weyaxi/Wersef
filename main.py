@@ -1229,7 +1229,7 @@ async def sunucukomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Sunucu Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> :dizzy: **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > :dizzy: **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > :dizzy: **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > :dizzy: **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > :dizzy: **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur. \n > :dizzy: **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler. \n > :dizzy: **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. ",
+        description="> :dizzy: **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > :dizzy: **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > :dizzy: **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > :dizzy: **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > :dizzy: **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > :dizzy: **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > :dizzy: **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni, modern bir sunucu oluşturur. \n > :dizzy: **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1772,5 +1772,57 @@ async def önemligünler(ctx):
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)   
+
+
+
+
+@commands.has_permissions(manage_roles=True)
+@bot.command(pass_context=True, aliases=['rol-oluştur', 'createrole', 'create-role'])
+async def rololuştur(ctx, roladı):
+    description = str(ctx.guild.description)
+    embed = discord.Embed(title="✅ Rol Oluşturuldu", description=f"Belirttiğiniz rol başarıyla oluşturuldu.", color=0x00ff33)
+
+    await ctx.send(embed=embed)
+    whatRole = await ctx.guild.create_role(name=f"{roladı}")
+
+
+@rololuştur.error
+async def rololuştur_error(ctx, error): 
+    if isinstance(error, MissingPermissions):
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
+    if isinstance(error, commands.MissingRequiredArgument):
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Rol Oluşturma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmışınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-oluştur** <rolünüz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-oluştur** Admin \n > :dizzy: **w!rol-oluştur** Moderatör \n > :dizzy: **w!rol-oluştur** Denetmen \n > :dizzy: **w!rol-oluştur** VIP ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)  
+         
+    if isinstance(error, commands.BadArgument):
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Rol Oluşturma Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmışınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-oluştur** <rolünüz>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-oluştur** Admin \n > :dizzy: **w!rol-oluştur** Moderatör \n > :dizzy: **w!rol-oluştur** Denetmen \n > :dizzy: **w!rol-oluştur** VIP ", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **:open_file_folder: Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **:open_file_folder: Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+        await ctx.send(embed=embed)  
+
 
 bot.run(TOKEN)
