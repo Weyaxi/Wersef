@@ -54,11 +54,24 @@ async def on_guild_join(guild):
     channel = bot.get_channel(841766204284469298)
     id = str(guild.id)
 
-    embed = discord.Embed(title="<:nametag:841951946650812426> │ Eklediği Sunucu", description=f"{guild.name}", color=0xff8800)
+    embed = discord.Embed(title="<:nametag:841951946650812426> │ Eklenen Sunucu", description=f"{guild.name}", color=0xff8800)
     embed.add_field(name="🆔 │ Sunucu ID'si", value=id, inline=False)
     embed.add_field(name="👤 │ Sunucu Sahibi", value=f"<@!{guild.owner_id}>", inline=False)
 
     await channel.send(embed=embed)
+
+
+@bot.event
+async def on_guild_remove(guild):
+    channel = bot.get_channel(841766204284469298)
+    id = str(guild.id)
+
+    embed = discord.Embed(title="<:nametag:841951946650812426> │ Atılan Sunucu", description=f"{guild.name}", color=0xff0000)
+    embed.add_field(name="🆔 │ Sunucu ID'si", value=id, inline=False)
+    embed.add_field(name="👤 │ Sunucu Sahibi", value=f"<@!{guild.owner_id}>", inline=False)
+
+    await channel.send(embed=embed)
+
 
 
 @bot.command(aliases=['yardım'])
@@ -727,22 +740,6 @@ async def yalvar_error(ctx, error):
         await ctx.send('Lütfen yalvarmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')       
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')  
-
-
-@bot.command()
-async def nigga(ctx):
-    variable = [
-        "https://pbs.twimg.com/profile_images/1033743266041290752/iUhPnzVK_400x400.jpg",
-        "https://cdn.discordapp.com/attachments/826400866919120911/837245080544215040/2Q.png",
-        "https://cdn.discordapp.com/attachments/826400866919120911/837246208618528788/e8a23f5fa948f7b3bd81d99119314e00.png"
-        "https://media.tenor.com/images/83a327ca66deb44c1a46742bbbefaed7/tenor.gif",
-        "https://i.imgur.com/r6i4v9V.jpg"]
-
-    description = str(ctx.guild.description)
-    embed = discord.Embed(title="Nigga", description=f"Nigga", color=0xffa200)
-    embed.set_image(url="{}".format(random.choice(variable)))
-
-    await ctx.send(embed=embed)        
 
 
 @bot.command(aliases=['not', 'bot_not', 'bot_notu'])
