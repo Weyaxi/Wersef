@@ -61,6 +61,16 @@
 
 ⭐ **w!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir.
 
+⭐ **w!instagram:** Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar.
+
+⭐ **w!facebook:** Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar.
+
+⭐ **w!twitter:** Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar.
+
+⭐ **w!twitch:** Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar.
+
+⭐ **w!github:** Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar.
+
 ⭐ **w!şifreoluştur:** Bot, kullanabileceğiniz güçlü şifreler oluşturur.
 
 ⭐ **w!embeds:**  Gömülü mesaj seçeneklerini size sunar.
