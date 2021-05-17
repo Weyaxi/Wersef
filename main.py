@@ -1319,6 +1319,17 @@ async def arabasür(ctx):
     await ctx.send(embed=embed)
 
 
+
+@bot.command()
+async def polisiara(ctx):
+    description = str(ctx.guild.description)
+    embed = discord.Embed(title="🕵️‍♂️ Polis Aranıyor", description=f"🕵️‍♂️ {ctx.author.display_name} Adlı Kullanıcı Başarıyla Polisi Aradı Ama Neden Bilmiyorum", color=0xffa200)
+    embed.set_image(url="https://media.giphy.com/media/l7X7hKzUuPQbOUthqi/giphy.gif")
+
+    await ctx.send(embed=embed)
+
+
+
 @bot.command(aliases=['sunucu_sahibi', 'serverowner', 'server_owner', 'sunucusahibi',])
 async def sahip(ctx):
     name = str(ctx.guild.name)
@@ -1363,7 +1374,7 @@ async def eğlence(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Eğlence Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > _ _ \n > <:yesilok:843149816880037899> **w!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > _ _ \n> <:yesilok:843149816880037899> **w!arabasür:** Araba sürmenizi sağlar.",
+        description="> <:yesilok:843149816880037899> **w!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > _ _ \n > <:yesilok:843149816880037899> **w!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > _ _ \n> <:yesilok:843149816880037899> **w!arabasür:** Araba sürmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!polisiara:** Polisi aramanız sağlanır. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
