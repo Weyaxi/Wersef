@@ -126,6 +126,8 @@
 
 ⭐ **w!arabasür:** Araba sürmenizi sağlar.
 
+⭐ **w!polisiara:** Polisi aramanızı sağlar.
+
 # İşe Yarar Komutlar
 
 ⭐ **w!discordnedir:** Discord hakkında bilgiler size sunulur.
