@@ -234,6 +234,13 @@ async def sunucukur3(ctx):
     await category2.create_text_channel('「🤖」bot-komut') 
     await category2.create_text_channel('「✅」öneri') 
 
+    await asyncio.sleep(1) 
+
+    category10 = await guild.create_category('☞ Eğlence Kategorisi ☜')    
+    await category10.create_text_channel('「😜」meme')    
+    await category10.create_text_channel('「😜」espri')    
+    await category10.create_text_channel('「🎉」spam-kanalı')  
+
     await asyncio.sleep(1)
 
     category3 = await guild.create_category('☞ Genel Ses Kategorisi ☜')    
@@ -372,6 +379,13 @@ async def sunucukur2(ctx):
     await category2.create_text_channel('✅│öneri') 
 
     await asyncio.sleep(1)
+    
+    category10 = await guild.create_category('☞ Eğlence Kategorisi ☜')    
+    await category10.create_text_channel('😜│meme')    
+    await category10.create_text_channel('😜│espri')    
+    await category10.create_text_channel('🎉│spam-kanalı')
+
+    await asyncio.sleep(1)    
 
     category3 = await guild.create_category('☞ Genel Ses Kategorisi ☜')    
     await category3.create_voice_channel('🎙│ Sohbet¹')    
@@ -509,6 +523,13 @@ async def sunucukur1(ctx):
 
     await asyncio.sleep(1)
 
+    category10 = await guild.create_category('☞ Eğlence Kategorisi ☜')    
+    await category10.create_text_channel('meme')    
+    await category10.create_text_channel('espri')    
+    await category10.create_text_channel('spam-kanalı')
+
+    await asyncio.sleep(1)
+
     category3 = await guild.create_category('☞ Genel Ses Kategorisi ☜')    
     await category3.create_voice_channel('Sohbet¹')    
     await category3.create_voice_channel('Sohbet²')
@@ -587,8 +608,8 @@ async def sunucukur(ctx):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!sunucukur** <sayı_birleşik>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!sunucukur1:** Sade, renksiz bir sunucu sizin için kurulur. \n > :dizzy: **w!sunucukur2:** Renkli ve modern bir sunucu sizin için kurulur. \n  > :dizzy: **w!sunucukur3:** Renkli ve lüks bir sunucu sizin için kurulur. ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)   
 
 
@@ -836,8 +857,8 @@ async def test_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!kick** <kullanıcı> <nedeniniz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!kick** {ctx.author.mention} Spam \n > :dizzy: **w!kick** {ctx.author.mention} Argo \n  > :dizzy: **w!kick** {ctx.author.mention} Hakaret \n > :dizzy: **w!kick** {ctx.author.mention} Saygısızlık \n ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)   
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')         
@@ -876,8 +897,8 @@ async def mute_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!mute** <kullanıcı> <nedeniniz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!mute** {ctx.author.mention} Spam \n > :dizzy: **w!mute** {ctx.author.mention} Argo \n  > :dizzy: **w!mute** {ctx.author.mention} Hakaret \n > :dizzy: **w!mute** {ctx.author.mention} Saygısızlık \n ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)   
 
     if isinstance(error, commands.BadArgument):
@@ -918,8 +939,8 @@ async def voicemute_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!voicemute** <kullanıcı> <nedeniniz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!voicemute** {ctx.author.mention} Mikrofonu Yedi \n > :dizzy: **w!voicemute** {ctx.author.mention} Argo Kullandı \n  > :dizzy: **w!voicemute** {ctx.author.mention} Hakaret Etti \n > :dizzy: **w!voicemute** {ctx.author.mention} Saygısızlık Yaptı  ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)   
 
     if isinstance(error, commands.BadArgument):
@@ -954,8 +975,8 @@ async def test_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unmute** <kullanıcı> <nedeniniz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unmute** {ctx.author.mention} Spam Yapmayı Bıraktı \n > :dizzy: **w!unmute** {ctx.author.mention} Argo Yapmayı Bıraktı \n  > :dizzy: **w!unmute** {ctx.author.mention} Hakaret  Etmeyi Bıraktı \n > :dizzy: **w!unmute** {ctx.author.mention} Saygısızlık Yapmayı Bıraktı \n ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)   
 
     if isinstance(error, commands.BadArgument):
@@ -988,8 +1009,8 @@ async def unvoicemute_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unvoicemute** <kullanıcı> <nedeniniz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unvoicemute** {ctx.author.mention} Mikrofonu Yemeyi Bıraktı \n > :dizzy: **w!unvoicemute** {ctx.author.mention} Bağırmayı Bıraktı \n  > :dizzy: **w!unvoicemute** {ctx.author.mention} Hakaret  Etmeyi Bıraktı \n > :dizzy: **w!unvoicemute** {ctx.author.mention} Saygısızlık Yapmayı Bıraktı \n ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)   
 
     if isinstance(error, commands.BadArgument):
@@ -1021,8 +1042,8 @@ async def test_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!ban** <kullanıcı> <nedeniniz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!ban** {ctx.author.mention} Spam \n > :dizzy: **w!ban** {ctx.author.mention} Argo \n  > :dizzy: **w!ban** {ctx.author.mention} Hakaret \n > :dizzy: **w!ban** {ctx.author.mention} Saygısızlık \n ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)   
 
     if isinstance(error, commands.BadArgument):
@@ -1048,8 +1069,8 @@ async def unban(ctx, *, user=None):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!unban** <kullanıcı>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!unban** {ctx.author.mention} \n > :dizzy: **w!unban** {ctx.author.mention} \n  > :dizzy: **w!unban** {ctx.author.mention} \n > :dizzy: **w!unban** {ctx.author.mention}\n ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)  
         return
 
@@ -1107,8 +1128,8 @@ async def giverole_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-ver** <kullanıcı> <rolünüz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-ver** {ctx.author.mention} Admin \n > :dizzy: **w!rol-ver** {ctx.author.mention} Moderatör \n > :dizzy: **w!rol-ver** {ctx.author.mention} Denetmen \n > :dizzy: **w!rol-ver** {ctx.author.mention} VIP ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)  
          
     if isinstance(error, commands.BadArgument):
@@ -1124,8 +1145,8 @@ async def giverole_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-ver** <kullanıcı> <rolünüz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-ver** {ctx.author.mention} Admin \n > :dizzy: **w!rol-ver** {ctx.author.mention} Moderatör \n > :dizzy: **w!rol-ver** {ctx.author.mention} Denetmen \n > :dizzy: **w!rol-ver** {ctx.author.mention} VIP ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)  
 
 
@@ -1156,8 +1177,8 @@ async def takerole_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-kaldır** <kullanıcı> <rolünüz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-kaldır** {ctx.author.mention} Admin \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} Moderatör \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} Denetmen \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} VIP ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)  
          
     if isinstance(error, commands.BadArgument):
@@ -1173,8 +1194,8 @@ async def takerole_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-kaldır** <kullanıcı> <rolünüz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-kaldır** {ctx.author.mention} Admin \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} Moderatör \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} Denetmen \n > :dizzy: **w!rol-kaldır** {ctx.author.mention} VIP ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)  
 
 
@@ -1227,7 +1248,7 @@ async def userinfo(ctx, member: discord.Member = None):
     
 
     embed.set_author(name=member.display_name, url="", icon_url=member.avatar_url)
-    embed.add_field(name="👤 │Kullanıcı Adı", value=member.display_name)
+    embed.add_field(name="👤 │Kullanıcı Adı", value=f"{str(member)}")
     embed.add_field(name="🆔 │ Kullanıcı ID'si", value=member.id)
     embed.add_field(name="<:discord:826722461943988254> │Discord'a Katıldı", value=member.created_at.strftime("%d/%m/%Y"))
     embed.add_field(name="🏛️ │ Sunucuya Katıldı ", value=member.joined_at.strftime("%d/%m/%Y"))
@@ -1453,8 +1474,8 @@ async def embeds(ctx):
     embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!embed** <mesajınız>", inline=False)
     embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!embed** Merhabalar {bot_yapımcısı} \n > :dizzy: **w!embed** Nasılsınız? \n > :dizzy: **w!embed** Kod yazıyorum. \n > :dizzy: **w!embed** İyiyim, yatıyorum öyle.", inline=False)
     
-    embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+    embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
     await ctx.send(embed=embed)   
 
 
@@ -1802,7 +1823,7 @@ async def nickname_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!nickname** <kullanıcı> <yeni-ad>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!nickname** {ctx.author.mention} Sunucu Kurucusu \n > :dizzy: **w!nickname** {ctx.author.mention} Sunucu Admin'i \n  > :dizzy: **w!nickname** {ctx.author.mention} Sunucu Moderatörü \n > :dizzy: **w!nickname** {ctx.author.mention} Cezalı Üye \n ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
         
         await ctx.send(embed=embed)  
 
@@ -1996,8 +2017,8 @@ async def rololuştur_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!rol-oluştur** <rolünüz>", inline=False)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!rol-oluştur** Admin \n > :dizzy: **w!rol-oluştur** Moderatör \n > :dizzy: **w!rol-oluştur** Denetmen \n > :dizzy: **w!rol-oluştur** VIP ", inline=False)
     
-        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
         await ctx.send(embed=embed)  
          
     if isinstance(error, commands.BadArgument):
