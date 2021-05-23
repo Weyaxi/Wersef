@@ -12,6 +12,7 @@ import random
 import string
 import pyshorteners
 import os
+import aiohttp
 
 intents = discord.Intents.default()  
 intents.members = True
@@ -42,6 +43,17 @@ async def on_ready():
     print(f'Discord Versiyonu {discord.__version__}')
     print('-----------------------')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!yardım"))
+
+
+
+@bot.command() 
+async def emoji(ctx, url): 
+    async with aiohttp.ClientSession() as session:
+        async with session.get(f'{url}') as response:
+            img = await response.read()    
+    await guild.create_custom_emoji(name='newemoji', image=img)
+
+
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -129,7 +141,8 @@ async def help(ctx):
     embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
 
 
-    await ctx.send(embed=embed)    
+    await ctx.send(embed=embed)        
+
 
 @bot.command()
 async def ping(ctx):
@@ -1486,7 +1499,7 @@ async def sunucukomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Sunucu Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni bir sunucu oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
+        description="> <:yesilok:843149816880037899> **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni bir sunucu oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -2038,6 +2051,43 @@ async def nitro(ctx):
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     embed.set_thumbnail(url="https://yt3.ggpht.com/ytc/AAUvwniEUaBNWbH9Pk7A1cmIBdxnYt0YYrgNKx5h8grSMA=s900-c-k-c0x00ffffff-no-rj")
     await ctx.send(embed=embed)
+
+
+
+@commands.has_permissions(manage_emojis=True)
+@bot.command(pass_context=True, aliases=['emoji-yükle', 'uploademoji', 'upload-emoji']) 
+async def emojiyükle(ctx, name, url): 
+    async with aiohttp.ClientSession() as session:
+        async with session.get(f'{url}') as response:
+            img = await response.read()    
+    await ctx.guild.create_custom_emoji(name=f'{name}', image=img)
+    embed = discord.Embed(title=f"✅ Emoji Oluşturuldu", description=f"**{name}** Adlı Emoji Başarıyla Sunucuya Yüklendi", color=0x2bff00)
+    embed.set_thumbnail(url=url)
+    await ctx.channel.send(embed=embed)
+
+
+@emojiyükle.error
+async def emojiyükle_error(ctx, error): 
+    if isinstance(error, MissingPermissions):
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")           
+    if isinstance(error, commands.BadArgument):
+        await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.') 
+    if isinstance(error, commands.MissingRequiredArgument):
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+    
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Emoji Yükleme Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!emojiyükle** <ad> <emoji-linki>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!emoji** Emoji https://emoji.gif \n > :dizzy: **w!emoji** Emoji https://emoji.png \n > :dizzy: **w!emoji** Emoji https://emoji.jpg \n > :dizzy: **w!emoji** Emoji https://emojil.jpeg", inline=False)
+    
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        
+        await ctx.send(embed=embed)     
 
 
 @bot.command()
