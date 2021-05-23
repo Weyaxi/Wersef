@@ -1451,7 +1451,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!rozetler:** Bütün Discord rozetleri, size renkli bir şekilde sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n  > _ _ \n > <:yesilok:843149816880037899> **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n  > _ _ \n > <:yesilok:843149816880037899> **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n  > _ _ \n > <:yesilok:843149816880037899> **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> <:yesilok:843149816880037899> **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!rozetler:** Bütün Discord rozetleri, size renkli bir şekilde sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!nitro:** Discord Nitro seçenekleri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n  > _ _ \n > <:yesilok:843149816880037899> **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n  > _ _ \n > <:yesilok:843149816880037899> **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n  > _ _ \n > <:yesilok:843149816880037899> **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -2024,6 +2024,22 @@ async def rololuştur_error(ctx, error):
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')  
 
+
+@bot.command()
+async def nitro(ctx):
+    description = str(ctx.guild.description)
+    icon = str(ctx.guild.icon_url)
+
+    embed = discord.Embed(title="<:discord:826722461943988254> │ Discord Nitro Seçenekleri", description=f"Çoğumuzun bildiği kadarıyla Discord nitro sahibi kullanıcılar, diğer kullanıcılardan farklı olarak bazı ayrıcılıklara sahip oluyor. Bununla birlikte iki seçenek olarak sunulan Discord nitro seçenekleri bulunmakta.      ", color=7506393)
+    embed.add_field(name="<:nitro:845932912650092545> │ Nitro Classic (5 Dolar)", value="\n \n **● Hareketli Avatar Kullanma Hakkı** \n \n **● Discord Etiketini Değiştirme Hakkı** \n \n ● **Özelleştirilmiş Emojileri Kullanma Hakkı** \n \n **● Hareketli Emojileri Kullanma Hakkı** \n \n **● 50 MB'ya Kadar Dosya Yükleyebilme Hakkı** \n \n **● Yüksek Kaliteli Ekran Paylaşabilme Hakkı**     ", inline=False)
+    embed.add_field(name="<a:nitroboost:845932913840226364> │ Nitro Boost (10 Dolar)", value="\n \n **● İki Kere Sunucu Takviyesi Yapma Hakkı**  \n \n **● Hareketli Avatar Kullanma Hakkı** \n \n **● Discord Etiketini Değiştirme Hakkı** \n \n ● **Özelleştirilmiş Emojileri Kullanma Hakkı** \n \n **● Hareketli Emojileri Kullanma Hakkı** \n \n **● 100 MB'ya Kadar Dosya Yükleyebilme Hakkı** \n \n **● Yüksek Kaliteli Ekran Paylaşabilme Hakkı**        ", inline=False)
+   
+
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.set_thumbnail(url="https://yt3.ggpht.com/ytc/AAUvwniEUaBNWbH9Pk7A1cmIBdxnYt0YYrgNKx5h8grSMA=s900-c-k-c0x00ffffff-no-rj")
+    await ctx.send(embed=embed)
+
+
 @bot.command()
 async def instagram(ctx, kullanıcıadı):
     description = str(ctx.guild.description)
@@ -2113,6 +2129,5 @@ async def github(ctx, kullanıcıadı):
 async def github_error(ctx, error): 
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen profilini görmek istediğiniz kişiyi komut sonrasıda kullanıcı adını yazarak belirtiniz.')     
-
 
 bot.run(TOKEN)
