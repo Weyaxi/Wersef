@@ -148,6 +148,8 @@
 
 ⭐ **w!rozetler:** Bütün Discord rozetleri, size renkli bir şekilde sunulur.
 
+⭐ **w!nitro:** Discord Nitro seçenekleri size sunulur.
+
 ⭐ **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar.
 
 ⭐ **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır.
