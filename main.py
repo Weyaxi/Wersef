@@ -2063,6 +2063,7 @@ async def emojiyükle(ctx, name, url):
     await ctx.guild.create_custom_emoji(name=f'{name}', image=img)
     embed = discord.Embed(title=f"✅ Emoji Oluşturuldu", description=f"**{name}** Adlı Emoji Başarıyla Sunucuya Yüklendi", color=0x2bff00)
     embed.set_thumbnail(url=url)
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     await ctx.channel.send(embed=embed)
 
 
