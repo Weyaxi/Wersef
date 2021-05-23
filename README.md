@@ -81,6 +81,8 @@
  
 ⭐ **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir.
 
+⭐ **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur.
+
 ⭐ **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir.
 
 ⭐ **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır.
