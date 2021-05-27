@@ -45,16 +45,6 @@ async def on_ready():
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!yardım"))
 
 
-
-@bot.command() 
-async def emoji(ctx, url): 
-    async with aiohttp.ClientSession() as session:
-        async with session.get(f'{url}') as response:
-            img = await response.read()    
-    await guild.create_custom_emoji(name='newemoji', image=img)
-
-
-
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, CommandNotFound):
@@ -1287,6 +1277,7 @@ async def avatar(ctx, *, member: discord.Member=None): # set the member object t
     userAvatar = member.avatar_url
     await ctx.send(userAvatar)
 
+
 @avatar.error
 async def avatar_error(ctx, error):
     if isinstance(error, commands.BadArgument):
@@ -2084,7 +2075,7 @@ async def emojiyükle_error(ctx, error):
         )
         embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
         embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!emojiyükle** <ad> <emoji-linki>", inline=False)
-        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!emoji** Emoji https://emoji.gif \n > :dizzy: **w!emoji** Emoji https://emoji.png \n > :dizzy: **w!emoji** Emoji https://emoji.jpg \n > :dizzy: **w!emoji** Emoji https://emojil.jpeg", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!emojiyükle** Emoji https://emoji.gif \n > :dizzy: **w!emojiyükle** Emoji https://emoji.png \n > :dizzy: **w!emojiyükle** Emoji https://emoji.jpg \n > :dizzy: **w!emojiyükle** Emoji https://emojil.jpeg", inline=False)
     
         embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
         
