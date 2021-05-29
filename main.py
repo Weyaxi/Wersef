@@ -13,6 +13,8 @@ import string
 import pyshorteners
 import os
 import aiohttp
+import sys
+import traceback
 
 intents = discord.Intents.default()  
 intents.members = True
@@ -38,18 +40,28 @@ lenght = int(10)
 
 @bot.event
 async def on_ready():
-    print('-----------------------')
+    channel = bot.get_channel(848198926830141480)
+
+    print('-------------------------')
     print(f'Logged in as {bot_adı}')
     print(f'Discord Versiyonu {discord.__version__}')
-    print('-----------------------')
+    print('-------------------------')
+    await channel.send(f' ```python\n------------------------- \n Logged in as {bot_adı} \n Discord Versiyonu {discord.__version__} \n-------------------------``` ')
+
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!yardım"))
 
 
 @bot.event
 async def on_command_error(ctx, error):
+    channel = bot.get_channel(848198926830141480)
+
     if isinstance(error, CommandNotFound):
         await ctx.send(f'Komut bulunamadı. Eğer böyle bir komutun olduğunu gerçekten düşünüyorsanız lütfen yapımcım ile iritibata geçiniz.')
         print(f'{ctx.invoked_with} Adlı Komut Bulunamadı ({str(ctx.author)} Tarafından Kullanıldı)')
+        await channel.send(f' ```{ctx.invoked_with} Adlı Komut Bulunamadı ({str(ctx.author)} Tarafından Kullanıldı)``` ')
+    else:
+        print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
+        traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)      
 
 
 @bot.event
