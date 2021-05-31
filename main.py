@@ -18,7 +18,7 @@ import traceback
 
 intents = discord.Intents.default()  
 intents.members = True
-bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!"), description="Normal Bot", intents=intents)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!", "W!"), description="Wersef", intents=intents)
 TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
 bot.remove_command("help")
 
@@ -31,7 +31,6 @@ destek_sunucusu = "https://discord.gg/ewGpWsx454"
 önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=415244438&scope=bot"
 discord_iletişim = "Weyaxi#8666"
 telegram_iletişim = "SS_w_o_R_d"
-
 
 chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+,-./<=>?@\_`|~"
 number = int(1)
@@ -125,6 +124,25 @@ async def hi(message):
 
         await message.channel.send(embed=embed)
 
+
+
+@bot.listen('on_message')
+async def hi(message):
+    description = str(message.guild.description)
+    icon = str(message.guild.icon_url)
+    if message.content == 'W!':
+
+        embed = discord.Embed(
+        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
+        description=f"> <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
+        color=discord.Color.blue()
+        ) 
+        
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Wersef Prefixler 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **`w!`** \n > _ _ \n > <:yesilok:843149816880037899> <@!819743355663548447> ", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
+
+        await message.channel.send(embed=embed)        
 
 
 
