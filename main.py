@@ -84,66 +84,7 @@ async def on_guild_remove(guild):
     embed.add_field(name="🆔 │ Sunucu ID'si", value=id, inline=False)
     embed.add_field(name="👤 │ Sunucu Sahibi", value=f"<@!{guild.owner_id}>", inline=False)
 
-    await channel.send(embed=embed)
-
-@bot.listen('on_message')
-async def hi(message):
-    description = str(message.guild.description)
-    icon = str(message.guild.icon_url)
-    if message.content == '<@!819743355663548447>':
-
-        embed = discord.Embed(
-        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description=f"> <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
-        color=discord.Color.blue()
-        ) 
-        
-        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Wersef Prefixler 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **`w!`** \n > _ _ \n > <:yesilok:843149816880037899> <@!819743355663548447> ", inline=False)
-        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
-        embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
-
-        await message.channel.send(embed=embed)
-
-
-
-@bot.listen('on_message')
-async def hi(message):
-    description = str(message.guild.description)
-    icon = str(message.guild.icon_url)
-    if message.content == 'w!':
-
-        embed = discord.Embed(
-        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description=f"> <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
-        color=discord.Color.blue()
-        ) 
-        
-        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Wersef Prefixler 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **`w!`** \n > _ _ \n > <:yesilok:843149816880037899> <@!819743355663548447> ", inline=False)
-        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
-        embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
-
-        await message.channel.send(embed=embed)
-
-
-
-@bot.listen('on_message')
-async def hi(message):
-    description = str(message.guild.description)
-    icon = str(message.guild.icon_url)
-    if message.content == 'W!':
-
-        embed = discord.Embed(
-        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description=f"> <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
-        color=discord.Color.blue()
-        ) 
-        
-        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Wersef Prefixler 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **`w!`** \n > _ _ \n > <:yesilok:843149816880037899> <@!819743355663548447> ", inline=False)
-        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
-        embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
-
-        await message.channel.send(embed=embed)        
-
+    await channel.send(embed=embed)      
 
 
 @bot.command(aliases=['yardım'])
@@ -866,6 +807,45 @@ async def clear(ctx, amount = 100):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")
 
 
+@commands.has_permissions(manage_channels=True)
+@bot.command(aliases=['kanalitemizle', 'kanalıtemizle', 'kanalı-temizle', 'kanali-temizle', 'kanalıkopyala', 'kanalikopyala'])
+async def nuke(ctx, channel: discord.TextChannel = None):
+    embed = discord.Embed(
+        title="▬▬▬▬▬▬▬[ 🔐 Kanal Temizleme Komutu 🔐  ]▬▬▬▬▬▬",
+        description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+        color=discord.Color.blue()
+    )
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!nuke** <kanal>", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!nuke** Sohbet \n > :dizzy: **w!nuke** Görsel \n > :dizzy: **w!nuke** Video \n > :dizzy: **w!nuke** Gif ", inline=False)
+
+    embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+    if channel == None: 
+        await ctx.send(embed=embed)
+        return
+
+    nuke_channel = discord.utils.get(ctx.guild.channels, name=channel.name)
+
+    if nuke_channel is not None:
+        embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Temizlendi", description=f"{channel.name} Adlı Kanal Başarıyla Temizlendi", color=62150)
+        embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+
+        new_channel = await nuke_channel.clone(reason=f"Bu Kanal {str(ctx.author)} Tarafından Temizlendi")
+        await nuke_channel.delete()
+        await new_channel.send(embed=embed1)
+        await ctx.send(embed=embed1)
+
+    else:
+        await ctx.send(f"{channel.name} Adlı Kanal Bulunamadı")
+
+
+@nuke.error
+async def nuke_error(ctx, error): 
+    if isinstance(error, MissingPermissions):
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
+
+
 @commands.has_permissions(kick_members=True)
 @bot.command(pass_context=True , aliases=['at', 'kov', 'kullanıcıyı_at', 'kullanıcıyıat'])
 async def kick(ctx, user: discord.Member, *, reason="Neden kullanıcı tarafından belirtilmedi."):
@@ -987,7 +967,7 @@ async def unmute(ctx, member: discord.Member, *, reason='Neden kullanıcı taraf
    mutedRole = discord.utils.get(ctx.guild.roles, name="Muted")
 
    await member.remove_roles(mutedRole)
-   embed = discord.Embed(title=f"✅ Kullanıcının Yazı Kanallarından Susturulması Kaldırıldı", description=f"**Nedeni:** {reason}\n", color=0x2bff00)
+   embed = discord.Embed(title=f"<a:yesiltik:845932913806934036>  Kullanıcının Yazı Kanallarından Susturulması Kaldırıldı", description=f"**Nedeni:** {reason}\n", color=62150)
    await ctx.send(embed=embed)
 
 
@@ -1021,7 +1001,7 @@ async def unvoicemute(ctx, member: discord.Member, *, reason='Neden kullanıcı 
    mutedRole = discord.utils.get(ctx.guild.roles, name="Voice Mute")
 
    await member.remove_roles(mutedRole)
-   embed = discord.Embed(title=f"✅ Kullanıcının Ses Kanallarından Susturulması Kaldırıldı", description=f"**Nedeni:** {reason}\n", color=0x2bff00)
+   embed = discord.Embed(title=f"<a:yesiltik:845932913806934036>  Kullanıcının Ses Kanallarından Susturulması Kaldırıldı", description=f"**Nedeni:** {reason}\n", color=62150)
    await ctx.send(embed=embed)
 
 
@@ -1123,7 +1103,7 @@ async def unban(ctx, *, user=None):
         await ctx.send("Bir hata ile karşılaşıldı.")
         return
 
-    unban = discord.Embed(title=f"✅ Kullanıcının Yasağı Kaldırıldı", description=f"**Yasak kaldırıldı", color=0x2bff00)
+    unban = discord.Embed(title=f"<a:yesiltik:845932913806934036>  Kullanıcının Yasağı Kaldırıldı", description=f"**Yasak kaldırıldı", color=62150)
     await ctx.channel.send(embed=unban)
 
 
@@ -1139,7 +1119,7 @@ async def test_error(ctx, error):
 @bot.command(pass_context=True, aliases=['rolver', 'rol-ver', 'give-role'])
 async def giverole(ctx, user: discord.Member, role: discord.Role):
     await user.add_roles(role)
-    embed = discord.Embed(title="✅ Kullanıcıya Rol Verildi", description=f"Söz konusu kullanıcıya başarıyla belirttiğiniz rol verildi.", color=0x00ff33)
+    embed = discord.Embed(title="<a:yesiltik:845932913806934036>  Kullanıcıya Rol Verildi", description=f"Söz konusu kullanıcıya başarıyla belirttiğiniz rol verildi.", color=62150)
 
     await ctx.send(embed=embed)
 
@@ -1188,7 +1168,7 @@ async def giverole_error(ctx, error):
 @bot.command(pass_context=True, aliases=['rolal', 'rol-al', 'take-role'])
 async def takerole(ctx, user: discord.Member, role: discord.Role):
     await user.remove_roles(role)
-    embed = discord.Embed(title="✅ Kullanıcının Rolü Kaldırıldı", description=f"Söz konusu kullanıcının belirttiğiniz rolü başarıyla kaldırıldı..", color=0x00ff33)
+    embed = discord.Embed(title="<a:yesiltik:845932913806934036>  Kullanıcının Rolü Kaldırıldı", description=f"Söz konusu kullanıcının belirttiğiniz rolü başarıyla kaldırıldı..", color=62150)
 
     await ctx.send(embed=embed)
 
@@ -1352,7 +1332,7 @@ async def öneri(ctx, *, mesaj):
     icon = str(ctx.guild.icon_url)
     channel = bot.get_channel(839404567183884299)
 
-    embed1 = discord.Embed(title=":white_check_mark: Öneriniz Gönderildi", description=f"Öneriniz başarıyla ilgili kişilere gönderildi. Öneriniz için teşekkürler.", color=0x00ff33)
+    embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Öneriniz Gönderildi", description=f"Öneriniz başarıyla ilgili kişilere gönderildi. Öneriniz için teşekkürler.", color=62150)
     embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed1)
@@ -1554,7 +1534,7 @@ async def moderasyon(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Moderasyon Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!sil:** Belirttiğiniz miktar kadar kolayca mesaj silmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!kick:** Belirttiğiniz kişiyi sunucudan kovar. \n > _ _ \n > <:yesilok:843149816880037899> **w!mute:** Belirttiğiniz kişiyi yazı kanallarından susturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!ban:** Belirttiğiniz kullanıcıyı sunucudan yasaklar. \n > _ _ \n > <:yesilok:843149816880037899> **w!unban:** Belirttiğiniz kişinin yasaklaması kaldırılır. \n > _ _ \n > <:yesilok:843149816880037899> **w!unmute:** Belirttiğiniz kişinin yazı kanallarından susturulması kaldırılır.  \n > _ _ \n > <:yesilok:843149816880037899> **w!voicemute:** Belirttiğiniz kişiyi ses kanallarından susturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!unvoicemute:** Belirttiğiniz kişinin ses kanallarından susturulmasını kaldırır. \n > _ _ \n > <:yesilok:843149816880037899> **w!kullanıcıadı:** Belirttiğiniz kullanıcının adını, kullanıcıyı belirttikten sonra yazdığınız kullanıcı adı olarak değiştirir. \n > _ _ \n > <:yesilok:843149816880037899> **w!uyar:** Belirttiğiniz kişiyi, belirttiğiniz nedenle uyarmanızı sağlar. ",
+        description="> <:yesilok:843149816880037899> **w!sil:** Belirttiğiniz miktar kadar kolayca mesaj silmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!nuke:** Komut sonrasında belirttiğiniz kanalı kopyalamanızı ve içindeki bütün mesajları silmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!kick:** Belirttiğiniz kişiyi sunucudan kovar. \n > _ _ \n > <:yesilok:843149816880037899> **w!mute:** Belirttiğiniz kişiyi yazı kanallarından susturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!ban:** Belirttiğiniz kullanıcıyı sunucudan yasaklar. \n > _ _ \n > <:yesilok:843149816880037899> **w!unban:** Belirttiğiniz kişinin yasaklaması kaldırılır. \n > _ _ \n > <:yesilok:843149816880037899> **w!unmute:** Belirttiğiniz kişinin yazı kanallarından susturulması kaldırılır.  \n > _ _ \n > <:yesilok:843149816880037899> **w!voicemute:** Belirttiğiniz kişiyi ses kanallarından susturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!unvoicemute:** Belirttiğiniz kişinin ses kanallarından susturulmasını kaldırır. \n > _ _ \n > <:yesilok:843149816880037899> **w!kullanıcıadı:** Belirttiğiniz kullanıcının adını, kullanıcıyı belirttikten sonra yazdığınız kullanıcı adı olarak değiştirir. \n > _ _ \n > <:yesilok:843149816880037899> **w!uyar:** Belirttiğiniz kişiyi, belirttiğiniz nedenle uyarmanızı sağlar. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1630,7 +1610,7 @@ async def şifreoluştur(ctx):
     embed.add_field(name=f"\n\u200b", value=f"> :dizzy: **{password5}**", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
-    embed1 = discord.Embed(title=f"✅ Şifreler Gönderildi", description=f"Olası şifreler, özel mesaj yoluyla size gönderildi.", color=0x2bff00)
+    embed1 = discord.Embed(title=f"<a:yesiltik:845932913806934036>  Şifreler Gönderildi", description=f"Olası şifreler, özel mesaj yoluyla size gönderildi.", color=62150)
 
     await ctx.send(embed=embed1)
     await user.send(embed=embed)
@@ -1810,7 +1790,7 @@ async def hackaraçları(ctx):
 async def uyar(ctx, user: discord.Member, *, mesaj="Uyarılma nedeniniz söz konusu moderatör tarafından belitilmemiş."):
     icon = str(ctx.guild.icon_url)
 
-    embed1 = discord.Embed(title=":white_check_mark: Kullanıcı Uyarıldı", description=f"Belirttiğiniz kişi başarıyla uyarıldı.", color=0x00ff33)
+    embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kullanıcı Uyarıldı", description=f"Belirttiğiniz kişi başarıyla uyarıldı.", color=62150)
     embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed1)
@@ -2028,7 +2008,7 @@ async def önemligünler(ctx):
 @bot.command(pass_context=True, aliases=['rol-oluştur', 'createrole', 'create-role'])
 async def rololuştur(ctx, roladı):
     description = str(ctx.guild.description)
-    embed = discord.Embed(title="✅ Rol Oluşturuldu", description=f"Belirttiğiniz rol başarıyla oluşturuldu.", color=0x00ff33)
+    embed = discord.Embed(title="<a:yesiltik:845932913806934036>  Rol Oluşturuldu", description=f"Belirttiğiniz rol başarıyla oluşturuldu.", color=62150)
 
     await ctx.send(embed=embed)
     whatRole = await ctx.guild.create_role(name=f"{roladı}")
@@ -2082,7 +2062,7 @@ async def emojiyükle(ctx, name, url):
         async with session.get(f'{url}') as response:
             img = await response.read()    
     await ctx.guild.create_custom_emoji(name=f'{name}', image=img)
-    embed = discord.Embed(title=f"✅ Emoji Oluşturuldu", description=f"**{name}** Adlı Emoji Başarıyla Sunucuya Yüklendi", color=0x2bff00)
+    embed = discord.Embed(title=f"<a:yesiltik:845932913806934036>  Emoji Oluşturuldu", description=f"**{name}** Adlı Emoji Başarıyla Sunucuya Yüklendi", color=62150)
     embed.set_thumbnail(url=url)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     await ctx.channel.send(embed=embed)
@@ -2200,6 +2180,57 @@ async def github(ctx, kullanıcıadı):
 @github.error
 async def github_error(ctx, error): 
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Lütfen profilini görmek istediğiniz kişiyi komut sonrasıda kullanıcı adını yazarak belirtiniz.')     
+        await ctx.send('Lütfen profilini görmek istediğiniz kişiyi komut sonrasıda kullanıcı adını yazarak belirtiniz.')             
+        
+
+# Otamatik Cevaplar
+
+@bot.listen('on_message')
+async def hi(message):
+    description = str(message.guild.description)
+    icon = str(message.guild.icon_url)
+    if message.content == '<@!819743355663548447>':
+
+        embed = discord.Embed(
+        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
+        description=f"> <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
+        color=discord.Color.blue()
+        ) 
+        
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Wersef Prefixler 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **`w!`** \n > _ _ \n > <:yesilok:843149816880037899> <@!819743355663548447> ", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
+
+        await message.channel.send(embed=embed)
+
+    if message.content == 'w!':
+
+        embed = discord.Embed(
+        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
+        description=f"> <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
+        color=discord.Color.blue()
+        ) 
+        
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Wersef Prefixler 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **`w!`** \n > _ _ \n > <:yesilok:843149816880037899> <@!819743355663548447> ", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
+
+        await message.channel.send(embed=embed)
+
+    if message.content == 'W!':
+
+        embed = discord.Embed(
+        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
+        description=f"> <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
+        color=discord.Color.blue()
+        ) 
+        
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Wersef Prefixler 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **`w!`** \n > _ _ \n > <:yesilok:843149816880037899> <@!819743355663548447> ", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
+        embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
+
+        await message.channel.send(embed=embed)         
+
+# Otamatik Cevaplar Sonu
 
 bot.run(TOKEN)
