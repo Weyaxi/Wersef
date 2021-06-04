@@ -844,7 +844,10 @@ async def nuke(ctx, channel: discord.TextChannel = None):
 async def nuke_error(ctx, error): 
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
-
+    if isinstance(error, commands.BadArgument):
+        await ctx.send('Belirttiğiniz kanalı bu sunucuda bulamadım.')          
+        
+        
 
 @commands.has_permissions(kick_members=True)
 @bot.command(pass_context=True , aliases=['at', 'kov', 'kullanıcıyı_at', 'kullanıcıyıat'])
@@ -873,6 +876,7 @@ async def test_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
         
         await ctx.send(embed=embed)   
+
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')         
 
@@ -2228,6 +2232,7 @@ async def hi(message):
         embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
 
         await message.channel.send(embed=embed)         
+
 
 # Otamatik Cevaplar Sonu
 
