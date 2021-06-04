@@ -2187,8 +2187,6 @@ async def github_error(ctx, error):
 
 @bot.listen('on_message')
 async def hi(message):
-    description = str(message.guild.description)
-    icon = str(message.guild.icon_url)
     if message.content == '<@!819743355663548447>':
 
         embed = discord.Embed(
