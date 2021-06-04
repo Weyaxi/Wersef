@@ -35,6 +35,8 @@
 
 ⭐ **w!sil:** Belirttiğiniz miktar kadar kolayca mesaj silmenizi sağlar.
 
+⭐ **w!nuke:** Komut sonrasında belirttiğiniz kanalı kopyalamanızı ve içindeki bütün mesajları silmenizi sağlar.
+
 ⭐ **w!kick:** Belirttiğiniz kişiyi sunucudan kovar.
 
 ⭐ **w!mute:** Belirttiğiniz kişiyi yazı kanallarından susturur.
