@@ -2260,7 +2260,7 @@ async def lock(ctx, channel: discord.TextChannel = None):
         await ctx.send(embed=embed1) 
 
     await channel.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
-    await channel.set_permissions(ctx.guild.default_role, send_messages=False)
+    await channel.set_permissions(ctx.guild.default_role, send_messages=False, read_messages=False)
 
 
 @lock.error
