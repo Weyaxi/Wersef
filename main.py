@@ -812,7 +812,7 @@ async def clear(ctx, amount = 100):
 async def nuke(ctx, channel: discord.TextChannel = None):
     if not channel:
         channel = ctx.channel 
-        
+
         nuke_channel = discord.utils.get(ctx.guild.channels, name=channel.name)
         new_channel = await nuke_channel.clone(reason=f"Bu Kanal {str(ctx.author)} Tarafından Temizlendi")
         await nuke_channel.delete()
@@ -823,9 +823,9 @@ async def nuke(ctx, channel: discord.TextChannel = None):
 
         await new_channel.send(embed=embed2)
 
-    nuke_channel = discord.utils.get(ctx.guild.channels, name=channel.name)
-
-    if nuke_channel is not None:
+    else:
+        nuke_channel = discord.utils.get(ctx.guild.channels, name=channel.name)
+        
         embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Temizlendi", description=f"<#​​{channel.id}> Adlı Kanal Başarıyla Temizlendi", color=62150)
         embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -833,9 +833,7 @@ async def nuke(ctx, channel: discord.TextChannel = None):
         await nuke_channel.delete()
 
         await ctx.send(embed=embed1)
-
-    else:
-        await ctx.send(f"<#​​{channel.id}> Adlı Kanal Bulunamadı")      
+  
 
 
 @nuke.error
