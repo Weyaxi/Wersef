@@ -817,7 +817,7 @@ async def nuke(ctx, channel: discord.TextChannel = None):
         new_channel = await nuke_channel.clone(reason=f"Bu Kanal {str(ctx.author)} Tarafından Temizlendi")
         await nuke_channel.delete()
         
-        embed2 = discord.Embed(title="<a:yesiltik:845932913806934036>  Bu Kanal Başarıyla Temizlendi", description=f"**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
+        embed2 = discord.Embed(title="<:turuncuok:843149816887902208>  Bu Kanal Başarıyla Temizlendi", description=f"**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
         embed2.set_image(url="https://media.giphy.com/media/2I9cAAfZfyfcsrwIpB/giphy.gif")
         embed2.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -832,7 +832,7 @@ async def nuke(ctx, channel: discord.TextChannel = None):
         new_channel = await nuke_channel.clone(reason=f"Bu Kanal {str(ctx.author)} Tarafından Temizlendi")
         await nuke_channel.delete()
 
-        embed2 = discord.Embed(title="<a:yesiltik:845932913806934036>  Bu Kanal Başarıyla Temizlendi", description=f"​​**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
+        embed2 = discord.Embed(title="<:turuncuok:843149816887902208>  Bu Kanal Başarıyla Temizlendi", description=f"​​**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
         embed2.set_image(url="https://media.giphy.com/media/2I9cAAfZfyfcsrwIpB/giphy.gif")
         embed2.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -858,7 +858,7 @@ async def nuke_error(ctx, error):
 
         embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
                
-
+        await ctx.send(embed=embed)
       
 
 @commands.has_permissions(kick_members=True)
