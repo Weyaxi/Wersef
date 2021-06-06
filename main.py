@@ -817,7 +817,7 @@ async def nuke(ctx, channel: discord.TextChannel = None):
         new_channel = await nuke_channel.clone(reason=f"Bu Kanal {str(ctx.author)} Tarafından Temizlendi")
         await nuke_channel.delete()
         
-        embed2 = discord.Embed(title="<a:yesiltik:845932913806934036>  Bu Kanal Başarıyla Temizlendi", description=f"<#​​{new_channel.id}> Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
+        embed2 = discord.Embed(title="<a:yesiltik:845932913806934036>  Bu Kanal Başarıyla Temizlendi", description=f"**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
         embed2.set_image(url="https://media.giphy.com/media/2I9cAAfZfyfcsrwIpB/giphy.gif")
         embed2.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -826,13 +826,13 @@ async def nuke(ctx, channel: discord.TextChannel = None):
     else:
         nuke_channel = discord.utils.get(ctx.guild.channels, name=channel.name)
 
-        embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Temizlendi", description=f"<#​​{channel.id}> Adlı Kanal Başarıyla Temizlendi", color=62150)
+        embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Temizlendi", description=f"**`{channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=62150)
         embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
         new_channel = await nuke_channel.clone(reason=f"Bu Kanal {str(ctx.author)} Tarafından Temizlendi")
         await nuke_channel.delete()
 
-        embed2 = discord.Embed(title="<a:yesiltik:845932913806934036>  Bu Kanal Başarıyla Temizlendi", description=f"<#​​{new_channel.id}> Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
+        embed2 = discord.Embed(title="<a:yesiltik:845932913806934036>  Bu Kanal Başarıyla Temizlendi", description=f"​​**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
         embed2.set_image(url="https://media.giphy.com/media/2I9cAAfZfyfcsrwIpB/giphy.gif")
         embed2.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
