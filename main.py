@@ -945,8 +945,8 @@ async def voicemute(ctx, member: discord.Member, *, reason='Neden kullanıcı ta
         mutedRole = await guild.create_role(name="Voice Mute")
 
         for channel in guild.channels:
-            await channel.set_permissions(mutedRole, speak=False, send_messages=True, read_message_history=True)
-    embed = discord.Embed(title=f":boom: Kullanıcı Ses Kanallarından Susturuldu", description=f"**Nedeni:** {reason}\n", color=0xff0000 )
+            await channel.set_permissions(mutedRole, speak=False)
+    embed = discord.Embed(title=f"<:muted:851537009394974750> Kullanıcı Ses Kanallarından Susturuldu", description=f"**Nedeni:** {reason}\n", color=0xff0000 )
     await ctx.send(embed=embed)
     await member.add_roles(mutedRole, reason=reason)
 
