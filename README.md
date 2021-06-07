@@ -83,6 +83,8 @@
  
 ⭐ **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir.
 
+⭐ **w!lock:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için kilitler.
+
 ⭐ **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur.
 
 ⭐ **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir.
