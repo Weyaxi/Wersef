@@ -2254,13 +2254,13 @@ async def hi(message):
 async def lock(ctx, channel: discord.TextChannel = None):
     if not channel:
         channel = ctx.channel 
-    else:
-        embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Kilitlendi", description=f"**`{channel.name}`** Adlı Kanal Başarıyla Kilitlendi", color=62150)
-        embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-        await ctx.send(embed=embed1) 
 
     await channel.set_permissions(ctx.guild.self_role, send_messages=True)
     await channel.set_permissions(ctx.guild.default_role, send_messages=False)
+
+    embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Kilitlendi", description=f"**`{channel.name}`** Adlı Kanal Başarıyla Kilitlendi", color=62150)
+    embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    await ctx.send(embed=embed1) 
 
 
 @lock.error
