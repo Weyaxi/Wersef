@@ -832,7 +832,7 @@ async def nuke(ctx, channel: discord.TextChannel = None):
         new_channel = await nuke_channel.clone(reason=f"Bu Kanal {str(ctx.author)} Tarafından Temizlendi")
         await nuke_channel.delete()
 
-        embed2 = discord.Embed(title="<:turuncuok:843149816887902208>  Bu Kanal Başarıyla Temizlendi", description=f"​​**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
+        embed2 = discord.Embed(title="Bu Kanal Başarıyla Temizlendi", description=f"​​**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
         embed2.set_image(url="https://media.giphy.com/media/2I9cAAfZfyfcsrwIpB/giphy.gif")
         embed2.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -1049,7 +1049,7 @@ async def unvoicemute(ctx, member: discord.Member, *, reason='Neden kullanıcı 
    mutedRole = discord.utils.get(ctx.guild.roles, name="Voice Mute")
 
    await member.remove_roles(mutedRole)
-   embed = discord.Embed(title=f"<a:yesiltik:845932913806934036>  Kullanıcının Ses Kanallarından Susturulması Kaldırıldı", description=f"**Nedeni:** {reason}\n", color=62150)
+   embed = discord.Embed(title=f"<:unmuted:851537111870210079> Kullanıcının Ses Kanallarından Susturulması Kaldırıldı", description=f"**Nedeni:** {reason}\n", color=0xff0000)
    await ctx.send(embed=embed)
 
 
