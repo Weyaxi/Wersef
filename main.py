@@ -817,7 +817,7 @@ async def nuke(ctx, channel: discord.TextChannel = None):
         new_channel = await nuke_channel.clone(reason=f"Bu Kanal {str(ctx.author)} Tarafından Temizlendi")
         await nuke_channel.delete()
         
-        embed2 = discord.Embed(title="<:turuncuok:843149816887902208>  Bu Kanal Başarıyla Temizlendi", description=f"**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
+        embed2 = discord.Embed(title="Bu Kanal Başarıyla Temizlendi", description=f"**`{new_channel.name}`** Adlı Kanal Başarıyla Temizlendi", color=0xffa200)
         embed2.set_image(url="https://media.giphy.com/media/2I9cAAfZfyfcsrwIpB/giphy.gif")
         embed2.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -2259,8 +2259,8 @@ async def lock(ctx, channel: discord.TextChannel = None):
         embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed1) 
 
-    await channel.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
-    await channel.set_permissions(ctx.guild.default_role, send_messages=False, read_messages=False)
+    await channel.set_permissions(ctx.guild.self_role, send_messages=True)
+    await channel.set_permissions(ctx.guild.default_role, send_messages=False)
 
 
 @lock.error
