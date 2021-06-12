@@ -29,7 +29,7 @@ bot_avatar = "https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc
 bot_yapımcısı = "Weyaxi"
 destek_sunucusu = "https://discord.gg/ewGpWsx454"
 önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=415244438&scope=bot"
-discord_iletişim = "Weyaxi#8666"
+discord_iletişim = "Weyaxi#0001"
 telegram_iletişim = "SS_w_o_R_d"
 
 chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+,-./<=>?@\_`|~"
@@ -2277,8 +2277,6 @@ async def hi(message):
 
         await message.channel.send(embed=embed)         
 
-
 # Otamatik Cevaplar Sonu
     
-
 bot.run(TOKEN)
