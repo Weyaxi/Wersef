@@ -1548,7 +1548,7 @@ async def sunucukomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Sunucu Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!lock:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için kilitler. \n > _ _ \n > <:yesilok:843149816880037899> **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni bir sunucu oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
+        description="> <:yesilok:843149816880037899> **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucudavet:** Bot, komutu kullandığınız sunucunun süresiz davet linkini size verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!lock:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için kilitler. \n > _ _ \n > <:yesilok:843149816880037899> **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni bir sunucu oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1663,6 +1663,11 @@ async def şifreoluştur(ctx):
     await ctx.send(embed=embed1)
     await user.send(embed=embed)
 
+
+@bot.command(aliases=['sunucu-davet', 'sunucudaveti', 'sunucu-daveti'])
+async def sunucudavet(ctx):
+    invite = await ctx.channel.create_invite()
+    await ctx.send(f"{invite}")  
 
 @bot.command(aliases=['gömülü_mesaj', 'gömülü', 'gömülümesaj'])
 async def embed(ctx, *, mesaj="Kullanıcı mesaj belirtmedi."):
@@ -2277,6 +2282,6 @@ async def hi(message):
 
         await message.channel.send(embed=embed)         
 
-# Otamatik Cevaplar Sonu
-    
+# Otamatik Cevaplar Sonu  
+
 bot.run(TOKEN)
