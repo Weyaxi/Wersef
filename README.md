@@ -83,6 +83,8 @@
  
 ⭐ **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir.
 
+⭐ **w!sunucudavet:** Bot, komutu kullandığınız sunucunun süresiz davet linkini size verir.
+
 ⭐ **w!lock:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için kilitler.
 
 ⭐ **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur.
