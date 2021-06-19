@@ -938,8 +938,8 @@ async def hide(ctx, channel: discord.TextChannel = None):
     if not channel:
         channel = ctx.channel 
 
-    await channel.set_permissions(ctx.guild.self_role, send_messages=True, see_messages=True)
-    await channel.set_permissions(ctx.guild.default_role, see_messages=False)
+    await channel.set_permissions(ctx.guild.self_role, view_channel=True, see_messages=True)
+    await channel.set_permissions(ctx.guild.default_role, view_channel=False)
 
     embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Gizlendi", description=f"**`{channel.name}`** Adlı Kanal Başarıyla Gizlendi", color=62150)
     embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -963,7 +963,7 @@ async def hide_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
                
         await ctx.send(embed=embed)  
-        
+
 
 @commands.has_permissions(kick_members=True)
 @bot.command(pass_context=True , aliases=['at', 'kov', 'kullanıcıyı_at', 'kullanıcıyıat'])
@@ -1620,7 +1620,7 @@ async def sunucukomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Sunucu Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucudavet:** Bot, komutu kullandığınız sunucunun süresiz davet linkini size verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!lock:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için kilitler. \n > _ _ \n > <:yesilok:843149816880037899> **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni bir sunucu oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
+        description="> <:yesilok:843149816880037899> **w!serverinfo:** Sunucu hakkındaki bilgileri size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucusahibi:** Sunucu sahibinin kim olduğunu size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucudavet:** Bot, komutu kullandığınız sunucunun süresiz davet linkini size verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!lock:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için kilitler. \n > _ _ \n > <:yesilok:843149816880037899> **w!hide:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için görünmez hale getirir. \n > _ _ \n > <:yesilok:843149816880037899> **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-al:** Belirttiğiniz kişinin, belirttiğiniz rolünü alır. \n > _ _ \n > <:yesilok:843149816880037899> **w!rol-oluştur:** Komut sonrasında belirttiğiniz adla bir rol oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!roller:** Sunuzunuzdaki bütün roller görüntülenir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucukur:** Sunuzunuzdaki bütün kanal ve kategorileri silip yeni bir sunucu oluşturur. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
