@@ -938,13 +938,12 @@ async def hide(ctx, channel: discord.TextChannel = None):
     if not channel:
         channel = ctx.channel 
 
-    await channel.set_permissions(ctx.guild.self_role, view_channel=True, see_messages=True)
-    await channel.set_permissions(ctx.guild.default_role, view_channel=False)
+    await channel.set_permissions(ctx.guild.self_role, read_messages=True, see_messages=True)
+    await channel.set_permissions(ctx.guild.default_role, read_messages=False)
 
     embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Gizlendi", description=f"**`{channel.name}`** Adlı Kanal Başarıyla Gizlendi", color=62150)
     embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed1) 
-
 
 @hide.error
 async def hide_error(ctx, error): 
