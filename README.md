@@ -87,6 +87,8 @@
 
 ⭐ **w!lock:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için kilitler.
 
+⭐ **w!hide:** Komut sonrasında belirttiğiniz kanalı, everyone rolü için görünmez hale getirir.
+
 ⭐ **w!emojiyükle:** Komut sonrasında belirttiğiniz ad ve emoji linkiyle, yeni bir emoji oluşturulur.
 
 ⭐ **w!rol-ver:** Belirttiğiniz kişiye, belirttiğiniz rolü verir.
