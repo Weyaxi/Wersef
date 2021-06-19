@@ -628,7 +628,7 @@ async def sunucuyutemizle(ctx):
 
     await asyncio.sleep(1)
 
-    embed = discord.Embed(title=":warning: Önemli Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz, lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
+    embed = discord.Embed(title=":warning: Önemli Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucyu temizle komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz, lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
     embed.add_field(name=":warning: Yapan Kişi", value=f"<@!{ctx.author.id}>", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
