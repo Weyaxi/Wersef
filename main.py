@@ -278,7 +278,7 @@ async def sunucukur3(ctx):
 
     await asyncio.sleep(1)
 
-    embed = discord.Embed(title=":warning: Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukurkur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
+    embed = discord.Embed(title=":warning: Önemli Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz, lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
     embed.add_field(name=":warning: Yapan Kişi", value=f"<@!{ctx.author.id}>", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -431,7 +431,7 @@ async def sunucukur2(ctx):
 
     await asyncio.sleep(1)
 
-    embed = discord.Embed(title=":warning: Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukurkur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
+    embed = discord.Embed(title=":warning: Önemli Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz, lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
     embed.add_field(name=":warning: Yapan Kişi", value=f"<@!{ctx.author.id}>", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -584,7 +584,7 @@ async def sunucukur1(ctx):
 
     await asyncio.sleep(1)
 
-    embed = discord.Embed(title=":warning: Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukurkur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
+    embed = discord.Embed(title=":warning: Önemli Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz, lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
     embed.add_field(name=":warning: Yapan Kişi", value=f"<@!{ctx.author.id}>", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
@@ -619,16 +619,26 @@ async def sunucukur(ctx):
 @bot.command()
 async def sunucuyutemizle(ctx):
     guild = ctx.guild
+    owner = ctx.guild.owner
+
     for c in ctx.guild.channels:
         await c.delete()
     for category in ctx.guild.categories:
         await category.delete()
 
+    await asyncio.sleep(1)
+
+    embed = discord.Embed(title=":warning: Önemli Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz, lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
+    embed.add_field(name=":warning: Yapan Kişi", value=f"<@!{ctx.author.id}>", inline=False)
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+
+    await owner.send(embed=embed)        
+
 @sunucuyutemizle.error
 async def sunucuyutemizle_error(ctx, error): 
     if isinstance(error, MissingPermissions):
         await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")          
-
+        
 
 @bot.command()
 async def hack(ctx, user: discord.Member):
