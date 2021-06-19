@@ -141,7 +141,7 @@ async def roles(ctx):
 @bot.command()
 async def sunucukur3(ctx):
     guild = ctx.guild
-    owner = server.owner
+    owner = ctx.guild.owner
     
     await guild.create_role(name="─────Üst Yönetim─────", color=14988288)   
     role1 = await guild.create_role(name="🛡️│Admin", color=16711680) 
@@ -294,7 +294,7 @@ async def sunucukur3_error(ctx, error):
 @bot.command()
 async def sunucukur2(ctx):
     guild = ctx.guild
-    owner = server.owner
+    owner = ctx.guild.owner
 
     await guild.create_role(name="─────Üst Yönetim─────", color=14988288)   
     role1 = await guild.create_role(name="🛡️│Admin", color=16711680) 
@@ -447,7 +447,7 @@ async def sunucukur2_error(ctx, error):
 @bot.command()
 async def sunucukur1(ctx):
     guild = ctx.guild
-    owner = server.owner
+    owner = ctx.guild.owner
     
     await guild.create_role(name="─────Üst Yönetim─────", color=14988288)   
     role1 = await guild.create_role(name="Admin", color=16711680) 
