@@ -279,7 +279,7 @@ async def sunucukur3(ctx):
     await asyncio.sleep(1)
 
     embed = discord.Embed(title=":warning: Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukurkur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
-    embed.add_field(name=":warning: Yapan Kişi", value=f"**`{str(ctx.author)}`**", inline=False)
+    embed.add_field(name=":warning: Yapan Kişi", value=f"**`{str(author)}`**", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await owner.send(embed=embed)    
@@ -432,7 +432,7 @@ async def sunucukur2(ctx):
     await asyncio.sleep(1)
 
     embed = discord.Embed(title=":warning: Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukurkur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
-    embed.add_field(name=":warning: Yapan Kişi", value=f"**`{str(ctx.author)}`**", inline=False)
+    embed.add_field(name=":warning: Yapan Kişi", value=f"**`{str(author)}`**", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await owner.send(embed=embed)    
@@ -585,7 +585,7 @@ async def sunucukur1(ctx):
     await asyncio.sleep(1)
 
     embed = discord.Embed(title=":warning: Uyarı", description=f"Merhabalar, yakın zamanda {ctx.guild.name} adlı sunucunuzda sunucukurkur komutu kullanılldı. Eğer bunu yapan siz değilseniz veya bu olay hakkında bilgi sahibi değilseniz lütfen bir dahaki sefere gerekli önlemleri alınız.", color=0xff0000)
-    embed.add_field(name=":warning: Yapan Kişi", value=f"**`{str(ctx.author)}`**", inline=False)
+    embed.add_field(name=":warning: Yapan Kişi", value=f"**`{str(author)}`**", inline=False)
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await owner.send(embed=embed)
