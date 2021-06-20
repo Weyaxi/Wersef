@@ -932,6 +932,39 @@ async def lock_error(ctx, error):
         await ctx.send(embed=embed)      
 
 
+@commands.has_permissions(manage_channels=True)
+@bot.command()
+async def hide(ctx, channel: discord.TextChannel = None):
+    if not channel:
+        channel = ctx.channel 
+
+    await channel.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
+    await channel.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
+
+    embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Gizlendi", description=f"**`{channel.name}`** Adlı Kanal Başarıyla Gizlendi", color=62150)
+    embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    await ctx.send(embed=embed1)         
+
+
+@hide.error
+async def hide_error(ctx, error): 
+    if isinstance(error, MissingPermissions):
+        await ctx.send("Bu komutu kullanabilmek için gerekli yetkilere sahip değilsin.")  
+    if isinstance(error, commands.BadArgument):
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Kanal Gizleme Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> :dizzy: Görünüşe bakılırsa bu komutu yanlış kullanmısınız. İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> :dizzy: **w!hide** <kanal>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> :dizzy: **w!hide** Sohbet \n > :dizzy: **w!hide** Görsel \n > :dizzy: **w!hide** Video \n > :dizzy: **w!hide** Gif ", inline=False)
+
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
+               
+        await ctx.send(embed=embed) 
+        
+
 @commands.has_permissions(kick_members=True)
 @bot.command(pass_context=True , aliases=['at', 'kov', 'kullanıcıyı_at', 'kullanıcıyıat'])
 async def kick(ctx, user: discord.Member, *, reason="Neden kullanıcı tarafından belirtilmedi."):
