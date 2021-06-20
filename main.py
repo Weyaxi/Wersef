@@ -939,7 +939,7 @@ async def hide(ctx, channel: discord.TextChannel = None):
         channel = ctx.channel 
 
     await channel.set_permissions(ctx.guild.self_role, read_messages=True, send_messages=True)
-    await channel.set_permissions(ctx.guild.default_role, read_messages=False, send_messages=False)
+    await channel.set_permissions(ctx.guild.default_role, read_messages=False)
 
     embed1 = discord.Embed(title="<a:yesiltik:845932913806934036>  Kanal Başarıyla Gizlendi", description=f"**`{channel.name}`** Adlı Kanal Başarıyla Gizlendi", color=62150)
     embed1.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -963,7 +963,7 @@ async def hide_error(ctx, error):
         embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **📁 Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > **📁 Botun Yazıldığı Dil:** **`Python`**", inline=False)
                
         await ctx.send(embed=embed) 
-        
+
 
 @commands.has_permissions(kick_members=True)
 @bot.command(pass_context=True , aliases=['at', 'kov', 'kullanıcıyı_at', 'kullanıcıyıat'])
