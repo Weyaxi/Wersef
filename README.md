@@ -17,19 +17,19 @@
 
 # Komutlar
 
-⭐ **w!moderasyon:** Moderason komutlarını gösterir.
+![alt text](https://cdn.discordapp.com/emojis/843149816401100832.png?v=1) **w!moderasyon:** Moderason komutlarını gösterir.
 
-⭐ **w!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir.
+![alt text](https://cdn.discordapp.com/emojis/843149816401100832.png?v=1) **w!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir.
 
-⭐ **w!sunucukomutları:** Sunucu ile ilgili komutları size sunar.
+![alt text](https://cdn.discordapp.com/emojis/843149816401100832.png?v=1) **w!sunucukomutları:** Sunucu ile ilgili komutları size sunar.
 
-⭐ **w!hesapla:** Bot hesaplama komutlarını size sunar.
+![alt text](https://cdn.discordapp.com/emojis/843149816401100832.png?v=1) **w!hesapla:** Bot hesaplama komutlarını size sunar.
 
-⭐ **w!eğlence:** Bot eğlence komutlarını sunar.
+![alt text](https://cdn.discordapp.com/emojis/843149816401100832.png?v=1) **w!eğlence:** Bot eğlence komutlarını sunar.
 
-⭐ **w!işeyarar:** Bot, işe yarar komutları size sunar.
+![alt text](https://cdn.discordapp.com/emojis/843149816401100832.png?v=1) **w!işeyarar:** Bot, işe yarar komutları size sunar.
 
-⭐ **w!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir)
+![alt text](https://cdn.discordapp.com/emojis/843149816401100832.png?v=1) **w!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir)
 
 # Moderasyon Komutları
 
