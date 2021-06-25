@@ -50,7 +50,20 @@ async def on_ready():
     while True:
         await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!yardım"))
         await asyncio.sleep(1)
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!eğlence"))
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"⚒ w!moderasyon | w!yardım"))
+        await asyncio.sleep(1)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!kullanıcıkomutları | w!yardım"))
+        await asyncio.sleep(1)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!sunucukomutları | w!yardım"))
+        await asyncio.sleep(1)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!hesapla | w!yardım"))
+        await asyncio.sleep(1)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!eğlence | w!yardım")) 
+        await asyncio.sleep(1)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!işeyarar | w!yardım")) 
+        await asyncio.sleep(1)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=f"w!bothakkında | w!yardım"))                                
+
 
 @bot.event
 async def on_command_error(ctx, error):
