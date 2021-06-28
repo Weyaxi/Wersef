@@ -4,7 +4,6 @@ from discord.ext.commands import has_permissions
 from discord import Member
 from discord.ext.commands import MissingPermissions
 from discord.ext.commands import CommandNotFound
-from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 import datetime
 import asyncio
@@ -18,10 +17,12 @@ import os
 import aiohttp
 import sys
 import traceback
+from discord_slash import SlashCommand
 
 intents = discord.Intents.default()  
 intents.members = True
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!", "W!"), description="Wersef", intents=intents)
+slash = SlashCommand(bot, sync_commands=True)
 
 TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
 bot.remove_command("help")
@@ -107,6 +108,22 @@ async def help(ctx):
 
     await ctx.send(embed=embed)        
 
+@slash.slash(name="yardım")
+async def help(ctx):
+    name = str(ctx.guild.name)
+    description = str(ctx.guild.description)
+    
+    embed = discord.Embed(
+        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
+        description=f"> <:maviok:843149816401100832> **Prefix:** {prefix} \n > _ _ \n > <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
+        color=discord.Color.blue()
+    )
+    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **w!moderasyon:** Moderason komutlarını gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > _ _ \n  > <:yesilok:843149816880037899> **w!hesapla:** Bot hesaplama komutlarını size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!eğlence:** Bot eğlence komutlarını sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!işeyarar:** Bot, işe yarar komutları size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
+    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
+
+
+    await ctx.send(embed=embed) 
 
 @bot.command()
 async def ping(ctx):
@@ -2371,5 +2388,6 @@ async def hi(message):
         await message.channel.send(embed=embed)         
 
 # Otamatik Cevaplar Sonu  
+
 
 bot.run(TOKEN)
