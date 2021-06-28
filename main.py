@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions
 from discord import Member
 from discord.ext.commands import MissingPermissions
+from discord_slash import SlashCommand
 from discord.ext.commands import CommandNotFound
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
@@ -17,7 +18,6 @@ import os
 import aiohttp
 import sys
 import traceback
-from discord_slash import SlashCommand
 
 intents = discord.Intents.default()  
 intents.members = True
@@ -2045,7 +2045,6 @@ async def yetkileri(ctx, member: discord.Member = None):
     await ctx.send(embed=embed)   
 
 
-
 @yetkileri.error
 async def yetkileri_error(ctx, error): 
     if isinstance(error, commands.MissingRequiredArgument):
@@ -2054,8 +2053,7 @@ async def yetkileri_error(ctx, error):
 
 @bot.command()
 async def yetkilerim(ctx):
-    icon = str(ctx.guild.icon_url)
-    member = ctx.message.author  # set member as the author
+    member = ctx.message.author  
 
     embed = discord.Embed(title="", description="", color=0x14ffd8)
     embed.set_author(name=member.display_name, url="", icon_url=member.avatar_url)
@@ -2106,7 +2104,6 @@ async def yetkilerim(ctx):
        embed.add_field(name="Emojileri Yönet", value="Hayır", inline=False)  
 
     await ctx.send(embed=embed)   
-
 
 
 @bot.command()
@@ -2385,5 +2382,6 @@ async def hi(message):
         await message.channel.send(embed=embed)         
 
 # Otamatik Cevaplar Sonu  
+
 
 bot.run(TOKEN)
