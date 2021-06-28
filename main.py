@@ -5,7 +5,6 @@ from discord import Member
 from discord.ext.commands import MissingPermissions
 from discord_slash import SlashCommand
 from discord.ext.commands import CommandNotFound
-from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 import datetime
 import asyncio
