@@ -4,9 +4,12 @@ from discord.ext.commands import has_permissions
 from discord import Member
 from discord.ext.commands import MissingPermissions
 from discord.ext.commands import CommandNotFound
+from bs4 import BeautifulSoup
+from urllib.request import urlopen, Request
 import datetime
 import asyncio
 from urllib import parse, request
+import requests
 import re
 import random
 import string
@@ -19,6 +22,7 @@ import traceback
 intents = discord.Intents.default()  
 intents.members = True
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!", "W!"), description="Wersef", intents=intents)
+
 TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
 bot.remove_command("help")
 
@@ -35,7 +39,6 @@ telegram_iletişim = "SS_w_o_R_d"
 chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+,-./<=>?@\_`|~"
 number = int(1)
 lenght = int(10)
-
 
 @bot.event
 async def on_ready():
@@ -2088,14 +2091,28 @@ async def yetkilerim(ctx):
     await ctx.send(embed=embed)   
 
 
+
 @bot.command()
 async def linkkısalt(ctx, url):
+    user_url = f"{url}"
+    header = {
+        "Authorization": "Bearer bd92e32d4f8312cba7a49b128db4e326c689dc74 ",
+        "Content-Type": "application/json"
+    }
+    params = {
+        "long_url": str(user_url)
+    }
+
+    response = requests.post("https://api-ssl.bitly.com/v4/shorten", json=params, headers=header)
+    kisa_url  = response.json()["link"]
+    orjinal_url  = response.json()["long_url"]
+
     description = str(ctx.guild.description)
     s = pyshorteners.Shortener()
 
     embed = discord.Embed(title="<:nametag:841951946650812426> │ Link Kısaltma", description="Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır.", color=0x14ffd8)
     embed.add_field(name=f"🔗 │ Asıl Link", value=f"{url}", inline=True)
-    embed.add_field(name=f"🔗 │ Kısaltılmış Link", value=s.tinyurl.short(f'{url}'), inline=True)
+    embed.add_field(name=f"🔗 │ Kısaltılmış Link", value=f"{kisa_url}", inline=True)
 
     await ctx.send(embed=embed)      
 
@@ -2103,7 +2120,6 @@ async def linkkısalt(ctx, url):
 async def linkkısalt_error(ctx, error): 
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen kısaltmak istedğiniz link komut sonrasında belirtiniz. ') 
-
 
 @bot.command()
 async def komutlarçalışmıyor(ctx):
