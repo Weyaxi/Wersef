@@ -1,3 +1,4 @@
 discord.py
 pyshorteners
 speedtest
+discord-py-slash-command
