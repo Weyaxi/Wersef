@@ -4,6 +4,7 @@ from discord.ext.commands import has_permissions
 from discord import Member
 from discord.ext.commands import MissingPermissions
 from discord.ext.commands import CommandNotFound
+from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 import datetime
 import asyncio
@@ -12,7 +13,6 @@ import requests
 import re
 import random
 import string
-import pyshorteners
 import os
 import aiohttp
 import sys
@@ -2124,9 +2124,6 @@ async def linkkısalt(ctx, url):
     kisa_url  = response.json()["link"]
     orjinal_url  = response.json()["long_url"]
 
-    description = str(ctx.guild.description)
-    s = pyshorteners.Shortener()
-
     embed = discord.Embed(title="<:nametag:841951946650812426> │ Link Kısaltma", description="Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır.", color=0x14ffd8)
     embed.add_field(name=f"🔗 │ Asıl Link", value=f"{url}", inline=True)
     embed.add_field(name=f"🔗 │ Kısaltılmış Link", value=f"{kisa_url}", inline=True)
@@ -2388,6 +2385,5 @@ async def hi(message):
         await message.channel.send(embed=embed)         
 
 # Otamatik Cevaplar Sonu  
-
 
 bot.run(TOKEN)
