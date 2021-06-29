@@ -104,7 +104,6 @@
 ⭐ **w!sunucuyutemizle:** Sunuzunuzdaki bütün kanal ve kategorileri içindeki verilerle birlikte siler.
 
 
-
 # Hesaplama Komutları
 
 ⭐ **w!topla:** Bot belirttiğiniz iki sayıyı toplamanızı sağlar.
@@ -137,6 +136,8 @@
 ⭐ **w!arabasür:** Araba sürmenizi sağlar.
 
 ⭐ **w!polisiara:** Polisi aramanızı sağlar.
+
+⭐ **w!tahminet:** Komutu kullandıktan sonra bot, sizden 1 ile 10 arasında bir sayı tahmin etmenizi sağlar.
 
 # İşe Yarar Komutlar
 
