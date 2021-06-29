@@ -107,23 +107,6 @@ async def help(ctx):
 
     await ctx.send(embed=embed)        
 
-@slash.slash(name="yardım")
-async def help(ctx):
-    name = str(ctx.guild.name)
-    description = str(ctx.guild.description)
-    
-    embed = discord.Embed(
-        title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description=f"> <:maviok:843149816401100832> **Prefix:** {prefix} \n > _ _ \n > <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
-        color=discord.Color.blue()
-    )
-    embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
-    embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Yardım Komutları 🔐  ]▬▬▬▬▬▬", value="> <:yesilok:843149816880037899> **w!moderasyon:** Moderason komutlarını gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!kullanıcıkomutları:** Kullanıcı komutlarını size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!sunucukomutları:** Sunucu ile ilgili komutları size sunar. \n > _ _ \n  > <:yesilok:843149816880037899> **w!hesapla:** Bot hesaplama komutlarını size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!eğlence:** Bot eğlence komutlarını sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!işeyarar:** Bot, işe yarar komutları size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!bothakkında:** Bot hakkındaki komutları gösterir. (Bakmanız Önerilir) ", inline=False)
-    embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
-
-
-    await ctx.send(embed=embed) 
-
 @bot.command()
 async def ping(ctx):
     description = str(ctx.guild.description)
@@ -832,6 +815,26 @@ async def yalvar_error(ctx, error):
         await ctx.send('Lütfen yalvarmak istediğiniz kullanıcyı komut sonrasında etiketleyerek belirtiniz.')       
     if isinstance(error, commands.BadArgument):
         await ctx.send('Belirttiğiniz kişiyi sunucuda bulamadım.')  
+
+
+@bot.command(aliases=['tahminet', 'tahmin-et'])
+async def guess(ctx):
+    await ctx.send('**<a:party:845931188924186634> 1 ile 10 arasında bir sayı tahmin et. Tahmininin doğru olup olmadığı sana tahminden sonra söylenecek.** ')
+
+    def is_correct(m):
+        return m.author == ctx.author and m.content.isdigit()
+
+    answer = random.randint(1, 10)
+                
+    try:
+        guess = await bot.wait_for('message', check=is_correct, timeout=10.0)
+    except asyncio.TimeoutError:
+        return await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminini belirtmen çok uzun sürdü. Doğru sayı: `{answer}`**')
+
+    if int(guess.content) == answer:
+        await ctx.send(f'**<:normaltik:852958457740394506> Tahminin doğru çıktı. Doğru sayı: `{answer}`**')
+    else:
+        await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminin yanlış çıktı. Doğru sayı: `{answer}`**')
 
 
 @bot.command(aliases=['not', 'bot_not', 'bot_notu'])
@@ -1587,7 +1590,7 @@ async def eğlence(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Eğlence Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > _ _ \n > <:yesilok:843149816880037899> **w!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > _ _ \n> <:yesilok:843149816880037899> **w!arabasür:** Araba sürmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!polisiara:** Polisi aramanız sağlanır. ",
+        description="> <:yesilok:843149816880037899> **w!zar:** Bot bir zar atar ve sonucu size görsel olarak bildirir. \n > _ _ \n > <:yesilok:843149816880037899> **w!hack:** Komut sonrasında belirttiğiniz kiyişi hacklemenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!sarıl:** Komut sonrasında belirttiğiniz kişiye sarılmanızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!yumrukla:** Komut sonrasında belirttiğiniz kişiyi yumruklamanızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!tokatla:** Komut sonrasında belirttiğiniz kişiyi tokatlamınızı sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!öldür:** Komut sonrasında belirttiğiniz kişiyi öldürmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!ateşet:** Komut sonrasında belirttiğiniz kişiye ateş etmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!yalvar:** Komut sonrasında belirttiğiniz kişiye yalvarmanızı sağlar. \n > _ _ \n> <:yesilok:843149816880037899> **w!arabasür:** Araba sürmenizi sağlar. \n > _ _ \n > <:yesilok:843149816880037899> **w!polisiara:** Polisi aramanız sağlanır. \n > _ _ \n > <:yesilok:843149816880037899> **w!tahminet:** Komutu kullandıktan sonra bot, sizden 1 ile 10 arasında bir sayı tahmin etmenizi sağlar. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -2332,7 +2335,6 @@ async def github(ctx, kullanıcıadı):
 async def github_error(ctx, error): 
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Lütfen profilini görmek istediğiniz kişiyi komut sonrasıda kullanıcı adını yazarak belirtiniz.')             
-        
 
 # Otamatik Cevaplar
 
@@ -2378,9 +2380,19 @@ async def hi(message):
         embed.add_field(name="▬▬▬▬▬▬▬[ :gear: Genel Bilgilendirme :gear:]▬▬▬▬▬▬", value="> **<:pembeok:843149816724848710> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:843149816724848710> Botun Yazıldığı Dil:** **`Python`**", inline=False)
         embed.set_author(name=message.author.display_name, url="", icon_url=message.author.avatar_url)       
 
-        await message.channel.send(embed=embed)         
+        await message.channel.send(embed=embed)     
+
+    if  "Wersef" in message.content:  
+        if message.author.id == bot_id:
+            return    
+        else:
+            await message.channel.send("<:goz:859374017264746516>")   
+    if  "wersef" in message.content:  
+        if message.author.id == 819743355663548447:
+            return    
+        else:
+            await message.channel.send("<:goz:859374017264746516>")            
 
 # Otamatik Cevaplar Sonu  
-
 
 bot.run(TOKEN)
