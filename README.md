@@ -137,6 +137,8 @@
 
 ⭐ **w!polisiara:** Polisi aramanızı sağlar.
 
+⭐ **w!aloadmin:** Admim'i aramanızı sağlar.
+
 ⭐ **w!tahminet:** Komutu kullandıktan sonra bot, sizden 1 ile 10 arasında bir sayı tahmin etmenizi sağlar.
 
 # İşe Yarar Komutlar
