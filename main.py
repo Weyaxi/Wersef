@@ -20,7 +20,6 @@ import traceback
 intents = discord.Intents.default()  
 intents.members = True
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("w!", "W!"), description="Wersef", intents=intents)
-slash = SlashCommand(bot, sync_commands=True)
 
 TOKEN = "ODE5NzQzMzU1NjYzNTQ4NDQ3.YErDfg.NQJNCdgMV3JEVUcsmYXBeDg7q3A"
 bot.remove_command("help")
