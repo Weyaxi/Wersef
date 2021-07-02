@@ -817,22 +817,45 @@ async def yalvar_error(ctx, error):
 
 @bot.command(aliases=['tahminet', 'tahmin-et'])
 async def guess(ctx):
+    emoji = "Hata"
+
     await ctx.send('**<a:party:845931188924186634> 1 ile 10 arasında bir sayı tahmin et. Tahmininin doğru olup olmadığı sana tahminden sonra söylenecek.** ')
 
     def is_correct(m):
         return m.author == ctx.author and m.content.isdigit()
 
     answer = random.randint(1, 10)
-                
+
+    if answer == 1:
+        emoji = "<a:sayi1:859382873660719105>"
+    if answer == 2:
+        emoji = "<a:sayi2:859383616991133746> "
+    if answer == 3:
+        emoji = "<a:sayi3:859383618647490571> "
+    if answer == 4:
+        emoji = "<a:sayi4:859383619558965278> "
+    if answer == 5:
+        emoji = "<a:sayi5:859383619666837584>"
+    if answer == 6:
+        emoji = "<a:sayi6:859383620891049994> "
+    if answer == 7:
+        emoji = "<a:sayi7:859383619843653642>  "
+    if answer == 8:
+        emoji = "<a:sayi8:859383619872751646> "
+    if answer == 9:
+        emoji = "<a:sayi9:859383619998056478>"
+    if answer == 10:
+        emoji = "<a:sayi1:859382873660719105><a:sayi0:859383607768383508>"        
+        
     try:
         guess = await bot.wait_for('message', check=is_correct, timeout=10.0)
     except asyncio.TimeoutError:
-        return await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminini belirtmen çok uzun sürdü. Doğru sayı: `{answer}`**')
+        return await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminini belirtmen çok uzun sürdü. Doğru sayı: `{emoji}`**')
 
     if int(guess.content) == answer:
-        await ctx.send(f'**<:normaltik:852958457740394506> Tahminin doğru çıktı. Doğru sayı: `{answer}`**')
+        await ctx.send(f'**<:normaltik:852958457740394506> Tahminin doğru çıktı. Doğru sayı: `{emoji}`**')
     else:
-        await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminin yanlış çıktı. Doğru sayı: `{answer}`**')
+        await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminin yanlış çıktı. Doğru sayı: `{emoji}`**')
 
 
 @bot.command(aliases=['not', 'bot_not', 'bot_notu'])
