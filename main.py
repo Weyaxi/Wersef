@@ -850,12 +850,12 @@ async def guess(ctx):
     try:
         guess = await bot.wait_for('message', check=is_correct, timeout=10.0)
     except asyncio.TimeoutError:
-        return await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminini belirtmen çok uzun sürdü. Doğru sayı: `{emoji}`**')
+        return await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminini belirtmen çok uzun sürdü. Doğru sayı: {emoji}**')
 
     if int(guess.content) == answer:
-        await ctx.send(f'**<:normaltik:852958457740394506> Tahminin doğru çıktı. Doğru sayı: `{emoji}`**')
+        await ctx.send(f'**<:normaltik:852958457740394506> Tahminin doğru çıktı. Doğru sayı: {emoji}**')
     else:
-        await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminin yanlış çıktı. Doğru sayı: `{emoji}`**')
+        await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminin yanlış çıktı. Doğru sayı: {emoji}**')
 
 
 @bot.command(aliases=['not', 'bot_not', 'bot_notu'])
