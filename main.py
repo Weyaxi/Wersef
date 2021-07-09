@@ -5,6 +5,7 @@ from discord import Member
 from discord.ext.commands import MissingPermissions
 from discord.ext.commands import CommandNotFound
 from urllib.request import urlopen, Request
+from covid import Covid
 import datetime
 import asyncio
 from urllib import parse, request
@@ -819,7 +820,7 @@ async def yalvar_error(ctx, error):
 async def guess(ctx):
     emoji = "Hata"
 
-    await ctx.send('**<a:party:845931188924186634> 1 ile 10 arasında bir sayı tahmin et. Tahmininin doğru olup olmadığı sana tahminden sonra söylenecek.** ')
+    await ctx.send('**<a:party:845931188924186634> 1 ile 10 arasında bir sayı tahmin et. Tahmininin doğru olup olmadığı sana tahmininden sonra söylenecek. Tahminini belirtmediğin takdirde işlem on saniye içerisinde iptal edilecektir.** ')
 
     def is_correct(m):
         return m.author == ctx.author and m.content.isdigit()
@@ -1637,7 +1638,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!rozetler:** Bütün Discord rozetleri, size renkli bir şekilde sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!nitro:** Discord Nitro seçenekleri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n  > _ _ \n > <:yesilok:843149816880037899> **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n  > _ _ \n > <:yesilok:843149816880037899> **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n  > _ _ \n > <:yesilok:843149816880037899> **w!önemligünler:** Belli başlı önemli günler size sunulur. ",
+        description="> <:yesilok:843149816880037899> **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!rozetler:** Bütün Discord rozetleri, size renkli bir şekilde sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!nitro:** Discord Nitro seçenekleri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n  > _ _ \n > <:yesilok:843149816880037899> **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n  > _ _ \n > <:yesilok:843149816880037899> **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n  > _ _ \n > <:yesilok:843149816880037899> **w!önemligünler:** Belli başlı önemli günler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!covid:** Bütün Dünya'daki güncel corona virüs verileri size gösterilir. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1663,6 +1664,22 @@ async def embeds(ctx):
     embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **<:pembeok:837983496143896606> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:837983496143896606> Botun Yazıldığı Dil:** **`Python`**", inline=False)
              
     await ctx.send(embed=embed)   
+
+@bot.command()
+async def covid(ctx):
+    covid = Covid()
+    covid.get_data()
+
+    active = covid.get_total_active_cases()
+    deaths = covid.get_total_deaths()
+    recovered = covid.get_total_recovered()
+
+    embed = discord.Embed(title="Corona Virüsü Komutu", description=f"Bütün Dünya'daki güncel corona virüs verileri size gösterilir.", color=62150)
+    embed.add_field(name=f"Aktif Vaka Sayısı", value=f"{active}", inline=True)
+    embed.add_field(name=f"Hayatını Kaybeden Kişi Sayısı", value=f"{deaths}", inline=True)
+    embed.add_field(name=f"İyileşen Kişi Sayısı", value=f"{recovered}", inline=True)
+
+    await ctx.send(embed=embed)
 
 
 @bot.command()
