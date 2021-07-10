@@ -1673,13 +1673,13 @@ async def covid(ctx):
     active = covid.get_total_active_cases()
     deaths = covid.get_total_deaths()
     recovered = covid.get_total_recovered()
-    confirmed = covid.get_total_confirmed_cases
+    confirmed = covid.get_total_confirmed_cases()
 
-    embed = discord.Embed(title="Corona Virüsü Komutu", description=f"Bütün Dünya'daki güncel corona virüs verileri size gösterilir.", color=62150)
-    embed.add_field(name=f"Toplam Vaka Sayısı", value=f"{confirmed}", inline=True)
-    embed.add_field(name=f"Aktif Vaka Sayısı", value=f"{active}", inline=True)
-    embed.add_field(name=f"Hayatını Kaybeden Kişi Sayısı", value=f"{deaths}", inline=True)
-    embed.add_field(name=f"İyileşen Kişi Sayısı", value=f"{recovered}", inline=True)
+    embed = discord.Embed(title="<:corona:863514892735610890> Corona Virüsü Komutu", description=f"Bütün Dünya'daki güncel corona virüs verileri size gösterilir.", color=62150)
+    embed.add_field(name=f":microbe: Toplam Vaka Sayısı", value=f"{confirmed}", inline=True)
+    embed.add_field(name=f":mask: Aktif Vaka Sayısı", value=f"{active}", inline=True)
+    embed.add_field(name=f":skull_crossbones: Hayatını Kaybeden Kişi Sayısı", value=f"{deaths}", inline=True)
+    embed.add_field(name=f":syringe: İyileşen Kişi Sayısı", value=f"{recovered}", inline=True)
 
     await ctx.send(embed=embed)
 
