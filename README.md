@@ -171,6 +171,7 @@
 
 ⭐ **w!önemligünler:** Belli başlı önemli günler size sunulur.
 
+⭐ **w!covid:** Bütün Dünya'daki güncel corona virüs verileri size gösterilir
 
 # Bot Hakkındaki Komutlar
 
