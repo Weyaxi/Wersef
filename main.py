@@ -31,7 +31,7 @@ prefix = "w!"
 bot_avatar = "https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024"
 bot_yapımcısı = "Weyaxi"
 destek_sunucusu = "https://discord.gg/ewGpWsx454"
-önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=415244438&scope=bot"
+önerilen_yetki_davet = "https://discord.com/api/oauth2/authorize?client_id=819743355663548447&permissions=1489297623&scope=bot"
 discord_iletişim = "Weyaxi#0001"
 telegram_iletişim = "SS_w_o_R_d"
 
