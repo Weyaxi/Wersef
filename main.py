@@ -31,6 +31,7 @@ prefix = "w!"
 bot_avatar = "https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024"
 bot_yapımcısı = "Weyaxi"
 destek_sunucusu = "https://discord.gg/ewGpWsx454"
+web_site = "https://wersef.ml"
 önerilen_yetki_davet = "https://discord.com/api/oauth2/authorize?client_id=819743355663548447&permissions=1489297623&scope=bot"
 discord_iletişim = "Weyaxi#0001"
 telegram_iletişim = "SS_w_o_R_d"
@@ -96,7 +97,7 @@ async def help(ctx):
     
     embed = discord.Embed(
         title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description=f"> <:maviok:843149816401100832> **Prefix:** {prefix} \n > _ _ \n > <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
+        description=f"> <:maviok:843149816401100832> **Prefix:** {prefix} \n > _ _ \n > <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Web Sitesi:** [Tıkla]({web_site})",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
