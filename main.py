@@ -17,6 +17,8 @@ import os
 import aiohttp
 import sys
 import traceback
+import smtplib
+import ssl
 
 intents = discord.Intents.default()  
 intents.members = True
@@ -31,8 +33,7 @@ prefix = "w!"
 bot_avatar = "https://cdn.discordapp.com/avatars/819743355663548447/93b04f1275bc6f1b9c5fcac9dd97802f.webp?size=1024"
 bot_yapımcısı = "Weyaxi"
 destek_sunucusu = "https://discord.gg/ewGpWsx454"
-web_site = "https://wersef.ml"
-önerilen_yetki_davet = "https://discord.com/api/oauth2/authorize?client_id=819743355663548447&permissions=1489297623&scope=bot"
+önerilen_yetki_davet = "https://discord.com/oauth2/authorize?client_id=819743355663548447&permissions=415244438&scope=bot"
 discord_iletişim = "Weyaxi#0001"
 telegram_iletişim = "SS_w_o_R_d"
 
@@ -97,7 +98,7 @@ async def help(ctx):
     
     embed = discord.Embed(
         title=f"▬▬▬▬▬▬[ :dizzy: {bot_adı} :dizzy: ]▬▬▬▬▬▬   ",
-        description=f"> <:maviok:843149816401100832> **Prefix:** {prefix} \n > _ _ \n > <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Web Sitesi:** [Tıkla]({web_site})",
+        description=f"> <:maviok:843149816401100832> **Prefix:** {prefix} \n > _ _ \n > <:maviok:843149816401100832> **Botun Destek Sunucusu:** [Tıkla]({destek_sunucusu}) \n > _ _ \n > <:maviok:843149816401100832> **Botun Davet Bağlantısı:** [Tıkla]({önerilen_yetki_davet})",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -818,6 +819,7 @@ async def yalvar_error(ctx, error):
 
 
 @bot.command(aliases=['tahminet', 'tahmin-et'])
+@commands.cooldown(1, 15, commands.BucketType.user)
 async def guess(ctx):
     emoji = "Hata"
 
@@ -858,6 +860,11 @@ async def guess(ctx):
         await ctx.send(f'**<:normaltik:852958457740394506> Tahminin doğru çıktı. Doğru sayı: {emoji}**')
     else:
         await ctx.send(f'**<:normalcarpi:852958720328466474> Tahminin yanlış çıktı. Doğru sayı: {emoji}**')
+
+@guess.error
+async def guess_error(ctx, error): 
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send(f'<:saat:867471142800457748> **Bu komutu kullanabilmek için {round(error.retry_after, 2)} saniye daha beklmelisin.**')
 
 
 @bot.command(aliases=['not', 'bot_not', 'bot_notu'])
@@ -1639,7 +1646,7 @@ async def işeyarar(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 İşe Yarar Komutlar 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!rozetler:** Bütün Discord rozetleri, size renkli bir şekilde sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!nitro:** Discord Nitro seçenekleri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n  > _ _ \n > <:yesilok:843149816880037899> **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n  > _ _ \n > <:yesilok:843149816880037899> **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n  > _ _ \n > <:yesilok:843149816880037899> **w!önemligünler:** Belli başlı önemli günler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!covid:** Bütün Dünya'daki güncel corona virüs verileri size gösterilir. ",
+        description="> <:yesilok:843149816880037899> **w!discordnedir:** Discord hakkında bilgiler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!telegramnedir:** Telegram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!instagramnedir:** İnstagram hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!facebooknedir:** Facebook hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitternedir:** Twitter hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!whatsappnedir:** Whatsapp hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!youtubenedir:** Youtube hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!twitchnedir:** Twitch hakkında bazı bilgileri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!rozetler:** Bütün Discord rozetleri, size renkli bir şekilde sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!nitro:** Discord Nitro seçenekleri size sunulur. \n  > _ _ \n > <:yesilok:843149816880037899> **w!botudavetet:** Komut sonrasında belirttiğiniz botun davet linklerini size sunar. \n  > _ _ \n > <:yesilok:843149816880037899> **w!linkkısalt:** Bot, komut sonrasında belirttiğiniz linki kolay bir şekilde kısaltır. \n  > _ _ \n > <:yesilok:843149816880037899> **w!hackaraçları:** Bot, bazı yaygın hack araçlarını size sunar. (Sorumluluk kabul etmiyorum) \n  > _ _ \n > <:yesilok:843149816880037899> **w!önemligünler:** Belli başlı önemli günler size sunulur. \n > _ _ \n > <:yesilok:843149816880037899> **w!covid:** Bütün Dünya'da şuana kadarki güncel corona virüs verileri size gösterilir. ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -1676,10 +1683,10 @@ async def covid(ctx):
     recovered = covid.get_total_recovered()
     confirmed = covid.get_total_confirmed_cases()
 
-    embed = discord.Embed(title="<:corona:863514892735610890> Corona Virüsü Komutu", description=f"Bütün Dünya'daki güncel corona virüs verileri size gösterilir.", color=62150)
+    embed = discord.Embed(title="<:corona:863514892735610890> Corona Virüsü Komutu", description=f"Bütün Dünya'da şuana kadarki güncel corona virüs verileri size gösterilir.", color=62150)
     embed.add_field(name=f":microbe: Toplam Vaka Sayısı", value=f"{confirmed}", inline=True)
     embed.add_field(name=f":mask: Aktif Vaka Sayısı", value=f"{active}", inline=True)
-    embed.add_field(name=f":skull_crossbones: Hayatını Kaybeden Toplam Kişi Sayısı", value=f"{deaths}", inline=True)
+    embed.add_field(name=f":skull_crossbones: Hayatını Kaybeden Kişi Sayısı", value=f"{deaths}", inline=True)
     embed.add_field(name=f":syringe: İyileşen Kişi Sayısı", value=f"{recovered}", inline=True)
 
     await ctx.send(embed=embed)
@@ -1709,7 +1716,7 @@ async def kullanıcıkomutları(ctx):
     
     embed = discord.Embed(
         title="▬▬▬▬▬▬▬[ 🔐 Kullanıcı Komutları 🔐  ]▬▬▬▬▬▬",
-        description="> <:yesilok:843149816880037899> **w!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > _ _ \n > <:yesilok:843149816880037899> **w!instagram:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!facebook:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!twitter:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!twitch:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!github:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!şifreoluştur:**  Bot, kullanabileceğiniz bazı güçlü şifreler oluşturur.  \n > _ _ \n > <:yesilok:843149816880037899> **w!embeds:** Gömülü mesaj seçeneklerini size sunar.  ",
+        description="> <:yesilok:843149816880037899> **w!kullanıcı:** Kullanıcı hakkındaki bilgileri size gösterir. \n > _ _ \n > <:yesilok:843149816880037899> **w!avatar:** Belirttiğiniz kişinin profil fotoğrafını size verir. \n > _ _ \n > <:yesilok:843149816880037899> **w!yetkileri:** Belirttiğiniz kişinin yetkileri size gösterilir. \n > _ _ \n > <:yesilok:843149816880037899> **w!mail:** Belirttiğiniz mail adresinize, belirttiğiniz içerik gönderilir.  \n > _ _ \n > <:yesilok:843149816880037899> **w!mail:** Belirttiğiniz mail adresinize, belirttiğiniz içerik gönderilir. \n > _ _ \n > <:yesilok:843149816880037899> **w!instagram:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!facebook:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!twitter:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!twitch:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!github:**  Bot, komut sonrasında belirttiğiniz kullanıcı adının söz konusu platformdaki profil linkini size sunar. \n > _ _ \n > <:yesilok:843149816880037899> **w!şifreoluştur:**  Bot, kullanabileceğiniz bazı güçlü şifreler oluşturur.  \n > _ _ \n > <:yesilok:843149816880037899> **w!embeds:** Gömülü mesaj seçeneklerini size sunar.  ",
         color=discord.Color.blue()
     )
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
@@ -2158,6 +2165,67 @@ async def yetkilerim(ctx):
     await ctx.send(embed=embed)   
 
 
+@bot.command(aliases=['mail-gönder', 'mailgönder'])
+@commands.cooldown(1, 600, commands.BucketType.user)
+async def mail(ctx, alici, *, içerik):
+    port = 465 
+    smtp_server = "smtp.gmail.com"
+    sender_email = "wersefdiscordbotu@gmail.com"
+    receiver_email = f"{alici}"
+    password = "*/wersefyagiz1342+/"
+    message = f"""\
+    Wersef Discord Botu
+
+    Konu: {str(ctx.author)} Kisisinden Wersef Discord Botuyla Size Gonderilmis Mesaj:
+    
+    {içerik}"""
+
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message)
+
+
+    embed = discord.Embed(title="<a:yesiltik:845932913806934036> Mail'iniz Gönderildi", description=f"Belirttiğiniz mesaj, belirttiğiniz e-mail adresine iletildi.", color=62150)
+    embed.add_field(name=f"<:sohbet:829082123570249739> Mesajınızın İçeriği", value=f"{içerik}", inline=True)
+    embed.add_field(name=f":e_mail: Mesaj Gönderilen Mail Adresi", value=f"{alici}", inline=True)
+
+    await ctx.send(embed=embed)     
+
+@mail.error
+async def mail_error(ctx, error): 
+    if isinstance(error, commands.BadArgument):
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Mail Gönderme Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> **<:maviok:837983169579712532> Görünüşe bakılırsa bu komutu yanlış kullanmısınız.** \n > _ _ \n > **<:maviok:837983169579712532> İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:**",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> <:yesilok:771731154159796241> **w!mail** <mail adresi> <mail içeriği>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> <:yesilok:771731154159796241> **w!mail** wersefdiscordbotu@gmail.com Merhaba Wersef. \n > _ _ \n > <:yesilok:771731154159796241> **w!mail** wersefdiscordbotu@gmail.com Wersef çok iyi bir bot. \n > _ _ \n > <:yesilok:771731154159796241> **w!mail** wersefdiscordbotu@gmail.com Selam yapımcım. \n > _ _ \n > <:yesilok:771731154159796241> **w!mail** wersefdiscordbotu@gmail.com Yapımcım çok iyi biri. ", inline=False)
+
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **<:pembeok:837983496143896606> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:837983496143896606> Botun Yazıldığı Dil:** **`Python`**", inline=False)
+               
+        await ctx.send(embed=embed)
+    
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed(
+            title="▬▬▬▬▬▬▬[ 🔐 Mail Gönderme Komutu 🔐  ]▬▬▬▬▬▬",
+            description="> **<:maviok:837983169579712532> Görünüşe bakılırsa bu komutu yanlış kullanmısınız.** \n > _ _ \n > **<:maviok:837983169579712532> İşte bu komutu nasıl kullanacağınız hakkında bazı bilgiler:**",
+            color=discord.Color.blue()
+        )
+        embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Kullanılışı 🔐 ]▬▬▬▬▬▬", value="> <:yesilok:771731154159796241> **w!mail** <mail adresi> <mail içeriği>", inline=False)
+        embed.add_field(name="▬▬▬▬▬▬▬[ 🔐 Komutun Örnekleri 🔐 ]▬▬▬▬▬▬", value=f"> <:yesilok:771731154159796241> **w!mail** wersefdiscordbotu@gmail.com Merhaba Wersef. \n > _ _ \n > <:yesilok:771731154159796241> **w!mail** wersefdiscordbotu@gmail.com Wersef çok iyi bir bot. \n > _ _ \n > <:yesilok:771731154159796241> **w!mail** wersefdiscordbotu@gmail.com Selam yapımcım. \n > _ _ \n > <:yesilok:771731154159796241> **w!mail** wersefdiscordbotu@gmail.com Yapımcım çok iyi biri. ", inline=False)
+
+        embed.add_field(name="▬▬▬▬▬▬▬[ ⚙️ Genel Bilgilendirme ⚙️ ]▬▬▬▬▬▬", value="> **<:pembeok:837983496143896606> Fikirlerinizi her zaman belirtebilirsiniz.** Memnun olurum. \n > _ _ \n > **<:pembeok:837983496143896606> Botun Yazıldığı Dil:** **`Python`**", inline=False)
+               
+        await ctx.send(embed=embed)        
+
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send(f'<:saat:867471142800457748> **Bu komutu kullanabilmek için {round(error.retry_after, 2)} saniye daha beklmelisin.**')
+
+
 @bot.command()
 async def linkkısalt(ctx, url):
     user_url = f"{url}"
@@ -2204,8 +2272,6 @@ async def önemligünler(ctx):
     embed.set_author(name=ctx.author.display_name, url="", icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)   
-
-
 
 
 @commands.has_permissions(manage_roles=True)
@@ -2443,6 +2509,6 @@ async def hi(message):
         else:
             await message.channel.send("<:goz:859374017264746516>")            
 
-# Otamatik Cevaplar Sonu  
+# Otamatik Cevaplar Sonu     
 
 bot.run(TOKEN)
