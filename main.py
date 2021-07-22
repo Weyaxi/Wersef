@@ -819,7 +819,7 @@ async def yalvar_error(ctx, error):
 
 
 @bot.command(aliases=['tahminet', 'tahmin-et'])
-@commands.cooldown(1, 15, commands.BucketType.user)
+@commands.cooldown(1, 8, commands.BucketType.user)
 async def guess(ctx):
     emoji = "Hata"
 
@@ -2166,7 +2166,7 @@ async def yetkilerim(ctx):
 
 
 @bot.command(aliases=['mail-gönder', 'mailgönder'])
-@commands.cooldown(1, 600, commands.BucketType.user)
+@commands.cooldown(1, 120, commands.BucketType.user)
 async def mail(ctx, alici, *, içerik):
     port = 465 
     smtp_server = "smtp.gmail.com"
