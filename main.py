@@ -2540,25 +2540,23 @@ async def sigarahesapla(ctx):
     except asyncio.TimeoutError:
         return await ctx.send(f'**<:normalcarpi:852958720328466474> Verilerini belirtmen çok uzun sürdü. Daha sonra tekrar dene.**')   
 
-    embed = discord.Embed(title="<a:sigara:854437179501182996> Sigara Zarar Hesaplama Komutu", description=f"Girdiğiniz verilere göre, sigaradan ne kadar zarar ettiğiniz size detaylı bir rapor halinde sunulur.", color=0x00ff33)
+    embed = discord.Embed(title="<a:sigara:854437179501182996> Sigara Zarar Hesaplama Komutu", description=f"Girdiğiniz verilere göre, sigaradan ne kadar zarar ettiğiniz size detaylı bir rapor halinde sunulur.", color=62150)
     embed.add_field(name=f"<a:sigara:854437179501182996> Bir Haftada İçtiğiniz Toplam Sigara Sayısı", value=f"{int(gunde_kac_tane.content) * 7} Tane", inline=True)
-    embed.add_field(name=f"<a:sigara:854437179501182996> Bir Haftada Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / int(pakette_kac_sigara.content) * int(paket_fiyati.content) * 7}", inline=True)    
+    embed.add_field(name=f"<a:sigara:854437179501182996> Bir Haftada Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / 20 * int(paket_fiyati.content) * 7}", inline=True)    
     
     embed.add_field(name=f"<a:sigara:854437179501182996> Bir Ayda İçtiğiniz Toplam Sigara Sayısı", value=f"{int(gunde_kac_tane.content) * 30} Tane", inline=True)
-    embed.add_field(name=f"<a:sigara:854437179501182996> Bir Ayda Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / int(pakette_kac_sigara.content) * int(paket_fiyati.content) * 30} TL", inline=True)   
+    embed.add_field(name=f"<a:sigara:854437179501182996> Bir Ayda Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / 20 * int(paket_fiyati.content) * 30} TL", inline=True)   
 
     embed.add_field(name=f"<a:sigara:854437179501182996> Bir Yılda İçtiğiniz Toplam Sigara Sayısı", value=f"{int(gunde_kac_tane.content) * 365} Tane", inline=True)
-    embed.add_field(name=f"<a:sigara:854437179501182996> Bir Yılda Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / int(pakette_kac_sigara.content) * int(paket_fiyati.content) * 365} TL", inline=True)   
-
-    embed.add_field(name=f"<a:sigara:854437179501182996> Girdiğiniz Verilere Göre {kac_yil} Yılda İçtiğiniz Toplam Sigara Sayısı", value=f"{int(gunde_kac_tane.content) * int(kac_yil.content) * 365} Tane", inline=True)
-    embed.add_field(name=f"<a:sigara:854437179501182996> Girdiğiniz Verilere Göre {kac_yil} Yılda Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / int(pakette_kac_sigara.content) * int(paket_fiyati.content) * int(kac_yil.content) * 365} TL", inline=True)       
+    embed.add_field(name=f"<a:sigara:854437179501182996> Bir Yılda Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / 20 * int(paket_fiyati.content) * 365} TL", inline=True)   
 
     await ctx.send(embed=embed)
+
+    
 
 @sigarahesapla.error
 async def sigarahesapla_error(ctx, error): 
     if isinstance(error, commands.CommandOnCooldown):
         await ctx.send(f'<:saat:867471142800457748> **Bu komutu kullanabilmek için {round(error.retry_after, 2)} saniye daha beklmelisin.**')
-
 
 bot.run(TOKEN)
