@@ -2550,9 +2550,10 @@ async def sigarahesapla(ctx):
     embed.add_field(name=f"<a:sigara:854437179501182996> Bir Yılda İçtiğiniz Toplam Sigara Sayısı", value=f"{int(gunde_kac_tane.content) * 365} Tane", inline=True)
     embed.add_field(name=f"<a:sigara:854437179501182996> Bir Yılda Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / 20 * int(paket_fiyati.content) * 365} TL", inline=True)   
 
-    await ctx.send(embed=embed)
+    embed.add_field(name=f"<a:sigara:854437179501182996> {kac_yil.content} Yılda İçtiğiniz Toplam Sigara Sayısı", value=f"{int(gunde_kac_tane.content) * int(kac_yil.content) * 365} Tane", inline=False)
+    embed.add_field(name=f"<a:sigara:854437179501182996> {kac_yil.content} Yılda Sigaraya Harcadığınız Toplam Para", value=f"{int(gunde_kac_tane.content) / 20 * int(paket_fiyati.content) * int(kac_yil.content) * 365} TL", inline=True)       
 
-    
+    await ctx.send(embed=embed)
 
 @sigarahesapla.error
 async def sigarahesapla_error(ctx, error): 
