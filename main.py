@@ -19,6 +19,9 @@ import sys
 import traceback
 import smtplib
 import ssl
+from bs4 import BeautifulSoup
+import json
+import wikipedia
 
 intents = discord.Intents.default()  
 intents.members = True
@@ -2559,5 +2562,94 @@ async def hi(message):
             await message.channel.send("<:goz:859374017264746516>")            
 
 # Otamatik Cevaplar Sonu     
+
+
+@bot.command()
+async def döviz(ctx):
+
+    bitcoin_get = requests.get("https://api.binance.com/api/v3/ticker/price?symbol=BTCTRY")
+    bitcoin = json.loads(bitcoin_get.text)
+
+    ethereum_get = requests.get("https://api.binance.com/api/v3/ticker/price?symbol=ETHTRY")
+    ethereum = json.loads(ethereum_get.text)  
+
+    bnb_get = requests.get("https://api.binance.com/api/v3/ticker/price?symbol=BNBTRY")
+    bnb = json.loads(bnb_get.text) 
+
+    shib_get = requests.get("https://api.binance.com/api/v3/ticker/price?symbol=SHIBTRY")
+    shib = json.loads(shib_get.text)
+
+    sxp_get = requests.get("https://api.binance.com/api/v3/ticker/price?symbol=SXPTRY")
+    sxp = json.loads(sxp_get.text)
+
+    avax_get = requests.get("https://api.binance.com/api/v3/ticker/price?symbol=AVAXTRY")
+    avax = json.loads(avax_get.text)    
+    
+    url= "https://kur.doviz.com/"
+
+    r = requests.get(url)
+
+    soup = BeautifulSoup(r.content, "lxml")
+
+    altin = soup.find("span", {"data-socket-key":"gram-altin" }).text
+
+    dolar = soup.find("span", {"data-socket-key":"USD" }).text
+
+    euro = soup.find("span", {"data-socket-key":"EUR"}).text
+
+    sterlin = soup.find("span", {"data-socket-key":"GBP" }).text 
+
+    xu100 = soup.find("span", {"data-socket-key":"XU100" }).text
+
+    coin = soup.find("span", {"data-socket-key":"bitcoin" }).text
+
+    gumus = soup.find("span", {"data-socket-key":"gumus" }).text    
+
+    description = str(ctx.guild.description)
+    embed = discord.Embed(title="Döviz - Borsa - Kripto", description=f"Döviz, borsa ve kripto ile ilgili belli başlı değerler anlık olarak gösterilir.", color=0x00ccff)
+    embed.add_field(name=f":dollar: Dolar", value=f"{dolar}", inline=True)
+    embed.add_field(name=f":euro:  Euro", value=f"{euro}", inline=True)
+    embed.add_field(name=f":pound: Sterlin", value=f"{sterlin}", inline=True)
+    embed.add_field(name=f":coin: Gram Altın", value=f"{altin}", inline=True)
+    embed.add_field(name=f"<:gumus:918898008660271124> Gümüş", value=f"{gumus}", inline=True)   
+    embed.add_field(name=f"📊 XU100", value=f"{xu100}", inline=True)
+    embed.add_field(name=f"<:bitcoin:918869515406811216> Bitcoin", value=int(float(bitcoin["price"])), inline=True) 
+    embed.add_field(name=f"<:ethereum:918889666713903134> Ethereum", value=int(float(ethereum["price"])), inline=True)   
+    embed.add_field(name=f"<:bnb:918891368665972816> Binance Coin", value=int(float(bnb["price"])), inline=True)   
+    embed.add_field(name=f"<:avax:926434783452618772> Avalanche Coin", value=int(float(avax["price"])), inline=True)        
+    embed.add_field(name=f"<:shib:918896052109717575> Shiba Coin", value=shib["price"], inline=True)          
+    embed.add_field(name=f"<:sxp:926434783561678898> Swipe Coin", value=("{:.2f}".format(float(sxp["price"]))), inline=True)  
+
+    await ctx.send(embed=embed)
+
+
+@bot.command(aliases=['wikipedia'])
+async def wikipedia_ara(ctx):
+    description = str(ctx.guild.description)    
+    wikipedia.set_lang("tr")
+    embed = discord.Embed(title="<:nametag:841951946650812426> │ Wikipedia Araması", description="Bot, komut sonrasında belirttiğiniz arama terimini, wikipedia'da arar ve wikipedia'daki bilgileri size sunar.", color=0x14ffd8)
+    embed.set_image(url="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/1200px-Wikipedia_svg_logo.svg.png")
+
+    try:
+        arama = await bot.wait_for('message', timeout=10.0)
+    except asyncio.TimeoutError:
+        return await ctx.send(f'**<:normalcarpi:852958720328466474> Arama yapmak istediğin şeyi belirtmen çok uzun sürdü.')
+
+    result = wikipedia.summary(f"{arama.content}", sentences = 2)
+    deneme = wikipedia.page(f"{arama.content}")
+
+    embed1 = discord.Embed(title="<:nametag:841951946650812426> │ Wikipedia Araması", description="Bot, komut sonrasında belirttiğiniz arama terimini, wikipedia'da arar ve wikipedia'daki bilgileri size sunar.", color=0x14ffd8)
+    embed1.add_field(name=f":mag_right:  │ Aramanaız", value=f"{arama.content}", inline=True)
+    embed1.add_field(name=f"🔗 │ Wikipedia Linki", value=f"[Tıkla]({deneme.url})", inline=True)
+    embed1.add_field(name=f"Yazı", value=f"{result}", inline=True)
+    embed1.set_image(url="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/1200px-Wikipedia_svg_logo.svg.png")
+
+
+
+
+
+ 
+# print(wikipedia.suggest("Yanlış yazılanı önerme")) #
+# print(wikipedia.page("resim").images[0]) #
 
 bot.run(TOKEN)
