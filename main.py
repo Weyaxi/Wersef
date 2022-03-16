@@ -2629,6 +2629,7 @@ async def wikipedia_ara(ctx):
     wikipedia.set_lang("tr")
     embed = discord.Embed(title="<:nametag:841951946650812426> │ Wikipedia Araması", description="Bot, komut sonrasında belirttiğiniz arama terimini, wikipedia'da arar ve wikipedia'daki bilgileri size sunar.", color=0x14ffd8)
     embed.set_image(url="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/1200px-Wikipedia_svg_logo.svg.png")
+    await ctx.send(embed=embed)
 
     try:
         arama = await bot.wait_for('message', timeout=10.0)
@@ -2638,12 +2639,12 @@ async def wikipedia_ara(ctx):
     result = wikipedia.summary(f"{arama.content}", sentences = 2)
     deneme = wikipedia.page(f"{arama.content}")
 
-    embed1 = discord.Embed(title="<:nametag:841951946650812426> │ Wikipedia Araması", description="Bot, komut sonrasında belirttiğiniz arama terimini, wikipedia'da arar ve wikipedia'daki bilgileri size sunar.", color=0x14ffd8)
+    embed1 = discord.Embed(title="<:nametag:841951946650812426> │ Wikipedia Araması", description="Bot, komut sonrasında belirttiğiniz arama terimini, wikipedia'da arar ve wikipedia'daki bilgileri size sunar.**", color=0x14ffd8)
     embed1.add_field(name=f":mag_right:  │ Aramanaız", value=f"{arama.content}", inline=True)
     embed1.add_field(name=f"🔗 │ Wikipedia Linki", value=f"[Tıkla]({deneme.url})", inline=True)
     embed1.add_field(name=f"Yazı", value=f"{result}", inline=True)
     embed1.set_image(url="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/1200px-Wikipedia_svg_logo.svg.png")
-
+    await ctx.send(embed=embed1)
 
 
 
