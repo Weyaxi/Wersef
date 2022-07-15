@@ -2566,7 +2566,7 @@ async def hi(message):
 
 
 @bot.command()
-async def döviz(ctx):
+async def doviz(ctx):
 
     bitcoin_get = requests.get("https://api.binance.com/api/v3/ticker/price?symbol=BTCTRY")
     bitcoin = json.loads(bitcoin_get.text)
