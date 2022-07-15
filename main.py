@@ -67,7 +67,8 @@ async def on_command_error(ctx, error):
         await channel.send(f' ```{ctx.invoked_with} Adlı Komut Bulunamadı ({str(ctx.author)} Tarafından Kullanıldı)``` ')
     else:
         print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
-        traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)      
+        traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
+        await channel.send('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)      
 
 
 @bot.event
